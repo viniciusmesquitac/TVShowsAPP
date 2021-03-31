@@ -29,7 +29,7 @@ class ShowsListViewController: UIViewController {
 extension ShowsListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 250
+        return viewModel.numberOfRows
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -39,6 +39,8 @@ extension ShowsListViewController: UICollectionViewDelegate, UICollectionViewDat
                 withReuseIdentifier: SeriesListCollectionViewCell.identifier,
                 for: indexPath)
                 as? SeriesListCollectionViewCell else { return UICollectionViewCell() }
+        
+        let tvShow = viewModel.getTvShow(at: indexPath.row)
         cell.backgroundColor = .blue
         cell.contentView.layer.backgroundColor = UIColor.blue.cgColor
         return cell
