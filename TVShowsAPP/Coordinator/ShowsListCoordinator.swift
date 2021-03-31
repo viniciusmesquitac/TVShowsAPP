@@ -18,8 +18,8 @@ final class ShowsListCoordinator: Coordinator {
     }
 
     func start() {
-        let showListViewController = ShowListViewController()
-        navigationController.pushViewController(showListViewController, animated: false)
+        let showsListViewController = ShowsListViewController()
+        navigationController.pushViewController(showsListViewController, animated: false)
     }
 
 }
