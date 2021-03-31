@@ -22,6 +22,8 @@ class ShowsListViewController: UIViewController {
         mainView.showsListCollectionView.backgroundColor = .brown
         mainView.showsListCollectionView.delegate = self
         mainView.showsListCollectionView.dataSource = self
+
+        // viewModel.getListOfShows(page: 1)
     }
 
 }
@@ -39,7 +41,7 @@ extension ShowsListViewController: UICollectionViewDelegate, UICollectionViewDat
                 withReuseIdentifier: SeriesListCollectionViewCell.identifier,
                 for: indexPath)
                 as? SeriesListCollectionViewCell else { return UICollectionViewCell() }
-        
+
         let tvShow = viewModel.getTvShow(at: indexPath.row)
         cell.backgroundColor = .blue
         cell.contentView.layer.backgroundColor = UIColor.blue.cgColor

@@ -30,7 +30,10 @@ class ShowListViewModel {
         return tvShows.count
     }
 
-    public func getListOfShows(page: Int) -> [TVShow] {
-        return []
+    public func getListOfShows(page: Int) {
+        TVMazeAPI().shows(at: 1) { tvShows in
+            guard let tvShowFromApi = tvShows else { return }
+            self.tvShows += tvShowFromApi
+        }
     }
 }

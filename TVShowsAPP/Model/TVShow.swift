@@ -8,11 +8,11 @@
 import Foundation
 // swiftlint:disable identifier_name
 struct Rating: Codable {
-    var avarage: Float
+    var average: Float?
 }
 
 struct Network: Codable {
-    var id: String
+    var id: Int
     var name: String
 }
 
@@ -28,13 +28,13 @@ struct Schedule: Codable {
 struct TVShow: Codable {
     var id: Int
     var name: String
-    var sumary: String
+    var summary: String
     var url: String
     var type: String
     var genres: [String]
-    var oficialSite: String
-    var schedule: Schedule
-    var network: Network
-    var image: Image
-    var rating: Rating
+    var officialSite: String?
+    var schedule: Schedule?
+    var network: Network?
+    var image: Image?
+    var rating: Rating?
 }
