@@ -14,4 +14,8 @@ class TVShowDetailsViewModel {
     init(tvShow: TVShow) {
         self.tvShow = tvShow
     }
+
+    var backgroundImage: String {
+        return tvShow?.image?.medium ?? ""
+    }
 }

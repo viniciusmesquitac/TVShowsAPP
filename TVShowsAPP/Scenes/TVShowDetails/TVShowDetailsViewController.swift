@@ -23,6 +23,8 @@ class TVShowDetailsViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close,
                                                                  target: self,
                                                                  action: #selector(closeModal))
+        let url = URL(string: viewModel?.backgroundImage ?? "")
+        self.mainView.setupImage(url: url)
     }
 
     @objc func closeModal() {

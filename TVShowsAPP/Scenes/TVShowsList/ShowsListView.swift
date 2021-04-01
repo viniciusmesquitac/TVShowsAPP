@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import Nuke
 
 class ShowsListView: UIView {
 
@@ -20,8 +19,8 @@ class ShowsListView: UIView {
         layout.minimumLineSpacing = 16
         layout.minimumInteritemSpacing = 8
         collectionView.contentInset = UIEdgeInsets(top: 8, left: 18, bottom: 8, right: 18)
-        collectionView.register(SeriesListCollectionViewCell.self,
-                                forCellWithReuseIdentifier: SeriesListCollectionViewCell.identifier)
+        collectionView.register(TVShowsListCollectionViewCell.self,
+                                forCellWithReuseIdentifier: TVShowsListCollectionViewCell.identifier)
         collectionView.register(
             LoadingIndicatorView.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
@@ -68,38 +67,5 @@ class ShowsListView: UIView {
             make.centerY.equalToSuperview()
         }
         indicator.startAnimating()
-    }
-}
-
-class SeriesListCollectionViewCell: UICollectionViewCell {
-    static let identifier = String(describing: type(of: self))
-    let imageView = UIImageView()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.backgroundColor = .red
-        setupImageView()
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    func setupImageView() {
-        addSubview(imageView)
-        imageView.layer.cornerRadius = 8
-        imageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        imageView.backgroundColor = .darkGray
-    }
-
-    func setupImage(url: URL?) {
-        let options = ImageLoadingOptions(
-            placeholder: UIImage(named: "placeholder"),
-            transition: .fadeIn(duration: 0.33)
-        )
-        guard let url = url else { return }
-        Nuke.loadImage(with: url, options: options, into: imageView)
     }
 }

@@ -51,9 +51,9 @@ extension ShowsListViewController: UICollectionViewDelegate, UICollectionViewDat
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: SeriesListCollectionViewCell.identifier,
+                withReuseIdentifier: TVShowsListCollectionViewCell.identifier,
                 for: indexPath)
-                as? SeriesListCollectionViewCell else { return UICollectionViewCell() }
+                as? TVShowsListCollectionViewCell else { return UICollectionViewCell() }
 
         let tvShow = viewModel.getTvShow(at: indexPath.row)
         let url = URL(string: tvShow?.image?.medium ?? "")
