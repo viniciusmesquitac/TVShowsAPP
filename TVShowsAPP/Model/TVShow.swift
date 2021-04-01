@@ -28,7 +28,7 @@ struct Schedule: Codable {
 struct TVShow: Codable {
     var id: Int
     var name: String
-    var summary: String
+    var summary: String?
     var url: String
     var type: String
     var genres: [String]

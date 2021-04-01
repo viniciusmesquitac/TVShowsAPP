@@ -11,6 +11,7 @@ class ShowListViewModel {
 
     var handleUpdate: (() -> Void)?
     var currentPage = 1
+    let tvMaze = TVMazeAPI()
 
     var tvShows: [TVShow] = [] {
         didSet {
@@ -30,8 +31,11 @@ class ShowListViewModel {
         return tvShows.count
     }
 
-    public func getListOfShows(page: Int) {
-        TVMazeAPI().shows(at: 1) { tvShows in
+    public func getListOfShows(page: Int = 1) {
+        currentPage = page
+        guard !tvMaze.isPaginating else { return }
+
+        tvMaze.shows(pagination: true, at: page) { tvShows in
             guard let tvShowFromApi = tvShows else { return }
             self.tvShows += tvShowFromApi
         }

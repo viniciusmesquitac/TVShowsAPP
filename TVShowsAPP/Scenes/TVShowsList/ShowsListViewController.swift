@@ -19,11 +19,19 @@ class ShowsListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainView.showsListCollectionView.backgroundColor = .brown
+        self.title = "TV Shows"
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        mainView.showsListCollectionView.backgroundColor = .systemBackground
         mainView.showsListCollectionView.delegate = self
         mainView.showsListCollectionView.dataSource = self
 
-        // viewModel.getListOfShows(page: 1)
+         viewModel.getListOfShows()
+
+        viewModel.handleUpdate = {
+            self.mainView.showsListCollectionView.reloadData()
+        }
+
     }
 
 }
@@ -43,9 +51,40 @@ extension ShowsListViewController: UICollectionViewDelegate, UICollectionViewDat
                 as? SeriesListCollectionViewCell else { return UICollectionViewCell() }
 
         let tvShow = viewModel.getTvShow(at: indexPath.row)
-        cell.backgroundColor = .blue
-        cell.contentView.layer.backgroundColor = UIColor.blue.cgColor
+        let url = URL(string: tvShow?.image?.medium ?? "")
+        cell.setupImage(url: url)
         return cell
     }
 
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+
+        switch kind {
+        case UICollectionView.elementKindSectionFooter:
+            guard let footerView = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind, withReuseIdentifier: LoadingIndicatorView.identifier,
+                    for: indexPath) as? LoadingIndicatorView else { return UICollectionReusableView() }
+            footerView.startAnimating()
+            return footerView
+
+        default:
+            assert(false, "Unexpected element kind")
+        }
+    }
+
+}
+
+// Pagination
+extension ShowsListViewController: UIScrollViewDelegate {
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        let scrollViewHeight = scrollView.frame.height
+        if position > mainView.showsListCollectionView.contentSize.height - 100 - scrollViewHeight {
+            DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+                self.viewModel.getListOfShows(page: self.viewModel.currentPage + 1)
+            }
+        }
+    }
 }

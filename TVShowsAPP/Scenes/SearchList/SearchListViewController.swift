@@ -12,5 +12,6 @@ class SearchListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .blue
+        self.navigationController?.title = "TV Shows"
     }
 }

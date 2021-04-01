@@ -29,6 +29,7 @@
 		81D5F9D92614E9EB006ECCF1 /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5F9D82614E9EB006ECCF1 /* TVShow.swift */; };
 		81D5F9F326151E49006ECCF1 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5F9F226151E49006ECCF1 /* Route.swift */; };
 		81D5F9F826151E55006ECCF1 /* TVMazeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5F9F726151E55006ECCF1 /* TVMazeAPI.swift */; };
+		81D5F9FF26154021006ECCF1 /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5F9FE26154021006ECCF1 /* LoadingIndicatorView.swift */; };
 		E5A7DEF7F779BE667B5AB453 /* Pods_TVShowsAPPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EFD5085DBC7160291ACEDC /* Pods_TVShowsAPPTests.framework */; };
 		E89DD0F528967927AEA4C1CE /* Pods_TVShowsAPP_TVShowsAPPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEE572C363FEF21743FE71D /* Pods_TVShowsAPP_TVShowsAPPUITests.framework */; };
 /* End PBXBuildFile section */
@@ -82,6 +83,7 @@
 		81D5F9D82614E9EB006ECCF1 /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
 		81D5F9F226151E49006ECCF1 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		81D5F9F726151E55006ECCF1 /* TVMazeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVMazeAPI.swift; sourceTree = "<group>"; };
+		81D5F9FE26154021006ECCF1 /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 		95C03F42067488469CCEEFC5 /* Pods-TVShowsAPPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPPTests.release.xcconfig"; path = "Target Support Files/Pods-TVShowsAPPTests/Pods-TVShowsAPPTests.release.xcconfig"; sourceTree = "<group>"; };
 		A8DDC04EFF12A5F9CEC0D0E0 /* Pods-TVShowsAPP-TVShowsAPPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPP-TVShowsAPPUITests.release.xcconfig"; path = "Target Support Files/Pods-TVShowsAPP-TVShowsAPPUITests/Pods-TVShowsAPP-TVShowsAPPUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DA5A9869AD52102F0022B00A /* Pods-TVShowsAPPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPPTests.debug.xcconfig"; path = "Target Support Files/Pods-TVShowsAPPTests/Pods-TVShowsAPPTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		81D5F9342614BD9E006ECCF1 /* TVShowsAPP */ = {
 			isa = PBXGroup;
 			children = (
+				81D5F9FC26154001006ECCF1 /* Reusable */,
 				81D5F9942614C707006ECCF1 /* Scenes */,
 				81D5F9D72614E94A006ECCF1 /* Model */,
 				81D5F9742614BE7F006ECCF1 /* Coordinator */,
@@ -256,6 +259,22 @@
 				81D5F9D82614E9EB006ECCF1 /* TVShow.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		81D5F9FC26154001006ECCF1 /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				81D5F9FD26154007006ECCF1 /* ViewComponents */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
+		81D5F9FD26154007006ECCF1 /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				81D5F9FE26154021006ECCF1 /* LoadingIndicatorView.swift */,
+			);
+			path = ViewComponents;
 			sourceTree = "<group>";
 		};
 		BA723C36990409D0DF4351E1 /* Pods */ = {
@@ -529,6 +548,7 @@
 				81D5F9A12614C7BE006ECCF1 /* SearchListViewController.swift in Sources */,
 				81D5F9362614BD9E006ECCF1 /* AppDelegate.swift in Sources */,
 				81D5F97E2614C086006ECCF1 /* ShowsListCoordinator.swift in Sources */,
+				81D5F9FF26154021006ECCF1 /* LoadingIndicatorView.swift in Sources */,
 				81D5F98B2614C0C8006ECCF1 /* FavoriteListCoordinator.swift in Sources */,
 				81D5F9792614C016006ECCF1 /* TabBarCoordinator.swift in Sources */,
 				81D5F9F326151E49006ECCF1 /* Route.swift in Sources */,
