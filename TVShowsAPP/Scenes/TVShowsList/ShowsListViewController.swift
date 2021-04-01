@@ -26,6 +26,7 @@ class ShowsListViewController: UIViewController {
         mainView.showsListCollectionView.delegate = self
         mainView.showsListCollectionView.dataSource = self
 
+        coordinator = ShowsListCoordinator(navigationController: navigationController)
          viewModel.getListOfShows()
 
         viewModel.handleUpdate = {
@@ -40,6 +41,10 @@ extension ShowsListViewController: UICollectionViewDelegate, UICollectionViewDat
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfRows
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        coordinator?.details(tvShow: viewModel.tvShows[indexPath.row])
     }
 
     func collectionView(_ collectionView: UICollectionView,

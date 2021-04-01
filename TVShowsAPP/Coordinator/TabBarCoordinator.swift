@@ -13,9 +13,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(coordinator?.navigationController.viewControllers.first is ShowsListViewController)
         self.delegate = self
-        // Do any additional setup after loading the view.
     }
     // Scrolls to top
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {

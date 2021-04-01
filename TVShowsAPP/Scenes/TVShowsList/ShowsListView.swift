@@ -16,10 +16,10 @@ class ShowsListView: UIView {
         layout.scrollDirection = .vertical
         layout.footerReferenceSize = CGSize(width: 100, height: 100)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        layout.estimatedItemSize = CGSize(width: UIScreen.main.bounds.width/3.5, height: 181)
+        layout.estimatedItemSize = CGSize(width: UIScreen.main.bounds.width/3.5, height: 161)
         layout.minimumLineSpacing = 16
         layout.minimumInteritemSpacing = 8
-        collectionView.contentInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
+        collectionView.contentInset = UIEdgeInsets(top: 8, left: 18, bottom: 8, right: 18)
         collectionView.register(SeriesListCollectionViewCell.self,
                                 forCellWithReuseIdentifier: SeriesListCollectionViewCell.identifier)
         collectionView.register(
@@ -29,10 +29,16 @@ class ShowsListView: UIView {
         return collectionView
     }()
 
+    let indicator: LoadingIndicatorView = {
+        let indicatior = LoadingIndicatorView()
+        return indicatior
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .red
+        self.backgroundColor = .systemBackground
         setupCollectionView()
+        setupIndicator()
     }
 
     required init?(coder: NSCoder) {
@@ -44,6 +50,24 @@ class ShowsListView: UIView {
         showsListCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        self.showsListCollectionView.alpha = 0
+        self.showsListCollectionView.isHidden = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            self.indicator.stopAnimating()
+            UIView.animate(withDuration: 0.5) {
+                self.showsListCollectionView.isHidden = false
+                self.showsListCollectionView.alpha = 1
+            }
+        }
+    }
+
+    func setupIndicator() {
+        addSubview(indicator)
+        indicator.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+        indicator.startAnimating()
     }
 }
 
@@ -53,6 +77,7 @@ class SeriesListCollectionViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = .red
         setupImageView()
     }
 
@@ -62,6 +87,7 @@ class SeriesListCollectionViewCell: UICollectionViewCell {
 
     func setupImageView() {
         addSubview(imageView)
+        imageView.layer.cornerRadius = 8
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

@@ -22,4 +22,10 @@ final class ShowsListCoordinator: Coordinator {
         navigationController.pushViewController(showsListViewController, animated: false)
     }
 
+    func details(tvShow: TVShow) {
+        let tvShowDetailsViewController = TVShowDetailsViewController()
+        tvShowDetailsViewController.viewModel = TVShowDetailsViewModel(tvShow: tvShow)
+        navigationController.pushViewController(tvShowDetailsViewController, animated: false)
+    }
+
 }

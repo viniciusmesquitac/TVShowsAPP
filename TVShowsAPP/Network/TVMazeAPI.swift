@@ -17,7 +17,6 @@ class TVMazeAPI {
         }
         HTTP.get.request(url: url) { (data, response, error) in
             guard let data = data else { return }
-            print(response!)
 
             do {
                 let tvShows = try JSONDecoder().decode([TVShow].self, from: data)
