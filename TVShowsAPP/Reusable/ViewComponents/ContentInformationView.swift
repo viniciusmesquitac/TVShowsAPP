@@ -23,12 +23,15 @@ class ContentInformationView: UIView {
 
     let genresLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
+        label.adjustsFontSizeToFitWidth = true
         label.text = "Drama, Science-Fiction, Triller"
         return label
     }()
 
     let scheduleAtLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         label.text = "22:00 every Thursday"
         return label
     }()
@@ -48,6 +51,7 @@ class ContentInformationView: UIView {
 
     let summaryLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         label.text = "Summary"
         return label
     }()
@@ -87,7 +91,7 @@ class ContentInformationView: UIView {
         genresLabel.snp.makeConstraints { make in
             make.top.equalTo(tvShowTitleLabel.snp.bottom).offset(12)
             make.leading.equalTo(tvShowTitleLabel)
-            make.trailing.equalTo(ratingLabel.snp.trailing)
+            make.trailing.equalTo(ratingLabel.snp.leading).offset(-3)
         }
 
         scheduleAtLabel.snp.makeConstraints { make in

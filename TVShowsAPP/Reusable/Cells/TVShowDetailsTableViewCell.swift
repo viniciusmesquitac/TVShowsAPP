@@ -13,7 +13,6 @@ class TVShowDetailsTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-  
         setupContentInformationView()
     }
 
@@ -29,5 +28,15 @@ class TVShowDetailsTableViewCell: UITableViewCell {
             make.top.equalToSuperview()
             make.bottom.equalToSuperview()
         }
+    }
+
+    func setup(with tvShowViewModel: TVShowDetailsViewModel?) {
+        guard let tvShow = tvShowViewModel else { return }
+        contentInformationView.tvShowTitleLabel.text = tvShow.title
+        contentInformationView.genresLabel.text = tvShow.genres
+        contentInformationView.scheduleAtLabel.text = tvShow.scheduleAt
+        contentInformationView.summaryLabel.attributedText = tvShow.summary
+        contentInformationView.ratingLabel.text = tvShow.rating
+
     }
 }

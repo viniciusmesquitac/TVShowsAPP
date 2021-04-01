@@ -35,7 +35,9 @@ class TVShowDetailsView: UIView {
 
         tableView.tableHeaderView = headerView
         tableView.allowsSelection = false
-        tableView.register(TVShowDetailsTableViewCell.self, forCellReuseIdentifier: TVShowDetailsTableViewCell.identifier)
+        tableView.register(
+            TVShowDetailsTableViewCell.self,
+            forCellReuseIdentifier: TVShowDetailsTableViewCell.identifier)
     }
 
     fileprivate func setupBackgroundImageView() {

@@ -34,7 +34,9 @@ extension TVShowDetailsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TVShowDetailsTableViewCell.identifier) as? TVShowDetailsTableViewCell
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: TVShowDetailsTableViewCell.identifier) as? TVShowDetailsTableViewCell
+        cell?.setup(with: viewModel)
         return cell ?? UITableViewCell()
     }
 }
