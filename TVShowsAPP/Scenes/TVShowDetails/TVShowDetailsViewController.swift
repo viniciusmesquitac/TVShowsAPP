@@ -18,16 +18,23 @@ class TVShowDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.hidesBackButton = true
+        self.navigationItem.backButtonTitle = nil
         self.navigationItem.largeTitleDisplayMode = .never
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close,
-                                                                 target: self,
-                                                                 action: #selector(closeModal))
         let url = URL(string: viewModel?.backgroundImage ?? "")
+
+        self.mainView.tableView.dataSource = self
         self.mainView.setupImage(url: url)
     }
+}
 
-    @objc func closeModal() {
-        self.navigationController?.popViewController(animated: false)
+extension TVShowDetailsViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: TVShowDetailsTableViewCell.identifier) as? TVShowDetailsTableViewCell
+        return cell ?? UITableViewCell()
     }
 }

@@ -11,19 +11,13 @@ import Nuke
 
 class TVShowDetailsView: UIView {
 
-    let tableView = UITableView(frame: .zero)
-
+    let tableView = UITableView(frame: .zero, style: .plain)
     let backgroundImageView = UIImageView()
 
     let headerView: UIView = {
         let view = UIView(frame: CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: 300)))
         view.backgroundColor = .lightGray
         return view
-    }()
-
-    let closeButton: UIButton = {
-        let button = UIButton(type: .close)
-        return button
     }()
 
     override init(frame: CGRect) {
@@ -33,33 +27,41 @@ class TVShowDetailsView: UIView {
         setupBackgroundImageView()
     }
 
-    func setupTableView() {
+    fileprivate func setupTableView() {
         addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
 
         tableView.tableHeaderView = headerView
+        tableView.allowsSelection = false
+        tableView.register(TVShowDetailsTableViewCell.self, forCellReuseIdentifier: TVShowDetailsTableViewCell.identifier)
     }
 
-    func setupBackgroundImageView() {
+    fileprivate func setupBackgroundImageView() {
         headerView.addSubview(backgroundImageView)
         backgroundImageView.contentMode = .scaleAspectFit
         backgroundImageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.edges.top.equalToSuperview()
+            make.edges.leading.equalToSuperview()
+            make.edges.left.equalToSuperview()
+            make.edges.height.equalTo(100)
         }
     }
 
-    func setupImage(url: URL?) {
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// Input setup
+extension TVShowDetailsView {
+    public func setupImage(url: URL?) {
         let options = ImageLoadingOptions(
             placeholder: UIImage(named: "placeholder"),
             transition: .fadeIn(duration: 0.33)
         )
         guard let url = url else { return }
         Nuke.loadImage(with: url, options: options, into: backgroundImageView)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

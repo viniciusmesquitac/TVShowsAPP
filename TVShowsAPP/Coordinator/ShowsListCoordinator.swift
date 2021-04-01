@@ -25,11 +25,7 @@ final class ShowsListCoordinator: Coordinator {
     func details(tvShow: TVShow) {
         let tvShowDetailsViewController = TVShowDetailsViewController()
         tvShowDetailsViewController.viewModel = TVShowDetailsViewModel(tvShow: tvShow)
-        let transition = CATransition()
-        transition.duration = 0.5
-        transition.type = .fade
-        self.navigationController?.view.layer.add(transition, forKey: nil)
-        navigationController.pushViewController(tvShowDetailsViewController, animated: false)
+        navigationController.pushViewController(tvShowDetailsViewController, animated: true)
     }
 
 }
