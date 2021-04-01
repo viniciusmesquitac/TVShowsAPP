@@ -26,6 +26,7 @@ class TVShowDetailsViewController: UIViewController {
 
         self.mainView.tableView.dataSource = self
         self.mainView.setupImage(url: url)
+        self.viewModel?.callApi()
     }
 }
 
@@ -40,6 +41,7 @@ extension TVShowDetailsViewController: UITableViewDataSource {
             withIdentifier: TVShowDetailsTableViewCell.identifier) as? TVShowDetailsTableViewCell
         cell?.setup(with: viewModel)
         episodesListViewController.mainView = cell?.contentEpisodesView
+        episodesListViewController.episodes = viewModel?.episodes
         return cell ?? UITableViewCell()
     }
 }

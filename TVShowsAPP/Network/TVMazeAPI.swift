@@ -15,7 +15,7 @@ class TVMazeAPI {
         if pagination {
             isPaginating = true
         }
-        HTTP.get.request(url: url) { (data, response, error) in
+        HTTP.get.request(url: url) { (data, _, error) in
             guard let data = data else { return }
 
             do {
@@ -29,4 +29,20 @@ class TVMazeAPI {
             }
         }
     }
+
+    func episodes(idShow: Int, completion: @escaping ([Episode]?) -> Void) {
+        let url = TVMazeRouter.allEpisodes(show: idShow).url
+
+        HTTP.get.request(url: url) { (data, _, error) in
+            guard let data = data else { return }
+
+            do {
+                let episodes = try JSONDecoder().decode([Episode].self, from: data)
+                completion(episodes)
+            } catch {
+                print(error)
+            }
+        }
+    }
+
 }

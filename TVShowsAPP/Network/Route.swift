@@ -14,6 +14,7 @@ protocol Router {
 
 enum TVMazeRouter: Router {
     case shows(page: Int)
+    case allEpisodes(show: Int)
 
     var hostname: String {
         return "http://api.tvmaze.com"
@@ -23,6 +24,8 @@ enum TVMazeRouter: Router {
         switch self {
         case .shows(page: let page):
             return URL(string: "\(hostname)/shows?page=\(page)")
+        case .allEpisodes(show: let idShow):
+            return URL(string: "\(hostname)/shows/\(idShow)/episodes")
         }
     }
 }

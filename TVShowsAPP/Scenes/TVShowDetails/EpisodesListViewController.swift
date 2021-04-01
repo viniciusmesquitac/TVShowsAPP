@@ -13,23 +13,29 @@ class EpisodesListViewController: UIViewController {
         didSet {
             mainView?.tableView.delegate = self
             mainView?.tableView.dataSource = self
+            mainView?.tableView.reloadData()
         }
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var episodes: [Episode]? = [] {
+        didSet {
+            mainView?.tableView.reloadData()
+        }
     }
+
 }
 
 extension EpisodesListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return episodes?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: EpisodesTableViewCell.identifier) as? EpisodesTableViewCell
+        guard let episode = episodes?[indexPath.row] else { return UITableViewCell() }
+        cell?.setupEpisode(episode: episode)
         return cell ?? UITableViewCell()
     }
 

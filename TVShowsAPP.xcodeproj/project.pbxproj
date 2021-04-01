@@ -39,6 +39,7 @@
 		81D5FA332615E90F006ECCF1 /* TVShowDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FA322615E90F006ECCF1 /* TVShowDetailsTableViewCell.swift */; };
 		81D5FA4D261614ED006ECCF1 /* EpisodesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FA4C261614ED006ECCF1 /* EpisodesTableViewCell.swift */; };
 		81D5FA5626161A6A006ECCF1 /* EpisodesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FA5526161A6A006ECCF1 /* EpisodesListViewController.swift */; };
+		81D5FA6A26163087006ECCF1 /* Episodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FA6926163087006ECCF1 /* Episodes.swift */; };
 		E5A7DEF7F779BE667B5AB453 /* Pods_TVShowsAPPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EFD5085DBC7160291ACEDC /* Pods_TVShowsAPPTests.framework */; };
 		E89DD0F528967927AEA4C1CE /* Pods_TVShowsAPP_TVShowsAPPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEE572C363FEF21743FE71D /* Pods_TVShowsAPP_TVShowsAPPUITests.framework */; };
 /* End PBXBuildFile section */
@@ -102,6 +103,7 @@
 		81D5FA322615E90F006ECCF1 /* TVShowDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		81D5FA4C261614ED006ECCF1 /* EpisodesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesTableViewCell.swift; sourceTree = "<group>"; };
 		81D5FA5526161A6A006ECCF1 /* EpisodesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesListViewController.swift; sourceTree = "<group>"; };
+		81D5FA6926163087006ECCF1 /* Episodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episodes.swift; sourceTree = "<group>"; };
 		95C03F42067488469CCEEFC5 /* Pods-TVShowsAPPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPPTests.release.xcconfig"; path = "Target Support Files/Pods-TVShowsAPPTests/Pods-TVShowsAPPTests.release.xcconfig"; sourceTree = "<group>"; };
 		A8DDC04EFF12A5F9CEC0D0E0 /* Pods-TVShowsAPP-TVShowsAPPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPP-TVShowsAPPUITests.release.xcconfig"; path = "Target Support Files/Pods-TVShowsAPP-TVShowsAPPUITests/Pods-TVShowsAPP-TVShowsAPPUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DA5A9869AD52102F0022B00A /* Pods-TVShowsAPPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPPTests.debug.xcconfig"; path = "Target Support Files/Pods-TVShowsAPPTests/Pods-TVShowsAPPTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				81D5F9D82614E9EB006ECCF1 /* TVShow.swift */,
+				81D5FA6926163087006ECCF1 /* Episodes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81D5F9A12614C7BE006ECCF1 /* SearchListViewController.swift in Sources */,
+				81D5FA6A26163087006ECCF1 /* Episodes.swift in Sources */,
 				81D5FA1F2615E0C1006ECCF1 /* ContentInformationView.swift in Sources */,
 				81D5F9362614BD9E006ECCF1 /* AppDelegate.swift in Sources */,
 				81D5FA1026154E4A006ECCF1 /* TVShowDetailsView.swift in Sources */,

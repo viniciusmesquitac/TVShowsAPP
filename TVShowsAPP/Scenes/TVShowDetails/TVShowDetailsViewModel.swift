@@ -10,6 +10,7 @@ import UIKit
 class TVShowDetailsViewModel {
 
     var tvShow: TVShow?
+    var episodes = [Episode]()
 
     init(tvShow: TVShow) {
         self.tvShow = tvShow
@@ -52,7 +53,7 @@ class TVShowDetailsViewModel {
             font: .systemFont(ofSize: 16))
         return attrStr
     }
-    
+
     var rating: String {
         guard let rating = tvShow?.rating?.average else { return "Not rated" }
         return "Rating = \(rating)"
@@ -67,5 +68,13 @@ class TVShowDetailsViewModel {
         let range = (string as NSString).range(of: boldString)
         attributedString.addAttributes(boldFontAttribute, range: range)
         return attributedString
+    }
+
+    func callApi() {
+        guard let tvShowId = tvShow?.id else { return }
+        let tvmaze = TVMazeAPI()
+        tvmaze.episodes(idShow: tvShowId) { episodes in
+            self.episodes = episodes?.filter { $0.season == 1 } ?? []
+        }
     }
 }

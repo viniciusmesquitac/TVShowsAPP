@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Nuke
 
 class EpisodesTableViewCell: UITableViewCell {
 
@@ -54,5 +55,10 @@ class EpisodesTableViewCell: UITableViewCell {
             make.width.equalTo(100)
             make.bottom.equalToSuperview().offset(-12)
         }
+    }
+    
+    func setupEpisode(episode: Episode) {
+        guard let url = URL(string: episode.image?.medium ?? "") else { return }
+        Nuke.loadImage(with: url, into: episodeImageView)
     }
 }
