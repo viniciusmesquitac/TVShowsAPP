@@ -33,10 +33,12 @@
 		81D5FA0826154E14006ECCF1 /* TVShowDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FA0726154E14006ECCF1 /* TVShowDetailsViewController.swift */; };
 		81D5FA1026154E4A006ECCF1 /* TVShowDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FA0F26154E4A006ECCF1 /* TVShowDetailsView.swift */; };
 		81D5FA1526155B46006ECCF1 /* TVShowDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FA1426155B46006ECCF1 /* TVShowDetailsViewModel.swift */; };
-		81D5FA1A2615E0AE006ECCF1 /* ContentEpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FA192615E0AE006ECCF1 /* ContentEpisodeView.swift */; };
+		81D5FA1A2615E0AE006ECCF1 /* ContentEpisodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FA192615E0AE006ECCF1 /* ContentEpisodesView.swift */; };
 		81D5FA1F2615E0C1006ECCF1 /* ContentInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FA1E2615E0C1006ECCF1 /* ContentInformationView.swift */; };
 		81D5FA252615E177006ECCF1 /* TVShowsListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FA242615E177006ECCF1 /* TVShowsListViewCell.swift */; };
 		81D5FA332615E90F006ECCF1 /* TVShowDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FA322615E90F006ECCF1 /* TVShowDetailsTableViewCell.swift */; };
+		81D5FA4D261614ED006ECCF1 /* EpisodesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FA4C261614ED006ECCF1 /* EpisodesTableViewCell.swift */; };
+		81D5FA5626161A6A006ECCF1 /* EpisodesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FA5526161A6A006ECCF1 /* EpisodesListViewController.swift */; };
 		E5A7DEF7F779BE667B5AB453 /* Pods_TVShowsAPPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EFD5085DBC7160291ACEDC /* Pods_TVShowsAPPTests.framework */; };
 		E89DD0F528967927AEA4C1CE /* Pods_TVShowsAPP_TVShowsAPPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEE572C363FEF21743FE71D /* Pods_TVShowsAPP_TVShowsAPPUITests.framework */; };
 /* End PBXBuildFile section */
@@ -94,10 +96,12 @@
 		81D5FA0726154E14006ECCF1 /* TVShowDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailsViewController.swift; sourceTree = "<group>"; };
 		81D5FA0F26154E4A006ECCF1 /* TVShowDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailsView.swift; sourceTree = "<group>"; };
 		81D5FA1426155B46006ECCF1 /* TVShowDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailsViewModel.swift; sourceTree = "<group>"; };
-		81D5FA192615E0AE006ECCF1 /* ContentEpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentEpisodeView.swift; sourceTree = "<group>"; };
+		81D5FA192615E0AE006ECCF1 /* ContentEpisodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentEpisodesView.swift; sourceTree = "<group>"; };
 		81D5FA1E2615E0C1006ECCF1 /* ContentInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentInformationView.swift; sourceTree = "<group>"; };
 		81D5FA242615E177006ECCF1 /* TVShowsListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsListViewCell.swift; sourceTree = "<group>"; };
 		81D5FA322615E90F006ECCF1 /* TVShowDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		81D5FA4C261614ED006ECCF1 /* EpisodesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesTableViewCell.swift; sourceTree = "<group>"; };
+		81D5FA5526161A6A006ECCF1 /* EpisodesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesListViewController.swift; sourceTree = "<group>"; };
 		95C03F42067488469CCEEFC5 /* Pods-TVShowsAPPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPPTests.release.xcconfig"; path = "Target Support Files/Pods-TVShowsAPPTests/Pods-TVShowsAPPTests.release.xcconfig"; sourceTree = "<group>"; };
 		A8DDC04EFF12A5F9CEC0D0E0 /* Pods-TVShowsAPP-TVShowsAPPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPP-TVShowsAPPUITests.release.xcconfig"; path = "Target Support Files/Pods-TVShowsAPP-TVShowsAPPUITests/Pods-TVShowsAPP-TVShowsAPPUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DA5A9869AD52102F0022B00A /* Pods-TVShowsAPPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPPTests.debug.xcconfig"; path = "Target Support Files/Pods-TVShowsAPPTests/Pods-TVShowsAPPTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -289,7 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				81D5F9FE26154021006ECCF1 /* LoadingIndicatorView.swift */,
-				81D5FA192615E0AE006ECCF1 /* ContentEpisodeView.swift */,
+				81D5FA192615E0AE006ECCF1 /* ContentEpisodesView.swift */,
 				81D5FA1E2615E0C1006ECCF1 /* ContentInformationView.swift */,
 			);
 			path = ViewComponents;
@@ -299,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				81D5FA0726154E14006ECCF1 /* TVShowDetailsViewController.swift */,
+				81D5FA5526161A6A006ECCF1 /* EpisodesListViewController.swift */,
 				81D5FA0F26154E4A006ECCF1 /* TVShowDetailsView.swift */,
 				81D5FA1426155B46006ECCF1 /* TVShowDetailsViewModel.swift */,
 			);
@@ -310,6 +315,7 @@
 			children = (
 				81D5FA242615E177006ECCF1 /* TVShowsListViewCell.swift */,
 				81D5FA322615E90F006ECCF1 /* TVShowDetailsTableViewCell.swift */,
+				81D5FA4C261614ED006ECCF1 /* EpisodesTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -591,11 +597,13 @@
 				81D5F9FF26154021006ECCF1 /* LoadingIndicatorView.swift in Sources */,
 				81D5FA0826154E14006ECCF1 /* TVShowDetailsViewController.swift in Sources */,
 				81D5F98B2614C0C8006ECCF1 /* FavoriteListCoordinator.swift in Sources */,
+				81D5FA5626161A6A006ECCF1 /* EpisodesListViewController.swift in Sources */,
 				81D5FA332615E90F006ECCF1 /* TVShowDetailsTableViewCell.swift in Sources */,
 				81D5F9792614C016006ECCF1 /* TabBarCoordinator.swift in Sources */,
 				81D5F9F326151E49006ECCF1 /* Route.swift in Sources */,
+				81D5FA4D261614ED006ECCF1 /* EpisodesTableViewCell.swift in Sources */,
 				81D5F9F826151E55006ECCF1 /* TVMazeAPI.swift in Sources */,
-				81D5FA1A2615E0AE006ECCF1 /* ContentEpisodeView.swift in Sources */,
+				81D5FA1A2615E0AE006ECCF1 /* ContentEpisodesView.swift in Sources */,
 				81D5F9CA2614D35B006ECCF1 /* SeriesListViewModel.swift in Sources */,
 				81D5F9902614C0DB006ECCF1 /* SettingsCoordinator.swift in Sources */,
 				81D5F99C2614C7B3006ECCF1 /* ShowsListViewController.swift in Sources */,

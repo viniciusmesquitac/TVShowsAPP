@@ -117,7 +117,7 @@ class ContentInformationView: UIView {
             make.top.equalTo(summaryTitleLabel.snp.bottom).offset(12)
             make.leading.equalTo(tvShowTitleLabel)
             make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-200)
+            make.bottom.equalToSuperview().offset(-16)
         }
 
     }

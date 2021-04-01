@@ -44,10 +44,7 @@ class TVShowDetailsView: UIView {
         headerView.addSubview(backgroundImageView)
         backgroundImageView.contentMode = .scaleAspectFit
         backgroundImageView.snp.makeConstraints { make in
-            make.edges.top.equalToSuperview()
-            make.edges.leading.equalToSuperview()
-            make.edges.left.equalToSuperview()
-            make.edges.height.equalTo(100)
+            make.edges.equalToSuperview()
         }
     }
 

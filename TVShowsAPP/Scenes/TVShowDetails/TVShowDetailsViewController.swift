@@ -12,6 +12,8 @@ class TVShowDetailsViewController: UIViewController {
     let mainView = TVShowDetailsView()
     var viewModel: TVShowDetailsViewModel?
 
+    let episodesListViewController = EpisodesListViewController()
+
     override func loadView() {
         self.view = mainView
     }
@@ -37,6 +39,7 @@ extension TVShowDetailsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: TVShowDetailsTableViewCell.identifier) as? TVShowDetailsTableViewCell
         cell?.setup(with: viewModel)
+        episodesListViewController.mainView = cell?.contentEpisodesView
         return cell ?? UITableViewCell()
     }
 }
