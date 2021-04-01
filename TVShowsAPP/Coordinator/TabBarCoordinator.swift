@@ -7,8 +7,29 @@
 
 import UIKit
 
-class TabBarController: UITabBarController {
+class TabBarController: UITabBarController, UITabBarControllerDelegate {
     var coordinator: Coordinator?
+    var currentIndex: Int = 0
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print(coordinator?.navigationController.viewControllers.first is ShowsListViewController)
+        self.delegate = self
+        // Do any additional setup after loading the view.
+    }
+    // Scrolls to top
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if currentIndex == 0 {
+            let indexPath = IndexPath(row: 0, section: 0)
+            let navigationController = viewController as? UINavigationController
+            let showsListViewController = navigationController?.viewControllers.first as? ShowsListViewController
+            showsListViewController?.mainView
+                .showsListCollectionView
+                .scrollToItem(at: indexPath, at: .top, animated: true)
+        }
+        let tabBarIndex = tabBarController.selectedIndex
+        currentIndex = tabBarIndex
+    }
 }
 
 class TabBarCoordinator: Coordinator {
