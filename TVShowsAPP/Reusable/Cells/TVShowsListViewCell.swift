@@ -14,7 +14,7 @@ class TVShowsListCollectionViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .red
+        self.backgroundColor = .clear
         setupImageView()
     }
 
@@ -37,6 +37,9 @@ class TVShowsListCollectionViewCell: UICollectionViewCell {
             transition: .fadeIn(duration: 0.33)
         )
         guard let url = url else { return }
-        Nuke.loadImage(with: url, options: options, into: imageView)
+        let request = ImageRequest(url: url, processors: [
+            ImageProcessors.RoundedCorners(radius: 8)
+        ])
+        Nuke.loadImage(with: request, options: options, into: imageView)
     }
 }

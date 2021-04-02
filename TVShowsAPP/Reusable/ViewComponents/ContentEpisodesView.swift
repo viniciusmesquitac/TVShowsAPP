@@ -15,7 +15,16 @@ class ContentEpisodesView: UIView {
         return label
     }()
 
-    let tableView = EpisodesTableView(frame: .zero)
+    let tableView = EpisodesTableView(frame: .zero, style: .plain)
+
+    override var intrinsicContentSize: CGSize {
+        return self.tableView.contentSize
+    }
+
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        self.frame = CGRect(origin: .zero, size: self.intrinsicContentSize)
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,7 +32,8 @@ class ContentEpisodesView: UIView {
         setupConstraints()
 
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 124.5
+        tableView.estimatedRowHeight = 100
+        tableView.isScrollEnabled = false
         tableView.register(
             EpisodesTableViewCell.self,
             forCellReuseIdentifier: EpisodesTableViewCell.identifier)
@@ -62,12 +72,16 @@ class EpisodesTableView: UITableView {
 
     override var contentSize: CGSize {
         didSet {
-            self.invalidateIntrinsicContentSize()
+            DispatchQueue.main.async {
+                self.invalidateIntrinsicContentSize()
+            }
         }
     }
 
     override func reloadData() {
-        super.reloadData()
-        self.invalidateIntrinsicContentSize()
+        DispatchQueue.main.async {
+            super.reloadData()
+            self.invalidateIntrinsicContentSize()
+        }
     }
 }

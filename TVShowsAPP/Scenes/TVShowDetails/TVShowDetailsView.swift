@@ -15,7 +15,8 @@ class TVShowDetailsView: UIView {
     let backgroundImageView = UIImageView()
 
     let headerView: UIView = {
-        let view = UIView(frame: CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: 300)))
+        let view = UIView(frame: CGRect(origin: .zero, size:
+                                            CGSize(width: UIScreen.main.bounds.width, height: 300)))
         view.backgroundColor = .lightGray
         return view
     }()

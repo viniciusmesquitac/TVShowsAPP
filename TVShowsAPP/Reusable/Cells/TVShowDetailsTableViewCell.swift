@@ -10,12 +10,10 @@ import UIKit
 class TVShowDetailsTableViewCell: UITableViewCell {
     static let identifier = String(describing: type(of: self))
     let contentInformationView = ContentInformationView()
-    let contentEpisodesView = ContentEpisodesView()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupContentInformationView()
-        setupContentEpisodesView()
     }
 
     required init?(coder: NSCoder) {
@@ -28,15 +26,6 @@ class TVShowDetailsTableViewCell: UITableViewCell {
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
             make.top.equalToSuperview()
-        }
-    }
-
-    func setupContentEpisodesView() {
-        addSubview(contentEpisodesView)
-        contentEpisodesView.snp.makeConstraints { make in
-            make.top.equalTo(contentInformationView.snp.bottom).offset(20)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
             make.bottom.equalToSuperview()
         }
     }

@@ -15,7 +15,7 @@ class EpisodesTableViewCell: UITableViewCell {
 
     let episodeImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .blue
+        imageView.backgroundColor = .clear
         return imageView
     }()
 
@@ -48,17 +48,28 @@ class EpisodesTableViewCell: UITableViewCell {
     }
 
     func setupConstraints() {
+        episodeImageView.contentMode = .scaleAspectFit
         episodeImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(12)
+            make.top.equalToSuperview()
             make.leading.equalToSuperview().offset(16)
             make.height.equalTo(100)
-            make.width.equalTo(100)
-            make.bottom.equalToSuperview().offset(-12)
+            make.width.equalTo(150)
+            make.bottom.equalToSuperview()
+        }
+
+        titleLabel.snp.makeConstraints { make in
+            make.leading.equalTo(episodeImageView.snp.trailing).offset(3)
+            make.top.equalTo(episodeImageView).offset(8)
         }
     }
-    
+
     func setupEpisode(episode: Episode) {
         guard let url = URL(string: episode.image?.medium ?? "") else { return }
-        Nuke.loadImage(with: url, into: episodeImageView)
+
+        let request = ImageRequest(url: url, processors: [
+            ImageProcessors.RoundedCorners(radius: 8)
+        ])
+        Nuke.loadImage(with: request, options: .shared, into: episodeImageView)
+        titleLabel.text = episode.name
     }
 }

@@ -11,8 +11,7 @@ class TVShowDetailsViewController: UIViewController {
 
     let mainView = TVShowDetailsView()
     var viewModel: TVShowDetailsViewModel?
-
-    let episodesListViewController = EpisodesListViewController()
+    var episodesController = EpisodesListViewController()
 
     override func loadView() {
         self.view = mainView
@@ -24,13 +23,21 @@ class TVShowDetailsViewController: UIViewController {
         self.navigationItem.largeTitleDisplayMode = .never
         let url = URL(string: viewModel?.backgroundImage ?? "")
 
+        episodesController.didFinishLoadEpisodes = {
+            DispatchQueue.main.async {
+                self.episodesController.tableView.isHidden = false
+                self.mainView.tableView.tableFooterView = self.episodesController.view
+                self.mainView.tableView.reloadData()
+            }
+        }
+        episodesController.tvShowId = viewModel?.tvShow?.id ?? 1
+        add(episodesController)
         self.mainView.tableView.dataSource = self
         self.mainView.setupImage(url: url)
-        self.viewModel?.callApi()
     }
 }
 
-extension TVShowDetailsViewController: UITableViewDataSource {
+extension TVShowDetailsViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -40,8 +47,14 @@ extension TVShowDetailsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: TVShowDetailsTableViewCell.identifier) as? TVShowDetailsTableViewCell
         cell?.setup(with: viewModel)
-        episodesListViewController.mainView = cell?.contentEpisodesView
-        episodesListViewController.episodes = viewModel?.episodes
         return cell ?? UITableViewCell()
+    }
+}
+
+extension UIViewController {
+    func add(_ child: UIViewController) {
+        addChild(child)
+        view.addSubview(child.view)
+        child.didMove(toParent: self)
     }
 }
