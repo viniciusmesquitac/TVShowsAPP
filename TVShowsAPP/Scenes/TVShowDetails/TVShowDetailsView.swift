@@ -35,7 +35,6 @@ class TVShowDetailsView: UIView {
         }
 
         tableView.tableHeaderView = headerView
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.allowsSelection = false
         tableView.register(
             TVShowDetailsTableViewCell.self,

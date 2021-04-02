@@ -11,7 +11,7 @@ class TVShowDetailsViewController: UIViewController {
 
     let mainView = TVShowDetailsView()
     var viewModel: TVShowDetailsViewModel?
-    var episodesController = EpisodesListViewController()
+    let episodesTableViewController = EpisodesTableViewController()
 
     override func loadView() {
         self.view = mainView
@@ -22,18 +22,21 @@ class TVShowDetailsViewController: UIViewController {
         self.navigationItem.backButtonTitle = nil
         self.navigationItem.largeTitleDisplayMode = .never
         let url = URL(string: viewModel?.backgroundImage ?? "")
+        self.mainView.tableView.dataSource = self
+        self.mainView.setupImage(url: url)
+        setupEpisodesTableViewController()
+    }
 
-        episodesController.didFinishLoadEpisodes = {
+    func setupEpisodesTableViewController() {
+        episodesTableViewController.didFinishLoadEpisodes = {
             DispatchQueue.main.async {
-                self.episodesController.tableView.isHidden = false
-                self.mainView.tableView.tableFooterView = self.episodesController.view
+                self.episodesTableViewController.tableView.isHidden = false
+                self.mainView.tableView.tableFooterView = self.episodesTableViewController.view
                 self.mainView.tableView.reloadData()
             }
         }
-        episodesController.tvShowId = viewModel?.tvShow?.id ?? 1
-        add(episodesController)
-        self.mainView.tableView.dataSource = self
-        self.mainView.setupImage(url: url)
+        episodesTableViewController.tvShowId = viewModel?.tvShow?.id ?? 1
+        add(episodesTableViewController)
     }
 }
 
@@ -48,13 +51,5 @@ extension TVShowDetailsViewController: UITableViewDataSource, UITableViewDelegat
             withIdentifier: TVShowDetailsTableViewCell.identifier) as? TVShowDetailsTableViewCell
         cell?.setup(with: viewModel)
         return cell ?? UITableViewCell()
-    }
-}
-
-extension UIViewController {
-    func add(_ child: UIViewController) {
-        addChild(child)
-        view.addSubview(child.view)
-        child.didMove(toParent: self)
     }
 }

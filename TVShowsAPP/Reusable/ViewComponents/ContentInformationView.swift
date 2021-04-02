@@ -95,7 +95,7 @@ class ContentInformationView: UIView {
         }
 
         scheduleAtLabel.snp.makeConstraints { make in
-            make.top.equalTo(genresLabel.snp.bottom)
+            make.top.equalTo(genresLabel.snp.bottom).offset(12)
             make.leading.equalTo(tvShowTitleLabel)
             make.trailing.equalToSuperview()
         }

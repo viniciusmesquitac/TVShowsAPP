@@ -22,6 +22,7 @@ class EpisodesTableViewCell: UITableViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "1. Pilot"
+        label.numberOfLines = 0
         return label
     }()
 
@@ -49,27 +50,34 @@ class EpisodesTableViewCell: UITableViewCell {
 
     func setupConstraints() {
         episodeImageView.contentMode = .scaleAspectFit
+        episodeImageView.image = UIImage(named: "placeholder_episode")
+
         episodeImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(8)
             make.leading.equalToSuperview().offset(16)
-            make.height.equalTo(100)
-            make.width.equalTo(150)
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-8)
         }
 
         titleLabel.snp.makeConstraints { make in
-            make.leading.equalTo(episodeImageView.snp.trailing).offset(3)
+            make.trailing.equalToSuperview().offset(-16)
             make.top.equalTo(episodeImageView).offset(8)
+            make.bottom.equalToSuperview().offset(-8)
+            make.leading.equalToSuperview().offset(155)
         }
     }
 
     func setupEpisode(episode: Episode) {
+        titleLabel.text = episode.name
         guard let url = URL(string: episode.image?.medium ?? "") else { return }
+
+        let options = ImageLoadingOptions(
+            placeholder: UIImage(named: "placeholder_episode"),
+            transition: .fadeIn(duration: 0.33)
+        )
 
         let request = ImageRequest(url: url, processors: [
             ImageProcessors.RoundedCorners(radius: 8)
         ])
-        Nuke.loadImage(with: request, options: .shared, into: episodeImageView)
-        titleLabel.text = episode.name
+        Nuke.loadImage(with: request, options: options, into: episodeImageView)
     }
 }

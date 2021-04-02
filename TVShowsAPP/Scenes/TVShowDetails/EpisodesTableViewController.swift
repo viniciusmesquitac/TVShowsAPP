@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EpisodesListViewController: UITableViewController {
+class EpisodesTableViewController: UITableViewController {
 
     var didFinishLoadEpisodes: (() -> Void)?
     var episodes: [Episode]? {
@@ -15,7 +15,7 @@ class EpisodesListViewController: UITableViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.view.frame = CGRect(origin: .zero, size: self.tableView.contentSize)
-                self.view.layoutIfNeeded()
+                self.tableView.layoutIfNeeded()
             }
         }
     }
@@ -33,6 +33,7 @@ class EpisodesListViewController: UITableViewController {
     func setupTableView() {
         tableView.isScrollEnabled = false
         tableView.isHidden = true
+        tableView.allowsSelection = false
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
         tableView.register(
@@ -49,7 +50,7 @@ class EpisodesListViewController: UITableViewController {
     }
 }
 
-extension EpisodesListViewController {
+extension EpisodesTableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return episodes?.count ?? 1
