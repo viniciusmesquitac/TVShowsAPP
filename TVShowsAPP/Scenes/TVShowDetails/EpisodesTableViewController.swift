@@ -63,4 +63,14 @@ extension EpisodesTableViewController {
         cell?.setupEpisode(episode: episode)
         return cell ?? UITableViewCell()
     }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UITableViewHeaderFooterView()
+        headerView.contentView.backgroundColor = .systemBackground
+        return headerView
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Episodes"
+    }
 }
