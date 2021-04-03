@@ -78,7 +78,7 @@ class FavoriteListTableViewCell: UITableViewCell {
 
 extension FavoriteListTableViewCell {
 
-    func setupFavoriteTvShow() {
-
+    func setup(_ tvshow: TVShowViewModel) {
+        self.titleLabel.text = tvshow.name
     }
 }

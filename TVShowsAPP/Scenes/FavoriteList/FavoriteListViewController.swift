@@ -26,24 +26,27 @@ class FavoriteListViewController: UIViewController {
         self.mainView.tableView.delegate = self
 
         coordinator = ShowsListCoordinator(navigationController: navigationController)
+        viewModel.getAllFavorites()
+//        viewModel.addFavorite(TVShow(id: 1, name: "Under the done", summary: "bkaalala", url: "", type: "regular", genres: []))
     }
 }
 
 extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // coordinator?.details(tvShow: <#T##TVShow#>)
+        coordinator?.details(tvShow: viewModel.favorites[indexPath.row].parseTvShow())
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.numberOfRows
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: FavoriteListTableViewCell.identifier) as? FavoriteListTableViewCell
         else { return UITableViewCell() }
-        cell.setupFavoriteTvShow()
+        cell.selectionStyle = .none
+        cell.setup(viewModel.favorites[indexPath.row])
         return cell
     }
 

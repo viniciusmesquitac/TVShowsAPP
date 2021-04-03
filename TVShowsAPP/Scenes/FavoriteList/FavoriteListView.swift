@@ -23,7 +23,6 @@ class FavoriteListView: UIView {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        tableView.allowsSelection = false
         tableView.register(
             FavoriteListTableViewCell.self,
             forCellReuseIdentifier: FavoriteListTableViewCell.identifier)

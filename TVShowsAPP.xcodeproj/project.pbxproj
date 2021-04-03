@@ -48,6 +48,10 @@
 		81D5FAAB26188BA0006ECCF1 /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FAAA26188BA0006ECCF1 /* FavoriteListView.swift */; };
 		81D5FAB026188BD2006ECCF1 /* FavoriteListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FAAF26188BD2006ECCF1 /* FavoriteListTableViewCell.swift */; };
 		81D5FAB5261893F4006ECCF1 /* FavoriteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FAB4261893F4006ECCF1 /* FavoriteListViewModel.swift */; };
+		81D5FABB2618955B006ECCF1 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FABA2618955B006ECCF1 /* Repository.swift */; };
+		81D5FAC32618957E006ECCF1 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FAC22618957E006ECCF1 /* CoreDataService.swift */; };
+		81D5FAC826189678006ECCF1 /* FavoriteListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FAC726189678006ECCF1 /* FavoriteListRepository.swift */; };
+		81D5FB232618A663006ECCF1 /* Predicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FB222618A663006ECCF1 /* Predicate.swift */; };
 		E5A7DEF7F779BE667B5AB453 /* Pods_TVShowsAPPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EFD5085DBC7160291ACEDC /* Pods_TVShowsAPPTests.framework */; };
 		E89DD0F528967927AEA4C1CE /* Pods_TVShowsAPP_TVShowsAPPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEE572C363FEF21743FE71D /* Pods_TVShowsAPP_TVShowsAPPUITests.framework */; };
 /* End PBXBuildFile section */
@@ -120,6 +124,10 @@
 		81D5FAAA26188BA0006ECCF1 /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
 		81D5FAAF26188BD2006ECCF1 /* FavoriteListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListTableViewCell.swift; sourceTree = "<group>"; };
 		81D5FAB4261893F4006ECCF1 /* FavoriteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewModel.swift; sourceTree = "<group>"; };
+		81D5FABA2618955B006ECCF1 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		81D5FAC22618957E006ECCF1 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		81D5FAC726189678006ECCF1 /* FavoriteListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListRepository.swift; sourceTree = "<group>"; };
+		81D5FB222618A663006ECCF1 /* Predicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predicate.swift; sourceTree = "<group>"; };
 		95C03F42067488469CCEEFC5 /* Pods-TVShowsAPPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPPTests.release.xcconfig"; path = "Target Support Files/Pods-TVShowsAPPTests/Pods-TVShowsAPPTests.release.xcconfig"; sourceTree = "<group>"; };
 		A8DDC04EFF12A5F9CEC0D0E0 /* Pods-TVShowsAPP-TVShowsAPPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPP-TVShowsAPPUITests.release.xcconfig"; path = "Target Support Files/Pods-TVShowsAPP-TVShowsAPPUITests/Pods-TVShowsAPP-TVShowsAPPUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DA5A9869AD52102F0022B00A /* Pods-TVShowsAPPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPPTests.debug.xcconfig"; path = "Target Support Files/Pods-TVShowsAPPTests/Pods-TVShowsAPPTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -299,6 +307,7 @@
 				81D5F9D82614E9EB006ECCF1 /* TVShow.swift */,
 				81D5FA6926163087006ECCF1 /* Episodes.swift */,
 				81D5FA9C2618092D006ECCF1 /* SearchResult.swift */,
+				81D5FB222618A663006ECCF1 /* Predicate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -306,6 +315,7 @@
 		81D5F9FC26154001006ECCF1 /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
+				81D5FAB92618953B006ECCF1 /* Services */,
 				81D5FA77261752B0006ECCF1 /* Extensions */,
 				81D5FA232615E14E006ECCF1 /* Cells */,
 				81D5F9FD26154007006ECCF1 /* ViewComponents */,
@@ -365,10 +375,20 @@
 			isa = PBXGroup;
 			children = (
 				81D5FAA226181350006ECCF1 /* FavoriteListViewController.swift */,
+				81D5FAC726189678006ECCF1 /* FavoriteListRepository.swift */,
 				81D5FAAA26188BA0006ECCF1 /* FavoriteListView.swift */,
 				81D5FAB4261893F4006ECCF1 /* FavoriteListViewModel.swift */,
 			);
 			path = FavoriteList;
+			sourceTree = "<group>";
+		};
+		81D5FAB92618953B006ECCF1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				81D5FABA2618955B006ECCF1 /* Repository.swift */,
+				81D5FAC22618957E006ECCF1 /* CoreDataService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		BA723C36990409D0DF4351E1 /* Pods */ = {
@@ -641,12 +661,14 @@
 			files = (
 				81D5FA98261801CD006ECCF1 /* SearchListViewModel.swift in Sources */,
 				81D5F9A12614C7BE006ECCF1 /* SearchListViewController.swift in Sources */,
+				81D5FAC826189678006ECCF1 /* FavoriteListRepository.swift in Sources */,
 				81D5FAAB26188BA0006ECCF1 /* FavoriteListView.swift in Sources */,
 				81D5FA9D2618092D006ECCF1 /* SearchResult.swift in Sources */,
 				81D5FA6A26163087006ECCF1 /* Episodes.swift in Sources */,
 				81D5FA1F2615E0C1006ECCF1 /* ContentInformationView.swift in Sources */,
 				81D5FAB5261893F4006ECCF1 /* FavoriteListViewModel.swift in Sources */,
 				81D5FAB026188BD2006ECCF1 /* FavoriteListTableViewCell.swift in Sources */,
+				81D5FABB2618955B006ECCF1 /* Repository.swift in Sources */,
 				81D5F9362614BD9E006ECCF1 /* AppDelegate.swift in Sources */,
 				81D5FA1026154E4A006ECCF1 /* TVShowDetailsView.swift in Sources */,
 				81D5F97E2614C086006ECCF1 /* ShowsListCoordinator.swift in Sources */,
@@ -665,11 +687,13 @@
 				81D5FAA326181350006ECCF1 /* FavoriteListViewController.swift in Sources */,
 				81D5F99C2614C7B3006ECCF1 /* ShowsListViewController.swift in Sources */,
 				81D5FA79261752BD006ECCF1 /* ViewController+Child.swift in Sources */,
+				81D5FB232618A663006ECCF1 /* Predicate.swift in Sources */,
 				81D5FA88261770A6006ECCF1 /* Stylesheet.swift in Sources */,
 				81D5F9D92614E9EB006ECCF1 /* TVShow.swift in Sources */,
 				81D5FA932617FD2E006ECCF1 /* ResultsShowListViewController.swift in Sources */,
 				81D5F9832614C0B3006ECCF1 /* SearchListCoordinator.swift in Sources */,
 				81D5F9702614BDE4006ECCF1 /* AppCoordinator.swift in Sources */,
+				81D5FAC32618957E006ECCF1 /* CoreDataService.swift in Sources */,
 				81D5F9BF2614D32B006ECCF1 /* ShowsListView.swift in Sources */,
 				81D5F9B92614D029006ECCF1 /* HTTP.swift in Sources */,
 				81D5F9402614BD9E006ECCF1 /* TVShowsAPP.xcdatamodeld in Sources */,

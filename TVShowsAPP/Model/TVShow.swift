@@ -7,25 +7,25 @@
 
 import Foundation
 // swiftlint:disable identifier_name
-struct Rating: Codable {
+struct Rating: Decodable {
     var average: Float?
 }
 
-struct Network: Codable {
+struct Network: Decodable {
     var id: Int
     var name: String
 }
 
-struct Image: Codable {
+struct Image: Decodable {
     var medium: String
 }
 
-struct Schedule: Codable {
+struct Schedule: Decodable {
     var time: String
     var days: [String]
 }
 
-struct TVShow: Codable {
+struct TVShow: Decodable {
     var id: Int
     var name: String
     var summary: String?

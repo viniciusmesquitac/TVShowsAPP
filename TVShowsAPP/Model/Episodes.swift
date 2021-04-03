@@ -7,7 +7,7 @@
 
 import Foundation
 // swiftlint:disable identifier_name
-struct Episode: Codable {
+struct Episode: Decodable {
     var id: Int
     var url: String?
     var name: String?
