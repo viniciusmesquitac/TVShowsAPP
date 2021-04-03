@@ -15,10 +15,11 @@ final class SettingsListCoordinator: Coordinator {
         guard let navigation = navigationController else { fatalError() }
         self.navigationController = navigation
         self.navigationController.navigationBar.tintColor = Stylesheet.Color.primaryColor
-        self.navigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
     }
 
     func start() {
+        let settingsTableViewController = SettingsTableViewController(style: .grouped)
+        navigationController.pushViewController(settingsTableViewController, animated: false)
     }
 
 }

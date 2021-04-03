@@ -59,11 +59,17 @@ class TabBarCoordinator: Coordinator {
             title: "Favorites", image: Stylesheet.Icons.favorites,
             selectedImage: Stylesheet.Icons.favorites)
 
+        let settingsNavigation = UINavigationController()
+        settingsNavigation.tabBarItem = UITabBarItem(
+            title: "Settings", image: Stylesheet.Icons.settings,
+            selectedImage: Stylesheet.Icons.settings)
+
         // 3. Criar Coordinators
         let coordinators: [Coordinator] = [
             ShowsListCoordinator(navigationController: showListNavigation),
             SearchListCoordinator(navigationController: searchListNavigation),
-            FavoriteListCoordinator(navigationController: favoritesListNavigation)
+            FavoriteListCoordinator(navigationController: favoritesListNavigation),
+            SettingsListCoordinator(navigationController: settingsNavigation)
         ]
         // 4. Inserir as tabs na controller
         let navigations = coordinators.map { $0.navigationController! }
