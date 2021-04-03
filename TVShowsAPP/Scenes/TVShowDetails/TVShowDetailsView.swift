@@ -13,11 +13,8 @@ class TVShowDetailsView: UIView {
 
     let tableView = UITableView(frame: .zero, style: .plain)
     let backgroundImageView = UIImageView()
-
     let headerView: UIView = {
-        let view = UIView(frame: CGRect(origin: .zero, size:
-                                            CGSize(width: UIScreen.main.bounds.width, height: 300)))
-        view.backgroundColor = .lightGray
+        let view = UIView(frame: CGRect(origin: .zero, size: Parameters.headerViewSize))
         return view
     }()
 
@@ -56,12 +53,37 @@ class TVShowDetailsView: UIView {
 
 // Input setup
 extension TVShowDetailsView {
-    public func setupImage(url: URL?) {
+    public func setupImage(url: URL) {
         let options = ImageLoadingOptions(
             placeholder: UIImage(named: "placeholder"),
             transition: .fadeIn(duration: 0.33)
         )
-        guard let url = url else { return }
-        Nuke.loadImage(with: url, options: options, into: backgroundImageView)
+
+        let request = ImageRequest(url: url, processors: [
+            ImageProcessors.Resize(size: Parameters.imageSize)
+        ])
+
+        DispatchQueue.main.async {
+            Nuke.loadImage(with: request, options: options, into: self.backgroundImageView)
+        }
     }
+
+    public func setupImagePoster(url: URL) {
+        let options = ImageLoadingOptions(
+            placeholder: UIImage(named: "placeholder"),
+            transition: .fadeIn(duration: 0.33)
+        )
+        DispatchQueue.main.async {
+            Nuke.loadImage(with: url, options: options, into: self.backgroundImageView)
+        }
+    }
+}
+
+extension TVShowDetailsView {
+
+    enum Parameters {
+        static let headerViewSize = CGSize(width: UIScreen.main.bounds.width, height: 300)
+        static let imageSize = CGSize(width: 363, height: 216)
+    }
+
 }

@@ -60,4 +60,19 @@ class TVMazeAPI {
         }
     }
 
+    func image(idShow: Int, completion: @escaping ([ImageResult]?) -> Void) {
+        let url = TVMazeRouter.images(show: idShow).url
+
+        HTTP.get.request(url: url) { (data, _, error) in
+            guard let data = data else { return }
+
+            do {
+                let imageResult = try JSONDecoder().decode([ImageResult].self, from: data)
+                completion(imageResult)
+            } catch {
+                print(error)
+            }
+        }
+    }
+
 }

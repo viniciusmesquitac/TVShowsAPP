@@ -37,4 +37,5 @@ struct TVShow: Decodable {
     var network: Network?
     var image: Image?
     var rating: Rating?
+    var images: ImageResult?
 }

@@ -69,3 +69,16 @@ struct TVShowDetailsViewModel {
         return attributedString
     }
 }
+
+extension TVShowDetailsViewModel {
+    func getImageBackgroundURL(completion: @escaping (URL) -> Void) {
+        guard let tvShowId = tvShow?.id else { return }
+        let tvMaze = TVMazeAPI()
+        tvMaze.image(idShow: tvShowId) { images in
+            let backgroundImages = images?.filter { $0.type == "background" }
+            guard let stringUrl = backgroundImages?.first?.resolutions.original?.url else { return }
+            guard let imageUrl = URL(string: stringUrl) else { return }
+            completion(imageUrl)
+        }
+    }
+}

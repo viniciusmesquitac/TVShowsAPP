@@ -21,10 +21,18 @@ class TVShowDetailsViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.backButtonTitle = nil
         self.navigationItem.largeTitleDisplayMode = .never
-        let url = URL(string: viewModel?.backgroundImage ?? "")
         self.mainView.tableView.dataSource = self
-        self.mainView.setupImage(url: url)
         setupEpisodesTableViewController()
+        setupImageBackground()
+    }
+
+    func setupImageBackground() {
+        guard let posterUrl = viewModel?.backgroundImage else { return }
+        guard let url = URL(string: posterUrl) else { return }
+        self.mainView.setupImagePoster(url: url)
+//        viewModel?.getImageBackgroundURL(completion: { url in
+//            self.mainView.setupImage(url: url)
+//        })
     }
 
     func setupEpisodesTableViewController() {
