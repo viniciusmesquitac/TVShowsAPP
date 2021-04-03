@@ -12,12 +12,16 @@ class ContentInformationView: UIView {
     let tvShowTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Under The Done"
+        label.numberOfLines = 0
+        label.font = Stylesheet.Font.boldOfSize32
         return label
     }()
 
     let ratingLabel: UILabel = {
         let label = UILabel()
         label.text = "Rating: 6.6"
+        label.font = Stylesheet.Font.boldOfSize16
+        label.textColor = Stylesheet.Color.secundaryTextColor
         return label
     }()
 
@@ -25,6 +29,8 @@ class ContentInformationView: UIView {
         let label = UILabel()
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
+        label.font = Stylesheet.Font.boldOfSize16
+        label.textColor = Stylesheet.Color.secundaryTextColor
         label.text = "Drama, Science-Fiction, Triller"
         return label
     }()
@@ -32,6 +38,8 @@ class ContentInformationView: UIView {
     let scheduleAtLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.font = Stylesheet.Font.boldOfSize16
+        label.textColor = Stylesheet.Color.secundaryTextColor
         label.text = "22:00 every Thursday"
         return label
     }()
@@ -39,7 +47,8 @@ class ContentInformationView: UIView {
     let buttonFavorite: UIButton = {
         let button = UIButton()
         button.setTitle("Favorite", for: .normal)
-        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 8
+        button.backgroundColor = Stylesheet.Color.primaryColor
         return button
     }()
 
@@ -102,8 +111,8 @@ class ContentInformationView: UIView {
 
         buttonFavorite.snp.makeConstraints { make in
             make.top.equalTo(scheduleAtLabel.snp.bottom).offset(12)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
             make.height.equalTo(50)
         }
 

@@ -14,6 +14,7 @@ final class FavoriteListCoordinator: Coordinator {
     init(navigationController: UINavigationController?) {
         guard let navigation = navigationController else { fatalError() }
         self.navigationController = navigation
+        self.navigationController.navigationBar.tintColor = Stylesheet.Color.primaryColor
     }
 
     func start() {

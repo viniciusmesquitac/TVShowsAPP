@@ -27,6 +27,7 @@ final class AppCoordinator: Coordinator {
     init(window: UIWindow) {
         self.window = window
         self.navigationController = UINavigationController()
+        self.navigationController.navigationBar.tintColor = Stylesheet.Color.primaryColor
     }
 
     func start() {

@@ -22,7 +22,7 @@ class EpisodesTableViewCell: UITableViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "1. Pilot"
-        label.numberOfLines = 0
+        label.numberOfLines = 3
         return label
     }()
 
@@ -68,7 +68,10 @@ class EpisodesTableViewCell: UITableViewCell {
 
     func setupEpisode(episode: Episode) {
         titleLabel.text = episode.name
-        guard let url = URL(string: episode.image?.medium ?? "") else { return }
+        guard let url = URL(string: episode.image?.medium ?? "") else {
+            episodeImageView.image = UIImage(named: "placeholder_episode_notAvailable")
+            return
+        }
 
         let options = ImageLoadingOptions(
             placeholder: UIImage(named: "placeholder_episode"),

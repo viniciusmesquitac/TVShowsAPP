@@ -14,6 +14,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
+        self.tabBar.tintColor = Stylesheet.Color.primaryColor
     }
     // Scrolls to top
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {

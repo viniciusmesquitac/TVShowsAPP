@@ -23,8 +23,8 @@ class TVShowDetailsTableViewCell: UITableViewCell {
     func setupContentInformationView() {
         addSubview(contentInformationView)
         contentInformationView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
+            make.leading.equalToSuperview().offset(24)
+            make.trailing.equalToSuperview().offset(-24)
             make.top.equalToSuperview()
             make.bottom.equalToSuperview()
         }
