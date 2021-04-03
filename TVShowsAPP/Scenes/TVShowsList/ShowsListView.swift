@@ -51,7 +51,7 @@ class ShowsListView: UIView {
         }
         self.showsListCollectionView.alpha = 0
         self.showsListCollectionView.isHidden = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.indicator.stopAnimating()
             UIView.animate(withDuration: 0.5) {
                 self.showsListCollectionView.isHidden = false

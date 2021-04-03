@@ -47,13 +47,17 @@ class ContentInformationView: UIView {
     let buttonFavorite: UIButton = {
         let button = UIButton()
         button.setTitle("Favorite", for: .normal)
+        button.clipsToBounds = true
         button.layer.cornerRadius = 8
-        button.backgroundColor = Stylesheet.Color.primaryColor
+        button.titleLabel?.font = Stylesheet.Font.boldOfSize16
+        button.setBackgroundColor(Stylesheet.Color.primaryColor, for: .normal)
+        button.setBackgroundColor(UIColor.systemRed, for: .highlighted)
         return button
     }()
 
     private let summaryTitleLabel: UILabel = {
         let label = UILabel()
+        label.font = Stylesheet.Font.boldOfSize16
         label.text = "Summary"
         return label
     }()

@@ -7,13 +7,35 @@
 
 import UIKit
 
-struct TVShowDetailsViewModel {
+class TVShowDetailsViewModel {
 
     var tvShow: TVShow?
+    let repository = FavoriteListRepository()
 
     init(tvShow: TVShow) {
         self.tvShow = tvShow
     }
+
+    public func getImageBackgroundURL(completion: @escaping (URL) -> Void) {
+        guard let tvShowId = tvShow?.id else { return }
+        let tvMaze = TVMazeAPI()
+        tvMaze.image(idShow: tvShowId) { images in
+            let backgroundImages = images?.filter { $0.type == "background" }
+            guard let stringUrl = backgroundImages?.first?.resolutions.original?.url else { return }
+            guard let imageUrl = URL(string: stringUrl) else { return }
+            completion(imageUrl)
+        }
+    }
+
+    @objc func didTapFavoriteButton() {
+        guard let tvShow = tvShow else { return }
+        repository.add(object: tvShow)
+        print("\(tvShow.name) salvo!")
+    }
+
+}
+
+extension TVShowDetailsViewModel {
 
     var backgroundImage: String {
         return tvShow?.image?.medium ?? ""
@@ -58,6 +80,10 @@ struct TVShowDetailsViewModel {
         return "Rating: \(rating)"
     }
 
+}
+
+extension TVShowDetailsViewModel {
+    
     func attributedText(withString string: String, boldString: String, font: UIFont) -> NSAttributedString {
         let attributedString = NSMutableAttributedString(string: string,
                                                      attributes: [NSAttributedString.Key.font: font])
@@ -68,17 +94,5 @@ struct TVShowDetailsViewModel {
         attributedString.addAttributes(boldFontAttribute, range: range)
         return attributedString
     }
-}
 
-extension TVShowDetailsViewModel {
-    func getImageBackgroundURL(completion: @escaping (URL) -> Void) {
-        guard let tvShowId = tvShow?.id else { return }
-        let tvMaze = TVMazeAPI()
-        tvMaze.image(idShow: tvShowId) { images in
-            let backgroundImages = images?.filter { $0.type == "background" }
-            guard let stringUrl = backgroundImages?.first?.resolutions.original?.url else { return }
-            guard let imageUrl = URL(string: stringUrl) else { return }
-            completion(imageUrl)
-        }
-    }
 }

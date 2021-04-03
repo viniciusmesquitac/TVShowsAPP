@@ -13,10 +13,12 @@ class FavoriteListViewModel {
     let repository = FavoriteListRepository()
     var favorites: [TVShowViewModel] = [] {
         didSet {
-            handleUpdate?()
+            DispatchQueue.main.async {
+                self.handleUpdate?()
+            }
         }
     }
-    
+
     var numberOfRows: Int {
         return favorites.count
     }
@@ -36,13 +38,13 @@ class FavoriteListViewModel {
 }
 
 struct TVShowViewModel {
-    
+
     let tvShow: TVShowDAO
-    
+
     init(_ tvShow: TVShowDAO) {
         self.tvShow = tvShow
     }
-    
+
     var name: String? {
         tvShow.name
     }
@@ -51,10 +53,8 @@ struct TVShowViewModel {
         let genres = tvShow.genres?.components(separatedBy: " ,")
         let days = tvShow.schedule?.days?.components(separatedBy: " ,")
         let schedule = Schedule(time: tvShow.schedule?.time ?? "", days: days ?? [])
-        
         let image = Image(medium: tvShow.image?.medium ?? "")
         let rating = Rating(average: tvShow.rating?.avarege)
-        
         return TVShow(id: Int(tvShow.id), name: tvShow.name ?? "",
                       summary: tvShow.summary, url: tvShow.url ?? "",
                       type: tvShow.type ?? "", genres: genres ?? [],

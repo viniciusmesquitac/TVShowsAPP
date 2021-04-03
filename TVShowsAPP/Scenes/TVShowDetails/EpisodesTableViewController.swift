@@ -20,7 +20,12 @@ class EpisodesTableViewController: UITableViewController {
         }
     }
 
-    var tvShowId = 1
+    let indicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        return indicator
+    }()
+
+    var tvShowId = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +58,7 @@ class EpisodesTableViewController: UITableViewController {
 extension EpisodesTableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return episodes?.count ?? 1
+        return episodes?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,6 +67,11 @@ extension EpisodesTableViewController {
         guard let episode = episodes?[indexPath.row] else { return UITableViewCell() }
         cell?.setupEpisode(episode: episode)
         return cell ?? UITableViewCell()
+    }
+
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        indicator.startAnimating()
+        return indicator
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

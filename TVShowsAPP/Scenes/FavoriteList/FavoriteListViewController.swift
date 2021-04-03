@@ -17,6 +17,11 @@ class FavoriteListViewController: UIViewController {
         self.view = mainView
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.getAllFavorites()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Favorites"
@@ -25,9 +30,10 @@ class FavoriteListViewController: UIViewController {
         self.mainView.tableView.dataSource = self
         self.mainView.tableView.delegate = self
 
+        viewModel.handleUpdate = {
+            self.mainView.tableView.reloadData()
+        }
         coordinator = ShowsListCoordinator(navigationController: navigationController)
-        viewModel.getAllFavorites()
-//        viewModel.addFavorite(TVShow(id: 1, name: "Under the done", summary: "bkaalala", url: "", type: "regular", genres: []))
     }
 }
 

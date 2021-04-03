@@ -50,20 +50,10 @@ class FavoriteListRepository: Repository {
     }
 
     func favorite(object: TVShow) -> TVShowDAO? {
-//        if !object.favorite {
-//            object.favorite = true
-//            _ = service.save()
-//            return object
-//        }
-           return nil
+        return nil
     }
 
     func unfavorite(object: TVShow) -> TVShowDAO? {
-//        if object.favorite {
-//            object.favorite = false
-//            _ = service.save()
-//            return object
-//        }
-           return nil
+        return nil
     }
 }

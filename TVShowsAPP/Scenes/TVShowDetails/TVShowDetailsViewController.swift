@@ -11,7 +11,7 @@ class TVShowDetailsViewController: UIViewController {
 
     let mainView = TVShowDetailsView()
     var viewModel: TVShowDetailsViewModel?
-    let episodesTableViewController = EpisodesTableViewController()
+    let episodesTableViewController = EpisodesTableViewController(style: .plain)
 
     override func loadView() {
         self.view = mainView
@@ -22,6 +22,7 @@ class TVShowDetailsViewController: UIViewController {
         self.navigationItem.backButtonTitle = nil
         self.navigationItem.largeTitleDisplayMode = .never
         self.mainView.tableView.dataSource = self
+        self.mainView.tableView.delegate = self
         setupEpisodesTableViewController()
         setupImageBackground()
     }
@@ -30,9 +31,6 @@ class TVShowDetailsViewController: UIViewController {
         guard let posterUrl = viewModel?.backgroundImage else { return }
         guard let url = URL(string: posterUrl) else { return }
         self.mainView.setupImagePoster(url: url)
-//        viewModel?.getImageBackgroundURL(completion: { url in
-//            self.mainView.setupImage(url: url)
-//        })
     }
 
     func setupEpisodesTableViewController() {
@@ -41,11 +39,13 @@ class TVShowDetailsViewController: UIViewController {
                 self.episodesTableViewController.tableView.isHidden = false
                 self.mainView.tableView.tableFooterView = self.episodesTableViewController.view
                 self.mainView.tableView.reloadData()
+                self.episodesTableViewController.indicator.stopAnimating()
             }
         }
         episodesTableViewController.tvShowId = viewModel?.tvShow?.id ?? 1
         add(episodesTableViewController)
     }
+
 }
 
 extension TVShowDetailsViewController: UITableViewDataSource, UITableViewDelegate {
@@ -58,6 +58,9 @@ extension TVShowDetailsViewController: UITableViewDataSource, UITableViewDelegat
         let cell = tableView.dequeueReusableCell(
             withIdentifier: TVShowDetailsTableViewCell.identifier) as? TVShowDetailsTableViewCell
         cell?.setup(with: viewModel)
+        cell?.contentView.isUserInteractionEnabled = false
+        cell?.contentInformationView.buttonFavorite.addTarget(
+            viewModel, action: #selector(viewModel?.didTapFavoriteButton), for: .touchUpInside)
         return cell ?? UITableViewCell()
     }
 }

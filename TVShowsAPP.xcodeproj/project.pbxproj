@@ -56,6 +56,7 @@
 		81D5FB312618D938006ECCF1 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FB302618D938006ECCF1 /* SettingsTableViewController.swift */; };
 		81D5FB442618DD2A006ECCF1 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FB432618DD2A006ECCF1 /* SettingsViewModel.swift */; };
 		81D5FB522618DF92006ECCF1 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FB512618DF92006ECCF1 /* SettingsSection.swift */; };
+		81D5FB57261900E9006ECCF1 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FB56261900E9006ECCF1 /* UIButton.swift */; };
 		E5A7DEF7F779BE667B5AB453 /* Pods_TVShowsAPPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EFD5085DBC7160291ACEDC /* Pods_TVShowsAPPTests.framework */; };
 		E89DD0F528967927AEA4C1CE /* Pods_TVShowsAPP_TVShowsAPPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEE572C363FEF21743FE71D /* Pods_TVShowsAPP_TVShowsAPPUITests.framework */; };
 /* End PBXBuildFile section */
@@ -136,6 +137,7 @@
 		81D5FB302618D938006ECCF1 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		81D5FB432618DD2A006ECCF1 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		81D5FB512618DF92006ECCF1 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
+		81D5FB56261900E9006ECCF1 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		95C03F42067488469CCEEFC5 /* Pods-TVShowsAPPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPPTests.release.xcconfig"; path = "Target Support Files/Pods-TVShowsAPPTests/Pods-TVShowsAPPTests.release.xcconfig"; sourceTree = "<group>"; };
 		A8DDC04EFF12A5F9CEC0D0E0 /* Pods-TVShowsAPP-TVShowsAPPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPP-TVShowsAPPUITests.release.xcconfig"; path = "Target Support Files/Pods-TVShowsAPP-TVShowsAPPUITests/Pods-TVShowsAPP-TVShowsAPPUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DA5A9869AD52102F0022B00A /* Pods-TVShowsAPPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPPTests.debug.xcconfig"; path = "Target Support Files/Pods-TVShowsAPPTests/Pods-TVShowsAPPTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				81D5FA78261752BD006ECCF1 /* ViewController+Child.swift */,
+				81D5FB56261900E9006ECCF1 /* UIButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				81D5FB232618A663006ECCF1 /* Predicate.swift in Sources */,
 				81D5FA88261770A6006ECCF1 /* Stylesheet.swift in Sources */,
 				81D5F9D92614E9EB006ECCF1 /* TVShow.swift in Sources */,
+				81D5FB57261900E9006ECCF1 /* UIButton.swift in Sources */,
 				81D5FA932617FD2E006ECCF1 /* ResultsShowListViewController.swift in Sources */,
 				81D5F9832614C0B3006ECCF1 /* SearchListCoordinator.swift in Sources */,
 				81D5F9702614BDE4006ECCF1 /* AppCoordinator.swift in Sources */,
