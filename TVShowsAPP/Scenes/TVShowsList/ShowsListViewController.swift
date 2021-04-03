@@ -20,6 +20,7 @@ class ShowsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "TV Shows"
+        self.navigationController?.title = "Home"
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
         mainView.showsListCollectionView.backgroundColor = .systemBackground

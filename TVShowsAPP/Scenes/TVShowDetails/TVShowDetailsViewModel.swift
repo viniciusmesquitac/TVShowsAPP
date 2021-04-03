@@ -55,7 +55,7 @@ struct TVShowDetailsViewModel {
 
     var rating: String {
         guard let rating = tvShow?.rating?.average else { return "Not rated" }
-        return "Rating = \(rating)"
+        return "Rating: \(rating)"
     }
 
     func attributedText(withString string: String, boldString: String, font: UIFont) -> NSAttributedString {

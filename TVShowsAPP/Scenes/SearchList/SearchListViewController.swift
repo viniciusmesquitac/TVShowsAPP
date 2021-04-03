@@ -33,6 +33,8 @@ class SearchListViewController: UIViewController {
         )
         searchController = UISearchController(searchResultsController: searchResultsController)
         searchController?.searchBar.delegate = self
+        searchController?.isActive = true
+        searchController?.searchBar.becomeFirstResponder()
     }
 }
 

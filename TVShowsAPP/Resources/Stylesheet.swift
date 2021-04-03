@@ -25,8 +25,8 @@ struct Stylesheet {
     enum Icons {
         static let home = UIImage(named: "􀎟")
         static let search = UIImage(named: "􀒓")
-        static let favorites = UIImage(named: "")
-        static let settings = UIImage(named: "")
+        static let favorites = UIImage(named: "􀋆")
+        static let settings = UIImage(named: "􀣌")
     }
 }
 
