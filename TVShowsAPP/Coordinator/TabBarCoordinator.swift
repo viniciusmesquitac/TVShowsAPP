@@ -42,18 +42,29 @@ class TabBarCoordinator: Coordinator {
         // 1. Instanciar a controller
         let tabBarController = TabBarController()
         tabBarController.coordinator = self
-        // 2. Criar Coordinators
+        // 2 Criar Navigations
+        let showListNavigation = UINavigationController()
+        showListNavigation.tabBarItem = UITabBarItem(
+            title: "Home", image: Stylesheet.Icons.home,
+            selectedImage: Stylesheet.Icons.home)
+        
+        let searchListNavigation = UINavigationController()
+        searchListNavigation.tabBarItem = UITabBarItem(
+            title: "Search", image: Stylesheet.Icons.search,
+            selectedImage: Stylesheet.Icons.search)
+        
+        // 3. Criar Coordinators
         let coordinators: [Coordinator] = [
-            ShowsListCoordinator(navigationController: UINavigationController()),
-            SearchListCoordinator(navigationController: UINavigationController())
+            ShowsListCoordinator(navigationController: showListNavigation),
+            SearchListCoordinator(navigationController: searchListNavigation)
         ]
-        // 3. Inserir as tabs na controller
+        // 4. Inserir as tabs na controller
         let navigations = coordinators.map { $0.navigationController! }
         tabBarController.viewControllers = navigations
         tabBarController.modalPresentationStyle = .fullScreen
-        // 4. Apresentar a controller
+        // 5. Apresentar a controller
         navigationController.present(tabBarController, animated: false, completion: nil)
-        // 5. Referencias as coordendadas.
+        // 6. Referencias as coordendadas.
         for coordinator in coordinators {
             coordinate(to: coordinator)
         }

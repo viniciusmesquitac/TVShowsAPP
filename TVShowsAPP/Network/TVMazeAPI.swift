@@ -45,4 +45,19 @@ class TVMazeAPI {
         }
     }
 
+    func search(query: String, completion: @escaping ([SearchResult]?) -> Void) {
+        let url = TVMazeRouter.search(query: query).url
+
+        HTTP.get.request(url: url) { (data, _, error) in
+            guard let data = data else { return }
+
+            do {
+                let searchResult = try JSONDecoder().decode([SearchResult].self, from: data)
+                completion(searchResult)
+            } catch {
+                print(error)
+            }
+        }
+    }
+
 }

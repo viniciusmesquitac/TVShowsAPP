@@ -14,7 +14,6 @@ final class ShowsListCoordinator: Coordinator {
     init(navigationController: UINavigationController?) {
         guard let navigation = navigationController else { fatalError() }
         self.navigationController = navigation
-        self.navigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
     }
 
     func start() {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TVShowDetailsViewModel {
+struct TVShowDetailsViewModel {
 
     var tvShow: TVShow?
 

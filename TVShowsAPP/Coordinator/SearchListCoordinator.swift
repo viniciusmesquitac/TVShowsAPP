@@ -14,7 +14,6 @@ final class SearchListCoordinator: Coordinator {
     init(navigationController: UINavigationController?) {
         guard let navigation = navigationController else { fatalError() }
         self.navigationController = navigation
-        self.navigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
     }
 
     func start() {
