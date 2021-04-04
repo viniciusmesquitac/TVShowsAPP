@@ -29,6 +29,7 @@ struct Stylesheet {
         static let search = UIImage(named: "􀒓")
         static let favorites = UIImage(named: "􀋆")
         static let settings = UIImage(named: "􀣌")
+        static let bottomArrow = UIImage(named: "􀄩")
     }
 
     enum Font {

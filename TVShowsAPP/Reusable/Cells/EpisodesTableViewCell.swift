@@ -79,6 +79,7 @@ class EpisodesTableViewCell: UITableViewCell {
         )
 
         let request = ImageRequest(url: url, processors: [
+            ImageProcessors.Resize(size: CGSize(width: 125, height: 71)),
             ImageProcessors.RoundedCorners(radius: 8)
         ])
         Nuke.loadImage(with: request, options: options, into: episodeImageView)

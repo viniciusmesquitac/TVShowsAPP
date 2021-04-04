@@ -39,7 +39,7 @@ class TVShowDetailsViewController: UIViewController {
                 self.episodesTableViewController.tableView.isHidden = false
                 self.mainView.tableView.tableFooterView = self.episodesTableViewController.view
                 self.mainView.tableView.reloadData()
-//                self.episodesTableViewController.indicator.stopAnimating()
+                self.episodesTableViewController.footerView.stopAnimating()
             }
         }
         episodesTableViewController.tvShowId = viewModel?.tvShow?.id ?? 1
