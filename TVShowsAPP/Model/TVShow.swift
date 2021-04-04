@@ -18,6 +18,7 @@ struct Network: Decodable {
 
 struct Image: Decodable {
     var medium: String
+    var background: String?
 }
 
 struct Schedule: Decodable {

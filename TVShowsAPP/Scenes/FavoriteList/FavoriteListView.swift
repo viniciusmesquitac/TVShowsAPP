@@ -20,6 +20,7 @@ class FavoriteListView: UIView {
     fileprivate func setupTableView() {
         addSubview(tableView)
         tableView.rowHeight = 216
+        tableView.separatorStyle = .none
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

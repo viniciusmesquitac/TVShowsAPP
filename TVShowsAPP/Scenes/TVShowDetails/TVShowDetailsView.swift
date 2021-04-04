@@ -52,28 +52,15 @@ class TVShowDetailsView: UIView {
 
 // Input setup
 extension TVShowDetailsView {
-    public func setupImage(url: URL) {
-        let options = ImageLoadingOptions(
-            placeholder: UIImage(named: "placeholder"),
-            transition: .fadeIn(duration: 0.33)
-        )
-
-        let request = ImageRequest(url: url, processors: [
-            ImageProcessors.Resize(size: Parameters.imageSize)
-        ])
-
-        DispatchQueue.main.async {
-            Nuke.loadImage(with: request, options: options, into: self.backgroundImageView)
-        }
-    }
-
     public func setupImagePoster(url: URL) {
         let options = ImageLoadingOptions(
             placeholder: UIImage(named: "placeholder"),
             transition: .fadeIn(duration: 0.33)
         )
         DispatchQueue.main.async {
-            Nuke.loadImage(with: url, options: options, into: self.backgroundImageView)
+            Nuke.loadImage(with: url, options: options, into: self.backgroundImageView) { _ in
+                self.headerView.backgroundColor = self.backgroundImageView.image?.averageColor
+            }
         }
     }
 }
