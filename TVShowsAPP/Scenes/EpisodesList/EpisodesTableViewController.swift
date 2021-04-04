@@ -26,13 +26,18 @@ class EpisodesTableViewController: UITableViewController {
     }()
 
     var tvShowId = 0
+    var seasonNumber = 1 {
+        didSet {
+            self.getEpisodeList()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
         setupTableView()
-        callApi()
+        getEpisodeList()
     }
 
     func setupTableView() {
@@ -46,10 +51,10 @@ class EpisodesTableViewController: UITableViewController {
             forCellReuseIdentifier: EpisodesTableViewCell.identifier)
     }
 
-    func callApi() {
+    func getEpisodeList() {
         let tvmaze = TVMazeAPI()
         tvmaze.episodes(idShow: tvShowId) { episodes in
-            self.episodes = episodes?.filter { $0.season == 1 } ?? []
+            self.episodes = episodes?.filter { $0.season == self.seasonNumber } ?? []
             self.didFinishLoadEpisodes?()
         }
     }

@@ -266,6 +266,7 @@
 		81D5F9942614C707006ECCF1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				81D5FB672619F53F006ECCF1 /* EpisodesList */,
 				81D5FB2F2618D920006ECCF1 /* Settings */,
 				81D5F9982614C71A006ECCF1 /* TVShowsList */,
 				81D5FA0626154DF8006ECCF1 /* TVShowDetails */,
@@ -350,7 +351,6 @@
 			isa = PBXGroup;
 			children = (
 				81D5FA0726154E14006ECCF1 /* TVShowDetailsViewController.swift */,
-				81D5FA5526161A6A006ECCF1 /* EpisodesTableViewController.swift */,
 				81D5FA0F26154E4A006ECCF1 /* TVShowDetailsView.swift */,
 				81D5FA1426155B46006ECCF1 /* TVShowDetailsViewModel.swift */,
 			);
@@ -415,6 +415,14 @@
 				81D5FB512618DF92006ECCF1 /* SettingsSection.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		81D5FB672619F53F006ECCF1 /* EpisodesList */ = {
+			isa = PBXGroup;
+			children = (
+				81D5FA5526161A6A006ECCF1 /* EpisodesTableViewController.swift */,
+			);
+			path = EpisodesList;
 			sourceTree = "<group>";
 		};
 		BA723C36990409D0DF4351E1 /* Pods */ = {

@@ -27,13 +27,15 @@ class FavoriteListTableViewCell: UITableViewCell {
         shadow.clipsToBounds = true
         shadow.layer.cornerRadius = 8
         shadow.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-        shadow.alpha = 0.5
+        shadow.alpha = 0.7
         return shadow
     }()
 
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "1. Pilot"
+        label.textColor = .white
+        label.font = Stylesheet.Font.boldOfSize16
         label.numberOfLines = 0
         return label
     }()
@@ -80,5 +82,17 @@ extension FavoriteListTableViewCell {
 
     func setup(_ tvshow: TVShowViewModel) {
         self.titleLabel.text = tvshow.name
+        guard let url = URL(string: tvshow.imageBackground ?? "") else { return }
+
+        let options = ImageLoadingOptions(
+            transition: .fadeIn(duration: 0.33)
+        )
+
+        let request = ImageRequest.init(url: url, processors: [
+            ImageProcessors.Resize(size: CGSize(width: 363, height: 216)),
+            ImageProcessors.RoundedCorners(radius: 8)
+        ])
+
+        Nuke.loadImage(with: request, options: options, into: self.favoriteTvShowImageView)
     }
 }

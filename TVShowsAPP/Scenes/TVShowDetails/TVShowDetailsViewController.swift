@@ -24,11 +24,11 @@ class TVShowDetailsViewController: UIViewController {
         self.mainView.tableView.dataSource = self
         self.mainView.tableView.delegate = self
         setupEpisodesTableViewController()
-        setupImageBackground()
+        setupPosterImage()
     }
 
-    func setupImageBackground() {
-        guard let posterUrl = viewModel?.backgroundImage else { return }
+    func setupPosterImage() {
+        guard let posterUrl = viewModel?.posterImage else { return }
         guard let url = URL(string: posterUrl) else { return }
         self.mainView.setupImagePoster(url: url)
     }

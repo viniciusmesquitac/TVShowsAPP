@@ -14,16 +14,18 @@ class TVShowDetailsViewModel {
 
     init(tvShow: TVShow) {
         self.tvShow = tvShow
+        if tvShow.image?.background == nil {
+            getImageBackground()
+        }
     }
 
-    public func getImageBackgroundURL(completion: @escaping (URL) -> Void) {
+    private func getImageBackground() {
         guard let tvShowId = tvShow?.id else { return }
         let tvMaze = TVMazeAPI()
         tvMaze.image(idShow: tvShowId) { images in
             let backgroundImages = images?.filter { $0.type == "background" }
             guard let stringUrl = backgroundImages?.first?.resolutions.original?.url else { return }
-            guard let imageUrl = URL(string: stringUrl) else { return }
-            completion(imageUrl)
+            self.tvShow?.image?.background = stringUrl
         }
     }
 
@@ -37,7 +39,7 @@ class TVShowDetailsViewModel {
 
 extension TVShowDetailsViewModel {
 
-    var backgroundImage: String {
+    var posterImage: String {
         return tvShow?.image?.medium ?? ""
     }
 
@@ -83,7 +85,7 @@ extension TVShowDetailsViewModel {
 }
 
 extension TVShowDetailsViewModel {
-    
+
     func attributedText(withString string: String, boldString: String, font: UIFont) -> NSAttributedString {
         let attributedString = NSMutableAttributedString(string: string,
                                                      attributes: [NSAttributedString.Key.font: font])

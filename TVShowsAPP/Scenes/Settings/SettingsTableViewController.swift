@@ -16,7 +16,6 @@ class SettingsTableViewController: UITableViewController {
         self.title = "Settings"
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
         viewModel = SettingsViewModel(delegate: self)
     }
 }

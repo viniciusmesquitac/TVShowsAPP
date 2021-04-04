@@ -26,9 +26,12 @@ class FavoriteListRepository: Repository {
         let tvShow = service.new()
         tvShow?.name = object.name
         tvShow?.id = Int32(object.id)
+        tvShow?.summary = object.summary
         tvShow?.genres = object.genres.joined(separator: " ,")
         tvShow?.officialSite = object.officialSite
+        tvShow?.image = CoreDataService<ImageDAO>().new()
         tvShow?.image?.medium = object.image?.medium
+        tvShow?.image?.background = object.image?.background
         tvShow?.rating?.avarege = object.rating?.average ?? 0
         if service.save() { return tvShow }
         return nil

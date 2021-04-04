@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ImageDAO" representedClassName="ImageDAO" syncable="YES" codeGenerationType="class">
+        <attribute name="background" optional="YES" attributeType="String"/>
         <attribute name="medium" optional="YES" attributeType="String"/>
         <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TVShowDAO" inverseName="image" inverseEntity="TVShowDAO"/>
     </entity>
@@ -26,7 +27,7 @@
         <relationship name="schedule" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ScheduleDAO" inverseName="relationship" inverseEntity="ScheduleDAO"/>
     </entity>
     <elements>
-        <element name="ImageDAO" positionX="-371.444091796875" positionY="73.71206665039062" width="128" height="59"/>
+        <element name="ImageDAO" positionX="-371.444091796875" positionY="73.71206665039062" width="128" height="74"/>
         <element name="RatingDAO" positionX="43.8226318359375" positionY="195.3223266601562" width="128" height="59"/>
         <element name="ScheduleDAO" positionX="-132.423095703125" positionY="265.4704284667969" width="128" height="74"/>
         <element name="TVShowDAO" positionX="-196.162109375" positionY="47.31494140625" width="128" height="179"/>

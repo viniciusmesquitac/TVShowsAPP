@@ -49,11 +49,15 @@ struct TVShowViewModel {
         tvShow.name
     }
 
+    var imageBackground: String? {
+        tvShow.image?.background
+    }
+
     func parseTvShow() -> TVShow {
         let genres = tvShow.genres?.components(separatedBy: " ,")
         let days = tvShow.schedule?.days?.components(separatedBy: " ,")
         let schedule = Schedule(time: tvShow.schedule?.time ?? "", days: days ?? [])
-        let image = Image(medium: tvShow.image?.medium ?? "")
+        let image = Image(medium: tvShow.image?.medium ?? "", background: tvShow.image?.background)
         let rating = Rating(average: tvShow.rating?.avarege)
         return TVShow(id: Int(tvShow.id), name: tvShow.name ?? "",
                       summary: tvShow.summary, url: tvShow.url ?? "",
