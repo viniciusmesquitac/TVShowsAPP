@@ -22,13 +22,13 @@ class ContentInformationView: UIView {
         label.text = "Rating: 6.6"
         label.font = Stylesheet.Font.boldOfSize16
         label.textColor = Stylesheet.Color.secundaryTextColor
+        label.textAlignment = .right
         return label
     }()
 
     let genresLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.adjustsFontSizeToFitWidth = true
         label.font = Stylesheet.Font.boldOfSize16
         label.textColor = Stylesheet.Color.secundaryTextColor
         label.text = "Drama, Science-Fiction, Triller"
@@ -99,12 +99,13 @@ class ContentInformationView: UIView {
         ratingLabel.snp.makeConstraints { make in
             make.top.equalTo(tvShowTitleLabel.snp.bottom).offset(12)
             make.trailing.equalToSuperview()
+            make.width.greaterThanOrEqualTo(100)
         }
 
         genresLabel.snp.makeConstraints { make in
             make.top.equalTo(tvShowTitleLabel.snp.bottom).offset(12)
             make.leading.equalTo(tvShowTitleLabel)
-            make.trailing.equalTo(ratingLabel.snp.leading).offset(-3)
+            make.trailing.equalTo(ratingLabel.snp.leading).offset(-32)
         }
 
         scheduleAtLabel.snp.makeConstraints { make in

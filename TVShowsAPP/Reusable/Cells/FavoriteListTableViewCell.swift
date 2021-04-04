@@ -14,10 +14,9 @@ class FavoriteListTableViewCell: UITableViewCell {
 
     let favoriteTvShowImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .clear
         imageView.image = Stylesheet.Images.placeholderEpisode
         imageView.layer.cornerRadius = 8
-        imageView.backgroundColor = .brown
+        imageView.backgroundColor = .random()
         return imageView
     }()
 

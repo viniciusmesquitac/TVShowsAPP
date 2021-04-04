@@ -38,5 +38,9 @@ class TVShowDetailsTableViewCell: UITableViewCell {
         contentInformationView.summaryLabel.attributedText = tvShow.summary
         contentInformationView.ratingLabel.text = tvShow.rating
 
+        if tvShowViewModel?.isFavorite == true {
+            contentInformationView.buttonFavorite.setTitle("Unfavorite", for: .normal)
+        }
+
     }
 }

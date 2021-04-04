@@ -28,7 +28,7 @@ class TVShowsListCollectionViewCell: UICollectionViewCell {
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        imageView.backgroundColor = Stylesheet.Color.primaryColor
+        imageView.backgroundColor = .random()
     }
 
     func setupImage(url: URL?) {

@@ -35,6 +35,14 @@ class TVShowDetailsViewModel {
         print("\(tvShow.name) salvo!")
     }
 
+    var isFavorite: Bool {
+        guard let tvShow = tvShow else { return false }
+        if repository.get(object: tvShow) != nil {
+            return true
+        }
+        return false
+    }
+
 }
 
 extension TVShowDetailsViewModel {
@@ -68,6 +76,8 @@ extension TVShowDetailsViewModel {
         summaryStringReplaced = summaryStringReplaced?.replacingOccurrences(of: "</p>", with: "")
         summaryStringReplaced = summaryStringReplaced?.replacingOccurrences(of: "<b>", with: "")
         summaryStringReplaced = summaryStringReplaced?.replacingOccurrences(of: "</b>", with: "")
+        summaryStringReplaced = summaryStringReplaced?.replacingOccurrences(of: "<br>", with: "")
+        summaryStringReplaced = summaryStringReplaced?.replacingOccurrences(of: "<br>", with: "")
         summaryStringReplaced = summaryStringReplaced?.replacingOccurrences(of: "<i>", with: "")
         summaryStringReplaced = summaryStringReplaced?.replacingOccurrences(of: "</i>", with: "")
         let attrStr = attributedText(
