@@ -20,8 +20,8 @@ class EpisodesTableViewController: UITableViewController {
         }
     }
 
-    let indicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView()
+    let indicator: LoadingIndicatorView = {
+        let indicator = LoadingIndicatorView()
         return indicator
     }()
 
@@ -46,6 +46,7 @@ class EpisodesTableViewController: UITableViewController {
         tableView.allowsSelection = false
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
+        tableView.tableFooterView = indicator
         tableView.register(
             EpisodesTableViewCell.self,
             forCellReuseIdentifier: EpisodesTableViewCell.identifier)
@@ -56,6 +57,13 @@ class EpisodesTableViewController: UITableViewController {
         tvmaze.episodes(idShow: tvShowId) { episodes in
             self.episodes = episodes?.filter { $0.season == self.seasonNumber } ?? []
             self.didFinishLoadEpisodes?()
+            DispatchQueue.main.async {
+                guard let episodes = self.episodes else { return }
+                if episodes.isEmpty {
+                    self.indicator.messageLabel.text = "Any episode available for this season"
+                    self.indicator.messageLabel.isHidden = false
+                }
+            }
         }
     }
 }

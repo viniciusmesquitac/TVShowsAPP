@@ -31,7 +31,7 @@ class ShowsListViewController: UIViewController {
          viewModel.getListOfShows()
 
         viewModel.handleUpdate = {
-            self.mainView.showsListCollectionView.reloadData()
+             self.mainView.showsListCollectionView.reloadData()
         }
 
     }
@@ -72,6 +72,7 @@ extension ShowsListViewController: UICollectionViewDelegate, UICollectionViewDat
                 ofKind: kind, withReuseIdentifier: LoadingIndicatorView.identifier,
                     for: indexPath) as? LoadingIndicatorView else { return UICollectionReusableView() }
             footerView.startAnimating()
+            footerView.backgroundColor = .clear
             return footerView
 
         default:

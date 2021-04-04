@@ -9,6 +9,8 @@ import UIKit
 
 class ContentInformationView: UIView {
 
+    var isButtonFavorite = false
+
     let tvShowTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Under The Done"

@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import SnapKit
 
 class LoadingIndicatorView: UICollectionReusableView {
 
     static let identifier = "indicatorViewIdentifier"
     let spinner = UIActivityIndicatorView()
+    let messageLabel = UILabel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,8 +24,23 @@ class LoadingIndicatorView: UICollectionReusableView {
     }
 
     func setup() {
-        spinner.center = center
+        self.backgroundColor = .clear
         self.addSubview(spinner)
+        self.addSubview(messageLabel)
+        self.spinner.color = Stylesheet.Color.primaryColor
+ 
+        spinner.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+        
+        messageLabel.font = Stylesheet.Font.boldOfSize16
+        messageLabel.textColor = .darkGray
+        messageLabel.isHidden = true
+        messageLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
     }
 
     func startAnimating() {
@@ -31,6 +48,6 @@ class LoadingIndicatorView: UICollectionReusableView {
     }
 
     func stopAnimating() {
-        spinner.stopAnimating()
+         spinner.stopAnimating()
     }
 }

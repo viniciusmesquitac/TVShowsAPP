@@ -37,10 +37,19 @@ class TVShowDetailsTableViewCell: UITableViewCell {
         contentInformationView.scheduleAtLabel.text = tvShow.scheduleAt
         contentInformationView.summaryLabel.attributedText = tvShow.summary
         contentInformationView.ratingLabel.text = tvShow.rating
+        updateFavoriteButtonState(tvShowViewModel?.isFavorite ?? false)
 
-        if tvShowViewModel?.isFavorite == true {
-            contentInformationView.buttonFavorite.setTitle("Unfavorite", for: .normal)
+        tvShowViewModel?.handleUpdateFavoriteButton = {
+            self.updateFavoriteButtonState(tvShowViewModel?.isFavorite ?? false)
         }
+    }
 
+    func updateFavoriteButtonState(_ isFavorite: Bool) {
+        self.contentInformationView.isButtonFavorite = isFavorite
+        if isFavorite {
+            self.contentInformationView.buttonFavorite.setTitle("Unfavorite", for: .normal)
+        } else {
+            self.contentInformationView.buttonFavorite.setTitle("Favorite", for: .normal)
+        }
     }
 }

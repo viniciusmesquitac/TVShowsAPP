@@ -11,6 +11,7 @@ class TVShowDetailsViewModel {
 
     var tvShow: TVShow?
     let repository = FavoriteListRepository()
+    var handleUpdateFavoriteButton: (() -> Void)?
 
     init(tvShow: TVShow) {
         self.tvShow = tvShow
@@ -31,8 +32,17 @@ class TVShowDetailsViewModel {
 
     @objc func didTapFavoriteButton() {
         guard let tvShow = tvShow else { return }
-        repository.add(object: tvShow)
-        print("\(tvShow.name) salvo!")
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+
+        if !isFavorite {
+            repository.add(object: tvShow)
+            print("\(tvShow.name) salvo!")
+        } else {
+            repository.delete(object: tvShow)
+            print("\(tvShow.name) removido!")
+        }
+        handleUpdateFavoriteButton?()
     }
 
     var isFavorite: Bool {
