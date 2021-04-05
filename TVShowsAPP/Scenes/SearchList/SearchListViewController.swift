@@ -16,22 +16,25 @@ class SearchListViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.title = "Search"
         setupSearchController()
-        self.view.backgroundColor = .systemBackground
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-        searchController?.isActive = true
-        searchController?.becomeFirstResponder()
+        setupNavigation()
 
-        
         viewModel.didFinishSearch = {
             guard let tvShows = self.viewModel.tvShows else { return }
             self.searchResultsController?.viewModel.tvShows = tvShows
+            self.searchResultsController?.mainView.indicator.stopAnimating()
         }
     }
 
+    func setupNavigation() {
+        self.navigationController?.title = "Search"
+        self.navigationItem.searchController = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+    }
+
     func setupSearchController() {
+        searchController?.isActive = true
+        searchController?.searchBar.tintColor = Stylesheet.Color.primaryColor
         searchResultsController = ResultsShowsListViewController(
             coordinator: ShowsListCoordinator(navigationController: navigationController)
         )
@@ -48,8 +51,9 @@ extension SearchListViewController: UISearchBarDelegate {
         searchDelayer?.invalidate()
         searchDelayer = nil
         if true {
+            self.searchResultsController?.mainView.indicator.startAnimating()
             searchDelayer = Timer.scheduledTimer(
-                timeInterval: 1.5, target: self,
+                timeInterval: 0.5, target: self,
                 selector: #selector(self.doDelayedSearch),
                 userInfo: searchText, repeats: false)
         }
@@ -65,9 +69,9 @@ extension SearchListViewController: UISearchBarDelegate {
 }
 
 extension SearchListViewController {
-    
+
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Most recent added"
     }
-    
+
 }

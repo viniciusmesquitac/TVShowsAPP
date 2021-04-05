@@ -73,6 +73,7 @@ class TabBarCoordinator: Coordinator {
         ]
         // 4. Inserir as tabs na controller
         let navigations = coordinators.map { $0.navigationController! }
+        navigations.forEach { $0.navigationBar.tintColor = Stylesheet.Color.primaryColor }
         tabBarController.viewControllers = navigations
         tabBarController.modalPresentationStyle = .fullScreen
         // 5. Apresentar a controller

@@ -44,10 +44,14 @@ class LoadingIndicatorView: UICollectionReusableView {
     }
 
     func startAnimating() {
-        spinner.startAnimating()
+        DispatchQueue.main.async {
+            self.spinner.startAnimating()
+        }
     }
 
     func stopAnimating() {
-         spinner.stopAnimating()
+        DispatchQueue.main.async {
+            self.spinner.stopAnimating()
+        }
     }
 }
