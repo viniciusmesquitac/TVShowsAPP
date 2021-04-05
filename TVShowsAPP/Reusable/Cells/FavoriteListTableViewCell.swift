@@ -39,6 +39,10 @@ class FavoriteListTableViewCell: UITableViewCell {
         return label
     }()
 
+    
+    override func prepareForReuse() {
+        self.favoriteTvShowImageView.contentMode = .scaleToFill
+    }
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         buildViewHierarchy()
@@ -82,8 +86,8 @@ extension FavoriteListTableViewCell {
     func setup(_ tvshow: TVShowViewModel) {
         self.titleLabel.text = tvshow.name
         guard let stringUrl = tvshow.imageBackground else {
-            self.favoriteTvShowImageView.image = Stylesheet.Images.placeholderEpisode
-            self.favoriteTvShowImageView.backgroundColor = Stylesheet.Color.primaryColor
+            loadImage(imageString: tvshow.tvShow.image?.medium)
+            self.favoriteTvShowImageView.contentMode = .scaleAspectFit
             return
         }
         loadImage(imageString: stringUrl)
@@ -95,7 +99,6 @@ extension FavoriteListTableViewCell {
         }
 
         let options = ImageLoadingOptions(
-            placeholder: Stylesheet.Images.placeholderEpisode,
             transition: .fadeIn(duration: 0.33)
         )
 
@@ -103,7 +106,9 @@ extension FavoriteListTableViewCell {
             ImageProcessors.Resize(size: CGSize(width: 363, height: 216)),
             ImageProcessors.RoundedCorners(radius: 8)
         ])
-        Nuke.loadImage(with: request, options: options, into: self.favoriteTvShowImageView)
+        Nuke.loadImage(with: request, options: options, into: self.favoriteTvShowImageView) { _ in
+            self.favoriteTvShowImageView.backgroundColor = self.favoriteTvShowImageView.image?.averageColor
+        }
 
     }
 }

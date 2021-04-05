@@ -16,6 +16,7 @@ class SearchListViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
         setupSearchController()
         setupNavigation()
 
@@ -24,6 +25,15 @@ class SearchListViewController: UITableViewController {
             self.searchResultsController?.viewModel.tvShows = tvShows
             self.searchResultsController?.mainView.indicator.stopAnimating()
         }
+    }
+
+    func setupTableView() {
+        self.tableView.separatorStyle = .none
+        self.tableView.backgroundView = UIView()
+        self.tableView.backgroundView?.backgroundColor = .systemBackground
+        self.tableView.register(
+            TVShowsListTableViewCell.self,
+            forCellReuseIdentifier: TVShowsListTableViewCell.identifier)
     }
 
     func setupNavigation() {
@@ -74,4 +84,21 @@ extension SearchListViewController {
         return "Most recent added"
     }
 
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UITableViewHeaderFooterView()
+        headerView.contentView.backgroundColor = .systemBackground
+        return headerView
+    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TVShowsListTableViewCell.identifier) else {
+            return UITableViewCell()
+        }
+        cell.backgroundColor = .systemBackground
+        cell.selectionStyle = .none
+        return cell
+    }
 }

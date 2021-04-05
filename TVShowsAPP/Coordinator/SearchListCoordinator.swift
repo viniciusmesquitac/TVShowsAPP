@@ -17,7 +17,7 @@ final class SearchListCoordinator: Coordinator {
     }
 
     func start() {
-        let searchListViewController = SearchListViewController()
+        let searchListViewController = SearchListViewController(style: .grouped)
         navigationController.pushViewController(searchListViewController, animated: false)
     }
 

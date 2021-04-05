@@ -28,10 +28,12 @@ class SeasonFilterTableViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.backgroundColor = .clear
         self.tableView.backgroundView = blur
-        self.tableView.delegate = self
         self.tableView.separatorStyle = .none
-        let indexPath = IndexPath(row: currentSeason - 1, section: 0)
         self.setupContentSeasonsIfNeeded()
+        let indexPath = IndexPath(row: currentSeason - 1, section: 0)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+        }
     }
 
     func setupContentSeasonsIfNeeded() {
@@ -40,8 +42,7 @@ class SeasonFilterTableViewController: UITableViewController {
                 top: UIScreen.main.bounds.height/4, left: 0,
                 bottom: -UIScreen.main.bounds.height/3.5,
                 right: 0)
-        }
-        else if seasons?.count ?? 0 <= 12 {
+        } else if seasons?.count ?? 0 <= 12 {
             self.tableView.contentInset = UIEdgeInsets(
                 top: 32, left: 0,
                 bottom: -UIScreen.main.bounds.height/3.5,
