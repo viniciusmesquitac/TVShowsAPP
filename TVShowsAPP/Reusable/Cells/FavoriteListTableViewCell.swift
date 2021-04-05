@@ -81,9 +81,21 @@ extension FavoriteListTableViewCell {
 
     func setup(_ tvshow: TVShowViewModel) {
         self.titleLabel.text = tvshow.name
-        guard let url = URL(string: tvshow.imageBackground ?? "") else { return }
+        guard let stringUrl = tvshow.imageBackground else {
+            self.favoriteTvShowImageView.image = Stylesheet.Images.placeholderEpisode
+            self.favoriteTvShowImageView.backgroundColor = Stylesheet.Color.primaryColor
+            return
+        }
+        loadImage(imageString: stringUrl)
+    }
+
+    func loadImage(imageString: String?, resized: Bool = false) {
+        guard let url = URL(string: imageString ?? "") else {
+            return
+        }
 
         let options = ImageLoadingOptions(
+            placeholder: Stylesheet.Images.placeholderEpisode,
             transition: .fadeIn(duration: 0.33)
         )
 
@@ -91,7 +103,7 @@ extension FavoriteListTableViewCell {
             ImageProcessors.Resize(size: CGSize(width: 363, height: 216)),
             ImageProcessors.RoundedCorners(radius: 8)
         ])
-
         Nuke.loadImage(with: request, options: options, into: self.favoriteTvShowImageView)
+
     }
 }

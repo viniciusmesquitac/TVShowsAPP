@@ -69,12 +69,12 @@ class EpisodesTableViewCell: UITableViewCell {
     func setupEpisode(episode: Episode) {
         titleLabel.text = episode.name
         guard let url = URL(string: episode.image?.medium ?? "") else {
-            episodeImageView.image = UIImage(named: "placeholder_episode_notAvailable")
+            episodeImageView.image = Stylesheet.Images.placeholderEpisodeNotAvailable
             return
         }
 
         let options = ImageLoadingOptions(
-            placeholder: UIImage(named: "placeholder_episode"),
+            placeholder: Stylesheet.Images.placeholderEpisode,
             transition: .fadeIn(duration: 0.33)
         )
 

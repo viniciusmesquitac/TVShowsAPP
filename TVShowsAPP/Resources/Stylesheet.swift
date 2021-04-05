@@ -21,7 +21,10 @@ struct Stylesheet {
     }
 
     enum Images {
-        static let placeholderEpisode = UIImage(named: "placehodel_episode")
+        static let placeholderEpisode = UIImage(named: "placeholderEpisode")
+        static let placeholderEpisodeNotAvailable = UIImage(named: "placeholderEpisodeNotAvailable")
+        static let placeholderPoster = UIImage(named: "placeholderPoster")
+        static let placeholderPosterNotAvailable = UIImage(named: "placeholderPosterNotAvailable")
     }
 
     enum Icons {

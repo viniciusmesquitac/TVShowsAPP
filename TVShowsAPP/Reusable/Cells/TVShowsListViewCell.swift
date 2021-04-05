@@ -36,7 +36,10 @@ class TVShowsListCollectionViewCell: UICollectionViewCell {
             placeholder: UIImage(named: "placeholder"),
             transition: .fadeIn(duration: 0.33)
         )
-        guard let url = url else { return }
+        guard let url = url else {
+            self.imageView.image = Stylesheet.Images.placeholderPosterNotAvailable
+            return
+        }
         let request = ImageRequest(url: url, processors: [
             ImageProcessors.RoundedCorners(radius: 8)
         ])

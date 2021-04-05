@@ -29,7 +29,10 @@ class TVShowDetailsViewController: UIViewController {
 
     func setupPosterImage() {
         guard let posterUrl = viewModel?.posterImage else { return }
-        guard let url = URL(string: posterUrl) else { return }
+        guard let url = URL(string: posterUrl) else {
+            self.mainView.backgroundImageView.image = Stylesheet.Images.placeholderPosterNotAvailable
+            return
+        }
         self.mainView.setupImagePoster(url: url)
     }
 

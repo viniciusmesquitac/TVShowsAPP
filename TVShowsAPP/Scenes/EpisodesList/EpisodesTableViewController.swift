@@ -114,6 +114,6 @@ extension EpisodesTableViewController: SeasonSelectionDelegate {
     func didSelectSeason(season: Int) {
         self.seasonNumber = season
         headerView.seasonButton.setTitle("Season \(season)", for: .normal)
-        self.tableView.reloadSections(IndexSet.init(integer: 0), with: .fade)
+        self.tableView.reloadSections(IndexSet.init(integer: 0), with: .automatic)
     }
 }

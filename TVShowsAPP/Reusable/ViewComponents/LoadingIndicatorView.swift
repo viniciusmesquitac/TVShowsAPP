@@ -28,12 +28,12 @@ class LoadingIndicatorView: UICollectionReusableView {
         self.addSubview(spinner)
         self.addSubview(messageLabel)
         self.spinner.color = Stylesheet.Color.primaryColor
- 
+
         spinner.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
         }
-        
+
         messageLabel.font = Stylesheet.Font.boldOfSize16
         messageLabel.textColor = .darkGray
         messageLabel.isHidden = true

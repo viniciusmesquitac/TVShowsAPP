@@ -14,14 +14,14 @@ class SeasonFilterTableViewController: UITableViewController {
 
     var seasons: [String] = ["Season 1", "Season 2", "Season 3"]
     weak var delegate: SeasonSelectionDelegate?
-
+    
     lazy var blur: UIVisualEffectView = {
         let effect = UIBlurEffect(style: .systemThickMaterialDark)
-           let blurView = UIVisualEffectView(effect: effect)
-           blurView.alpha = 0.8
-           blurView.frame = self.view.bounds
-           return blurView
-       }()
+        let blurView = UIVisualEffectView(effect: effect)
+        blurView.alpha = 1.0
+        blurView.frame = self.view.bounds
+        return blurView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class SeasonFilterTableViewController: UITableViewController {
         self.tableView.delegate = self
         self.tableView.separatorStyle = .none
         self.tableView.contentInset = UIEdgeInsets(
-            top: 200, left: 0, bottom: 0, right: 0)
+            top: UIScreen.main.bounds.height/3, left: 0, bottom: 0, right: 0)
     }
 
 }
