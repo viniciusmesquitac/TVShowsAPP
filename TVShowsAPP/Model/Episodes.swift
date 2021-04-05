@@ -16,4 +16,5 @@ struct Episode: Decodable {
     var type: String?
     var image: Image?
     var summary: String?
+    var show: TVShow?
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchListViewController: UIViewController {
+class SearchListViewController: UITableViewController {
 
     var searchResultsController: ResultsShowsListViewController?
     var searchController: UISearchController?
@@ -20,7 +20,11 @@ class SearchListViewController: UIViewController {
         setupSearchController()
         self.view.backgroundColor = .systemBackground
         navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController?.isActive = true
+        searchController?.becomeFirstResponder()
 
+        
         viewModel.didFinishSearch = {
             guard let tvShows = self.viewModel.tvShows else { return }
             self.searchResultsController?.viewModel.tvShows = tvShows
@@ -58,4 +62,12 @@ extension SearchListViewController: UISearchBarDelegate {
         searchDelayer = nil
     }
 
+}
+
+extension SearchListViewController {
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Most recent added"
+    }
+    
 }

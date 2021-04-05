@@ -19,14 +19,14 @@ class FavoriteListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         viewModel.getAllFavorites()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Favorites"
-        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.mainView.tableView.dataSource = self
         self.mainView.tableView.delegate = self
 

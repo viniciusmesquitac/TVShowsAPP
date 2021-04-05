@@ -16,7 +16,6 @@ final class TVShowDetailsCoordinator: Coordinator {
         guard let navigation = navigationController else { fatalError() }
         self.navigationController = navigation
         self.tvShow = tvShow
-        self.navigationController.navigationBar.tintColor = Stylesheet.Color.primaryColor
     }
 
     func start() {

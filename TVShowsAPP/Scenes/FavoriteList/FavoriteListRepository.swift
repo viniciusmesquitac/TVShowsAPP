@@ -51,12 +51,4 @@ class FavoriteListRepository: Repository {
         }
         return nil
     }
-
-    func favorite(object: TVShow) -> TVShowDAO? {
-        return nil
-    }
-
-    func unfavorite(object: TVShow) -> TVShowDAO? {
-        return nil
-    }
 }
