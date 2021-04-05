@@ -7,14 +7,15 @@
 
 import UIKit
 protocol SeasonSelectionDelegate: class {
-    func didSelectSeason(season: Int)
+    func didSelectSeason(season: Season?)
 }
 
 class SeasonFilterTableViewController: UITableViewController {
 
-    var seasons: [String] = ["Season 1", "Season 2", "Season 3"]
+    var seasons: [Season]?
+    var currentSeason = 1
     weak var delegate: SeasonSelectionDelegate?
-    
+
     lazy var blur: UIVisualEffectView = {
         let effect = UIBlurEffect(style: .systemThickMaterialDark)
         let blurView = UIVisualEffectView(effect: effect)
@@ -29,8 +30,26 @@ class SeasonFilterTableViewController: UITableViewController {
         self.tableView.backgroundView = blur
         self.tableView.delegate = self
         self.tableView.separatorStyle = .none
-        self.tableView.contentInset = UIEdgeInsets(
-            top: UIScreen.main.bounds.height/3, left: 0, bottom: 0, right: 0)
+        let indexPath = IndexPath(row: currentSeason - 1, section: 0)
+        self.setupContentSeasonsIfNeeded()
+    }
+
+    func setupContentSeasonsIfNeeded() {
+        if seasons?.count ?? 0 <= 6 {
+            self.tableView.contentInset = UIEdgeInsets(
+                top: UIScreen.main.bounds.height/4, left: 0,
+                bottom: -UIScreen.main.bounds.height/3.5,
+                right: 0)
+        }
+        else if seasons?.count ?? 0 <= 12 {
+            self.tableView.contentInset = UIEdgeInsets(
+                top: 32, left: 0,
+                bottom: -UIScreen.main.bounds.height/3.5,
+                right: 0)
+        } else {
+            self.tableView.contentInset = UIEdgeInsets(
+                top: 32, left: 0, bottom: UIScreen.main.bounds.height/2, right: 0)
+        }
     }
 
 }
@@ -38,7 +57,7 @@ class SeasonFilterTableViewController: UITableViewController {
 extension SeasonFilterTableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return seasons.count
+        return seasons?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,13 +65,17 @@ extension SeasonFilterTableViewController {
         cell.backgroundColor = .clear
         cell.textLabel?.textAlignment = .center
         cell.selectedBackgroundView = UIView()
-        cell.textLabel?.text = seasons[indexPath.row]
+        let seasonNumber = seasons?[indexPath.row].number ?? 0
+        cell.textLabel?.text = String("Season \(seasonNumber)")
         cell.textLabel?.textColor = .white
+        if indexPath.item == currentSeason - 1 {
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+        }
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.didSelectSeason(season: indexPath.row + 1)
+        delegate?.didSelectSeason(season: seasons?[indexPath.row])
         self.dismiss(animated: true, completion: nil)
     }
 }

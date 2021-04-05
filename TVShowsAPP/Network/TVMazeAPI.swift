@@ -30,7 +30,7 @@ class TVMazeAPI {
         }
     }
 
-    func episodes(idShow: Int, completion: @escaping ([Episode]?) -> Void) {
+    func allEpisodes(idShow: Int, completion: @escaping ([Episode]?) -> Void) {
         let url = TVMazeRouter.allEpisodes(show: idShow).url
 
         HTTP.get.request(url: url) { (data, _, error) in
@@ -39,6 +39,36 @@ class TVMazeAPI {
             do {
                 let episodes = try JSONDecoder().decode([Episode].self, from: data)
                 completion(episodes)
+            } catch {
+                print(error)
+            }
+        }
+    }
+
+    func episodes(seasonId: Int, completion: @escaping ([Episode]?) -> Void) {
+        let url = TVMazeRouter.episodes(season: seasonId).url
+
+        HTTP.get.request(url: url) { (data, _, error) in
+            guard let data = data else { return }
+
+            do {
+                let episodes = try JSONDecoder().decode([Episode].self, from: data)
+                completion(episodes)
+            } catch {
+                print(error)
+            }
+        }
+    }
+
+    func seasons(idShow: Int, completion: @escaping ([Season]?) -> Void) {
+        let url = TVMazeRouter.seasons(show: idShow).url
+
+        HTTP.get.request(url: url) { (data, _, error) in
+            guard let data = data else { return }
+
+            do {
+                let seasons = try JSONDecoder().decode([Season].self, from: data)
+                completion(seasons)
             } catch {
                 print(error)
             }

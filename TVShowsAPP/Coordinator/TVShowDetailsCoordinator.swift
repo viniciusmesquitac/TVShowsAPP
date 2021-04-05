@@ -26,12 +26,14 @@ final class TVShowDetailsCoordinator: Coordinator {
         navigationController.pushViewController(tvShowDetailsViewController, animated: true)
     }
 
-    func filterEpisodeSeason(delegate: SeasonSelectionDelegate) {
-        let episodeDetailsViewController = SeasonFilterTableViewController()
-        episodeDetailsViewController.modalTransitionStyle = .crossDissolve
-        episodeDetailsViewController.modalPresentationStyle = .overFullScreen
-        episodeDetailsViewController.delegate = delegate
-        navigationController.present(episodeDetailsViewController, animated: true)
+    func filterEpisodeSeason(delegate: SeasonSelectionDelegate, seasons: [Season]?, current: Int) {
+        let seasonFilterTableViewController = SeasonFilterTableViewController()
+        seasonFilterTableViewController.modalTransitionStyle = .crossDissolve
+        seasonFilterTableViewController.modalPresentationStyle = .overFullScreen
+        seasonFilterTableViewController.delegate = delegate
+        seasonFilterTableViewController.seasons = seasons
+        seasonFilterTableViewController.currentSeason = current
+        navigationController.present(seasonFilterTableViewController, animated: true)
     }
 
 }

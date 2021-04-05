@@ -15,8 +15,7 @@ class EpisodesTableViewController: UITableViewController {
     var didFinishLoadEpisodes: (() -> Void)?
     var coordinator: TVShowDetailsCoordinator?
 
-    var episodes: [Episode]?
-    var episodesFiltered: [Episode]? = [] {
+    var episodes: [Episode]? = [] {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -25,20 +24,17 @@ class EpisodesTableViewController: UITableViewController {
             }
         }
     }
+
     var tvShowId = 0
-    var seasonNumber = 1 {
-        didSet {
-            self.episodesFiltered = episodes?.filter { $0.season == self.seasonNumber } ?? []
-            self.didFinishLoadEpisodes?()
-        }
-    }
+    var seasons: [Season]?
+    var currentSeason = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
         setupTableView()
-        getEpisodeList()
+        populateEpisodeList()
     }
 
     func setupTableView() {
@@ -52,17 +48,23 @@ class EpisodesTableViewController: UITableViewController {
             forCellReuseIdentifier: EpisodesTableViewCell.identifier)
     }
 
-    func getEpisodeList() {
-        let tvmaze = TVMazeAPI()
-        tvmaze.episodes(idShow: tvShowId) { episodes in
+    func populateEpisodeList() {
+        TVMazeAPI().seasons(idShow: tvShowId) { seasons in
+            self.seasons = seasons
+            guard let season = seasons?[self.currentSeason - 1] else { return }
+            self.getEpisodeList(seasonId: season.id)
+        }
+    }
+
+    func getEpisodeList(seasonId: Int) {
+        TVMazeAPI().episodes(seasonId: seasonId) { episodes in
             self.episodes = episodes
-            self.seasonNumber = 1
+            self.didFinishLoadEpisodes?()
         }
     }
 
     @objc func didTapSeasonButton() {
-        print("change season")
-        coordinator?.filterEpisodeSeason(delegate: self)
+        coordinator?.filterEpisodeSeason(delegate: self, seasons: self.seasons, current: self.currentSeason)
     }
 
     func setupFooterViewIfNeeded() {
@@ -79,14 +81,17 @@ class EpisodesTableViewController: UITableViewController {
 extension EpisodesTableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return episodesFiltered?.count ?? 0
+        return episodes?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: EpisodesTableViewCell.identifier) as? EpisodesTableViewCell
-        guard let episode = episodesFiltered?[indexPath.row] else { return UITableViewCell() }
-        cell?.setupEpisode(episode: episode)
+        guard let isIndexValid = episodes?.indices.contains(indexPath.row) else { return UITableViewCell() }
+        if isIndexValid {
+            guard let episode = episodes?[indexPath.row] else { return UITableViewCell() }
+            cell?.setupEpisode(episode: episode)
+        }
         return cell ?? UITableViewCell()
     }
 
@@ -111,9 +116,11 @@ extension EpisodesTableViewController {
 }
 
 extension EpisodesTableViewController: SeasonSelectionDelegate {
-    func didSelectSeason(season: Int) {
-        self.seasonNumber = season
-        headerView.seasonButton.setTitle("Season \(season)", for: .normal)
+    func didSelectSeason(season: Season?) {
+        guard let season = season else { return }
+        self.currentSeason = season.number ?? 0
+        headerView.seasonButton.setTitle("Season \(currentSeason)", for: .normal)
+        self.getEpisodeList(seasonId: season.id)
         self.tableView.reloadSections(IndexSet.init(integer: 0), with: .automatic)
     }
 }
