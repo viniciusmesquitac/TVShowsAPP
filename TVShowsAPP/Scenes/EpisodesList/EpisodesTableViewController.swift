@@ -35,12 +35,12 @@ class EpisodesTableViewController: UITableViewController {
         self.tableView.delegate = self
         setupTableView()
         populateEpisodeList()
+        setupFooterViewIfNeeded()
     }
 
     func setupTableView() {
         tableView.isScrollEnabled = false
         tableView.isHidden = true
-        tableView.allowsSelection = false
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 71 + 16
         tableView.register(
@@ -87,6 +87,7 @@ extension EpisodesTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: EpisodesTableViewCell.identifier) as? EpisodesTableViewCell
+        cell?.selectionStyle = .none
         guard let isIndexValid = episodes?.indices.contains(indexPath.row) else { return UITableViewCell() }
         if isIndexValid {
             guard let episode = episodes?[indexPath.row] else { return UITableViewCell() }
@@ -112,6 +113,10 @@ extension EpisodesTableViewController {
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Episodes"
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        coordinator?.episodeDetails(episode: self.episodes?[indexPath.row])
     }
 }
 

@@ -39,7 +39,6 @@ class FavoriteListTableViewCell: UITableViewCell {
         return label
     }()
 
-    
     override func prepareForReuse() {
         self.favoriteTvShowImageView.contentMode = .scaleToFill
     }

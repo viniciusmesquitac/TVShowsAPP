@@ -61,7 +61,6 @@ extension TVShowDetailsViewController: UITableViewDataSource, UITableViewDelegat
         let cell = tableView.dequeueReusableCell(
             withIdentifier: TVShowDetailsTableViewCell.identifier) as? TVShowDetailsTableViewCell
         cell?.setup(with: viewModel)
-        cell?.contentView.isUserInteractionEnabled = false
         cell?.contentInformationView.buttonFavorite.addTarget(
             viewModel, action: #selector(viewModel?.didTapFavoriteButton), for: .touchUpInside)
         return cell ?? UITableViewCell()

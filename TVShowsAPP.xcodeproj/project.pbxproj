@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		22DE1FDC1A2A19CF4D2ABC99 /* Pods_TVShowsAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3341636D78D774DC97FA4D8E /* Pods_TVShowsAPP.framework */; };
+		81C1B2E6261CF78800E6D3BE /* EpisodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B2E5261CF78800E6D3BE /* EpisodeDetailsView.swift */; };
+		81C1B2EB261CF86000E6D3BE /* EpisodeDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B2EA261CF86000E6D3BE /* EpisodeDetailsTableViewCell.swift */; };
+		81C1B2F0261CF8EE00E6D3BE /* EpisodeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B2EF261CF8EE00E6D3BE /* EpisodeDetailsViewController.swift */; };
+		81C1B2F5261D01E600E6D3BE /* ContentEpisodeInformationVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B2F4261D01E600E6D3BE /* ContentEpisodeInformationVIew.swift */; };
+		81C1B307261D09BE00E6D3BE /* String+OcurrencesSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B306261D09BE00E6D3BE /* String+OcurrencesSummary.swift */; };
 		81D5F9362614BD9E006ECCF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5F9352614BD9E006ECCF1 /* AppDelegate.swift */; };
 		81D5F9382614BD9E006ECCF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5F9372614BD9E006ECCF1 /* SceneDelegate.swift */; };
 		81D5F9402614BD9E006ECCF1 /* TVShowsAPP.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81D5F93E2614BD9E006ECCF1 /* TVShowsAPP.xcdatamodeld */; };
@@ -94,6 +99,11 @@
 		45EFD5085DBC7160291ACEDC /* Pods_TVShowsAPPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVShowsAPPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FEE572C363FEF21743FE71D /* Pods_TVShowsAPP_TVShowsAPPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVShowsAPP_TVShowsAPPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BFFC9E9A775D2475C962B2F /* Pods-TVShowsAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPP.release.xcconfig"; path = "Target Support Files/Pods-TVShowsAPP/Pods-TVShowsAPP.release.xcconfig"; sourceTree = "<group>"; };
+		81C1B2E5261CF78800E6D3BE /* EpisodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsView.swift; sourceTree = "<group>"; };
+		81C1B2EA261CF86000E6D3BE /* EpisodeDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		81C1B2EF261CF8EE00E6D3BE /* EpisodeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsViewController.swift; sourceTree = "<group>"; };
+		81C1B2F4261D01E600E6D3BE /* ContentEpisodeInformationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentEpisodeInformationVIew.swift; sourceTree = "<group>"; };
+		81C1B306261D09BE00E6D3BE /* String+OcurrencesSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+OcurrencesSummary.swift"; sourceTree = "<group>"; };
 		81D5F9322614BD9E006ECCF1 /* TVShowsAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVShowsAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D5F9352614BD9E006ECCF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81D5F9372614BD9E006ECCF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +215,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		81C1B2E3261CF75C00E6D3BE /* EpisodeDetails */ = {
+			isa = PBXGroup;
+			children = (
+				81C1B2E5261CF78800E6D3BE /* EpisodeDetailsView.swift */,
+				81C1B2EF261CF8EE00E6D3BE /* EpisodeDetailsViewController.swift */,
+			);
+			path = EpisodeDetails;
+			sourceTree = "<group>";
+		};
 		81D5F9292614BD9E006ECCF1 = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +309,7 @@
 		81D5F9942614C707006ECCF1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				81C1B2E3261CF75C00E6D3BE /* EpisodeDetails */,
 				81D5FB672619F53F006ECCF1 /* EpisodesList */,
 				81D5FB2F2618D920006ECCF1 /* Settings */,
 				81D5F9982614C71A006ECCF1 /* TVShowsList */,
@@ -360,6 +380,7 @@
 				81D5F9FE26154021006ECCF1 /* LoadingIndicatorView.swift */,
 				81D5FA1E2615E0C1006ECCF1 /* ContentInformationView.swift */,
 				81D5FB74261A3484006ECCF1 /* SeasonHeaderView.swift */,
+				81C1B2F4261D01E600E6D3BE /* ContentEpisodeInformationVIew.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -382,6 +403,7 @@
 				81D5FA4C261614ED006ECCF1 /* EpisodesTableViewCell.swift */,
 				81D5FAAF26188BD2006ECCF1 /* FavoriteListTableViewCell.swift */,
 				81D5FBD8261BB232006ECCF1 /* TVShowListTableViewCell.swift */,
+				81C1B2EA261CF86000E6D3BE /* EpisodeDetailsTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -392,6 +414,7 @@
 				81D5FA78261752BD006ECCF1 /* ViewController+Child.swift */,
 				81D5FB56261900E9006ECCF1 /* UIButton.swift */,
 				81D5FB5C2619F2C4006ECCF1 /* UIImage+AvarageColor.swift */,
+				81C1B306261D09BE00E6D3BE /* String+OcurrencesSummary.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -732,6 +755,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81D5FA98261801CD006ECCF1 /* SearchListViewModel.swift in Sources */,
+				81C1B2E6261CF78800E6D3BE /* EpisodeDetailsView.swift in Sources */,
 				81D5F9A12614C7BE006ECCF1 /* SearchListViewController.swift in Sources */,
 				81D5FAC826189678006ECCF1 /* FavoriteListRepository.swift in Sources */,
 				81D5FAAB26188BA0006ECCF1 /* FavoriteListView.swift in Sources */,
@@ -753,9 +777,12 @@
 				81D5F9FF26154021006ECCF1 /* LoadingIndicatorView.swift in Sources */,
 				81D5FB5D2619F2C4006ECCF1 /* UIImage+AvarageColor.swift in Sources */,
 				81D5FA0826154E14006ECCF1 /* TVShowDetailsViewController.swift in Sources */,
+				81C1B307261D09BE00E6D3BE /* String+OcurrencesSummary.swift in Sources */,
+				81C1B2F0261CF8EE00E6D3BE /* EpisodeDetailsViewController.swift in Sources */,
 				81D5FBD9261BB232006ECCF1 /* TVShowListTableViewCell.swift in Sources */,
 				81D5F98B2614C0C8006ECCF1 /* FavoriteListCoordinator.swift in Sources */,
 				81D5FA5626161A6A006ECCF1 /* EpisodesTableViewController.swift in Sources */,
+				81C1B2F5261D01E600E6D3BE /* ContentEpisodeInformationVIew.swift in Sources */,
 				81D5FA332615E90F006ECCF1 /* TVShowDetailsTableViewCell.swift in Sources */,
 				81D5F9792614C016006ECCF1 /* TabBarCoordinator.swift in Sources */,
 				81D5FB75261A3484006ECCF1 /* SeasonHeaderView.swift in Sources */,
@@ -771,6 +798,7 @@
 				81D5FB232618A663006ECCF1 /* Predicate.swift in Sources */,
 				81D5FA88261770A6006ECCF1 /* Stylesheet.swift in Sources */,
 				81D5F9D92614E9EB006ECCF1 /* TVShow.swift in Sources */,
+				81C1B2EB261CF86000E6D3BE /* EpisodeDetailsTableViewCell.swift in Sources */,
 				81D5FB57261900E9006ECCF1 /* UIButton.swift in Sources */,
 				81D5FA932617FD2E006ECCF1 /* ResultsShowListViewController.swift in Sources */,
 				81D5F9832614C0B3006ECCF1 /* SearchListCoordinator.swift in Sources */,

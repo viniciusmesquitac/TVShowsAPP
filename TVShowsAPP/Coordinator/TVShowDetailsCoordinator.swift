@@ -35,4 +35,10 @@ final class TVShowDetailsCoordinator: Coordinator {
         navigationController.present(seasonFilterTableViewController, animated: true)
     }
 
+    func episodeDetails(episode: Episode?) {
+        let episodeDetailsViewController = EpisodeDetailsViewController()
+        episodeDetailsViewController.episode = episode
+        navigationController.pushViewController(episodeDetailsViewController, animated: true)
+    }
+
 }

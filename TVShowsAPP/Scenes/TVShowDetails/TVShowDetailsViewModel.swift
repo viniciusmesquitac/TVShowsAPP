@@ -82,16 +82,10 @@ extension TVShowDetailsViewModel {
     }
 
     var summary: NSAttributedString {
-        var summaryStringReplaced = tvShow?.summary?.replacingOccurrences(of: "<p>", with: "")
-        summaryStringReplaced = summaryStringReplaced?.replacingOccurrences(of: "</p>", with: "")
-        summaryStringReplaced = summaryStringReplaced?.replacingOccurrences(of: "<b>", with: "")
-        summaryStringReplaced = summaryStringReplaced?.replacingOccurrences(of: "</b>", with: "")
-        summaryStringReplaced = summaryStringReplaced?.replacingOccurrences(of: "<br>", with: "")
-        summaryStringReplaced = summaryStringReplaced?.replacingOccurrences(of: "<br>", with: "")
-        summaryStringReplaced = summaryStringReplaced?.replacingOccurrences(of: "<i>", with: "")
-        summaryStringReplaced = summaryStringReplaced?.replacingOccurrences(of: "</i>", with: "")
-        let attrStr = attributedText(
-            withString: summaryStringReplaced ?? "",
+        guard var summaryStringReplaced = tvShow?.summary
+        else { return NSAttributedString(string: "") }
+        summaryStringReplaced = summaryStringReplaced.removeAllOcurrences
+        let attrStr = summaryStringReplaced.attributedText(
             boldString: tvShow?.name ?? "",
             font: .systemFont(ofSize: 16))
         return attrStr
@@ -100,21 +94,6 @@ extension TVShowDetailsViewModel {
     var rating: String {
         guard let rating = tvShow?.rating?.average else { return "Not rated" }
         return "Rating: \(rating)"
-    }
-
-}
-
-extension TVShowDetailsViewModel {
-
-    func attributedText(withString string: String, boldString: String, font: UIFont) -> NSAttributedString {
-        let attributedString = NSMutableAttributedString(string: string,
-                                                     attributes: [NSAttributedString.Key.font: font])
-        let boldFontAttribute: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: font.pointSize)
-        ]
-        let range = (string as NSString).range(of: boldString)
-        attributedString.addAttributes(boldFontAttribute, range: range)
-        return attributedString
     }
 
 }
