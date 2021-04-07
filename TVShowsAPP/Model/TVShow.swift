@@ -30,9 +30,9 @@ struct TVShow: Decodable {
     var id: Int
     var name: String
     var summary: String?
-    var url: String
-    var type: String
-    var genres: [String]
+    var url: String?
+    var type: String?
+    var genres: [String]?
     var officialSite: String?
     var schedule: Schedule?
     var network: Network?

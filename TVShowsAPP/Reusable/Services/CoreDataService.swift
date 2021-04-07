@@ -23,7 +23,9 @@ class CoreDataService<T: NSManagedObject> {
     let persistentStore: NSPersistentContainer = {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let container = appDelegate?.persistentContainer
-        guard let persistentContainer = container else { fatalError() }
+        guard let persistentContainer = container else {
+            fatalError()
+        }
         return persistentContainer
     }()
 
@@ -36,12 +38,11 @@ class CoreDataService<T: NSManagedObject> {
     func fetchAll() -> [T]? {
         let context = persistentStore.viewContext
         let entity = NSFetchRequest<T>(entityName: T.entityName)
-//        entity.sortDescriptors = [NSSortDescriptor(key: Scheme.name.rawValue, ascending: true)]
         do {
             let products = try context.fetch(entity)
             return products
         } catch let error as NSError {
-            print(error)
+            context.handleSavingError(error, info: "")
             return nil
         }
     }
@@ -60,13 +61,12 @@ class CoreDataService<T: NSManagedObject> {
     func retrieve(predicate: NSPredicate) -> [T]? {
         let context = persistentStore.viewContext
         let entity = NSFetchRequest<T>(entityName: T.entityName)
-//        productFetch.sortDescriptors = [NSSortDescriptor(key: Scheme.name.rawValue, ascending: true)]
         entity.predicate  = predicate
         do {
             let objects = try context.fetch(entity)
             return objects
         } catch let error as NSError {
-            print(error)
+            context.handleSavingError(error, info: "")
             return nil
         }
     }

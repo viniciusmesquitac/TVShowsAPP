@@ -16,7 +16,9 @@ class FavoriteListRepository: Repository {
     var favorites: [ObjectDAO] = []
 
     func getAll() -> [ObjectDAO] {
-        guard let favorites = service.fetchAll() else { return self.favorites }
+        guard let favorites = service.fetchAll() else {
+            return self.favorites
+        }
         self.favorites = favorites
         return favorites
     }
@@ -27,7 +29,7 @@ class FavoriteListRepository: Repository {
         tvShow?.name = object.name
         tvShow?.id = Int32(object.id)
         tvShow?.summary = object.summary
-        tvShow?.genres = object.genres.joined(separator: " ,")
+        tvShow?.genres = object.genres?.joined(separator: " ,")
         tvShow?.officialSite = object.officialSite
         tvShow?.image = CoreDataService<ImageDAO>().new()
         tvShow?.image?.medium = object.image?.medium
