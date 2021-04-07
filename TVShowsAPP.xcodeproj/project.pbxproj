@@ -15,6 +15,9 @@
 		81C1B307261D09BE00E6D3BE /* String+OcurrencesSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B306261D09BE00E6D3BE /* String+OcurrencesSummary.swift */; };
 		81C1B314261D1CE900E6D3BE /* FavoriteRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B313261D1CE900E6D3BE /* FavoriteRepositoryTests.swift */; };
 		81C1B31C261D2B8E00E6D3BE /* TestableRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B31B261D2B8E00E6D3BE /* TestableRepositoryProtocol.swift */; };
+		81C1B321261D2E7900E6D3BE /* FavoriteListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B320261D2E7900E6D3BE /* FavoriteListViewModelTests.swift */; };
+		81C1B326261D30BE00E6D3BE /* TVShowViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B325261D30BE00E6D3BE /* TVShowViewModelTests.swift */; };
+		81C1B32B261D31B200E6D3BE /* TVShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B32A261D31B200E6D3BE /* TVShowViewModel.swift */; };
 		81D5F9362614BD9E006ECCF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5F9352614BD9E006ECCF1 /* AppDelegate.swift */; };
 		81D5F9382614BD9E006ECCF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5F9372614BD9E006ECCF1 /* SceneDelegate.swift */; };
 		81D5F9402614BD9E006ECCF1 /* TVShowsAPP.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81D5F93E2614BD9E006ECCF1 /* TVShowsAPP.xcdatamodeld */; };
@@ -108,6 +111,9 @@
 		81C1B306261D09BE00E6D3BE /* String+OcurrencesSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+OcurrencesSummary.swift"; sourceTree = "<group>"; };
 		81C1B313261D1CE900E6D3BE /* FavoriteRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryTests.swift; sourceTree = "<group>"; };
 		81C1B31B261D2B8E00E6D3BE /* TestableRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableRepositoryProtocol.swift; sourceTree = "<group>"; };
+		81C1B320261D2E7900E6D3BE /* FavoriteListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewModelTests.swift; sourceTree = "<group>"; };
+		81C1B325261D30BE00E6D3BE /* TVShowViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowViewModelTests.swift; sourceTree = "<group>"; };
+		81C1B32A261D31B200E6D3BE /* TVShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowViewModel.swift; sourceTree = "<group>"; };
 		81D5F9322614BD9E006ECCF1 /* TVShowsAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVShowsAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D5F9352614BD9E006ECCF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81D5F9372614BD9E006ECCF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -231,6 +237,8 @@
 		81C1B30E261D1B4E00E6D3BE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				81C1B320261D2E7900E6D3BE /* FavoriteListViewModelTests.swift */,
+				81C1B325261D30BE00E6D3BE /* TVShowViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -457,6 +465,7 @@
 				81D5FAC726189678006ECCF1 /* FavoriteListRepository.swift */,
 				81D5FAAA26188BA0006ECCF1 /* FavoriteListView.swift */,
 				81D5FAB4261893F4006ECCF1 /* FavoriteListViewModel.swift */,
+				81C1B32A261D31B200E6D3BE /* TVShowViewModel.swift */,
 			);
 			path = FavoriteList;
 			sourceTree = "<group>";
@@ -803,6 +812,7 @@
 				81C1B2F0261CF8EE00E6D3BE /* EpisodeDetailsViewController.swift in Sources */,
 				81D5FBD9261BB232006ECCF1 /* TVShowListTableViewCell.swift in Sources */,
 				81D5F98B2614C0C8006ECCF1 /* FavoriteListCoordinator.swift in Sources */,
+				81C1B32B261D31B200E6D3BE /* TVShowViewModel.swift in Sources */,
 				81D5FA5626161A6A006ECCF1 /* EpisodesTableViewController.swift in Sources */,
 				81C1B2F5261D01E600E6D3BE /* ContentEpisodeInformationVIew.swift in Sources */,
 				81D5FA332615E90F006ECCF1 /* TVShowDetailsTableViewCell.swift in Sources */,
@@ -840,12 +850,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				81D5FBBF261B9FDF006ECCF1 /* DownlaoadTaskMock.swift in Sources */,
+				81C1B326261D30BE00E6D3BE /* TVShowViewModelTests.swift in Sources */,
 				81D5FBB1261B9F7F006ECCF1 /* DataTaskMock.swift in Sources */,
 				81C1B31C261D2B8E00E6D3BE /* TestableRepositoryProtocol.swift in Sources */,
 				81D5FBA9261B9F58006ECCF1 /* URLSessionMock.swift in Sources */,
 				81C1B314261D1CE900E6D3BE /* FavoriteRepositoryTests.swift in Sources */,
 				81D5F9502614BDA0006ECCF1 /* TVShowsAPPTests.swift in Sources */,
 				81D5FBA1261B9F1D006ECCF1 /* TVMazeAPITests.swift in Sources */,
+				81C1B321261D2E7900E6D3BE /* FavoriteListViewModelTests.swift in Sources */,
 				81D5FBB7261B9FB7006ECCF1 /* TestDataTaskMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

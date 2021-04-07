@@ -35,7 +35,6 @@ class EpisodesTableViewController: UITableViewController {
         self.tableView.delegate = self
         setupTableView()
         populateEpisodeList()
-        setupFooterViewIfNeeded()
     }
 
     func setupTableView() {
@@ -65,16 +64,6 @@ class EpisodesTableViewController: UITableViewController {
 
     @objc func didTapSeasonButton() {
         coordinator?.filterEpisodeSeason(delegate: self, seasons: self.seasons, current: self.currentSeason)
-    }
-
-    func setupFooterViewIfNeeded() {
-        DispatchQueue.main.async {
-            guard let episodes = self.episodes else { return }
-            if episodes.isEmpty {
-                self.footerView.messageLabel.text = "Any episode available for this season"
-                self.footerView.messageLabel.isHidden = false
-            }
-        }
     }
 }
 
