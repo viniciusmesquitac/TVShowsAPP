@@ -9,5 +9,10 @@ import UIKit
 
 struct SettingsSection {
     var title: String
-    var cells: [UITableViewCell]
+    var items: [SettingsItem]
+}
+
+struct SettingsItem {
+    let cell: UITableViewCell
+    let action: (() -> Void)?
 }

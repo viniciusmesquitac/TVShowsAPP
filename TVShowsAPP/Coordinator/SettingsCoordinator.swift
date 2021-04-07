@@ -17,8 +17,12 @@ final class SettingsListCoordinator: Coordinator {
     }
 
     func start() {
-        let settingsTableViewController = SettingsTableViewController(style: .grouped)
+        let settingsTableViewController = SettingsTableViewController(viewModel: SettingsViewModel(coordinator: self))
         navigationController.pushViewController(settingsTableViewController, animated: false)
+    }
+    
+    func pinCodeConfig() {
+        print("Go to pin code config")
     }
 
 }

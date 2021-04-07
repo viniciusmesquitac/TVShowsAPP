@@ -7,38 +7,26 @@
 
 import UIKit
 
-protocol SettingsDelegate: class {
-
-}
-
-enum SecurityCells: String, CaseIterable {
-    case faceId = "PIN Code"
-    case teste = "Face ID"
-}
-
-enum GeneralCells: String, CaseIterable {
-    case theme = "Theme"
-}
-
 class SettingsViewModel {
     var sections = [SettingsSection]()
-    weak var delegate: SettingsDelegate?
+    var coordinator: SettingsListCoordinator?
 
     var numberOfSections: Int {
         sections.count
     }
 
-    init(delegate: SettingsDelegate) {
-        self.delegate = delegate
+    init(coordinator: SettingsListCoordinator) {
+        self.coordinator = coordinator
         createSections()
     }
 
     private func createSections() {
-        let securityCells = SecurityCells.allCases.map { createCell(title: $0.rawValue) }
-        let generalCells = GeneralCells.allCases.map { createCell(title: $0.rawValue) }
+        let items = [
+            SettingsItem(cell: createCell(title: "PIN CODE")) { self.coordinator?.pinCodeConfig() },
+            SettingsItem(cell: createCell(title: "Face ID")) { self.coordinator?.pinCodeConfig() }
+        ]
         sections = [
-            SettingsSection(title: "Security", cells: securityCells),
-            SettingsSection(title: "General", cells: generalCells)
+            SettingsSection(title: "Security", items: items)
         ]
     }
 
