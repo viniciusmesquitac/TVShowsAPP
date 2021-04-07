@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// swiftlint:disable identifier_name
 enum Predicate {
 
     case id(_ identifier: String)

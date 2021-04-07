@@ -112,8 +112,11 @@ extension EpisodesTableViewController {
 extension EpisodesTableViewController: SeasonSelectionDelegate {
     func didSelectSeason(season: Season?) {
         guard let season = season else { return }
-        self.currentSeason = season.number ?? 0
-        headerView.seasonButton.setTitle("Season \(currentSeason)", for: .normal)
+        self.currentSeason = seasons?.firstIndex(where: { value -> Bool in
+            value.number == season.number
+        }) ?? 0
+        self.currentSeason+=1
+        headerView.seasonButton.setTitle("Season \(season.number ?? 1)", for: .normal)
         self.getEpisodeList(seasonId: season.id)
         self.tableView.reloadSections(IndexSet.init(integer: 0), with: .automatic)
     }

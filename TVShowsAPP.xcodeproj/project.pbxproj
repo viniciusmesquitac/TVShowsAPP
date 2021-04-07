@@ -73,10 +73,6 @@
 		81D5FB7F261A3D76006ECCF1 /* SeasonFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FB7E261A3D76006ECCF1 /* SeasonFilterTableViewController.swift */; };
 		81D5FB93261B57D8006ECCF1 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FB92261B57D8006ECCF1 /* Season.swift */; };
 		81D5FBA1261B9F1D006ECCF1 /* TVMazeAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FBA0261B9F1D006ECCF1 /* TVMazeAPITests.swift */; };
-		81D5FBA9261B9F58006ECCF1 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FBA8261B9F58006ECCF1 /* URLSessionMock.swift */; };
-		81D5FBB1261B9F7F006ECCF1 /* DataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FBB0261B9F7F006ECCF1 /* DataTaskMock.swift */; };
-		81D5FBB7261B9FB7006ECCF1 /* TestDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FBB6261B9FB7006ECCF1 /* TestDataTaskMock.swift */; };
-		81D5FBBF261B9FDF006ECCF1 /* DownlaoadTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FBBE261B9FDF006ECCF1 /* DownlaoadTaskMock.swift */; };
 		81D5FBD9261BB232006ECCF1 /* TVShowListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5FBD8261BB232006ECCF1 /* TVShowListTableViewCell.swift */; };
 		E5A7DEF7F779BE667B5AB453 /* Pods_TVShowsAPPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EFD5085DBC7160291ACEDC /* Pods_TVShowsAPPTests.framework */; };
 		E89DD0F528967927AEA4C1CE /* Pods_TVShowsAPP_TVShowsAPPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEE572C363FEF21743FE71D /* Pods_TVShowsAPP_TVShowsAPPUITests.framework */; };
@@ -175,10 +171,6 @@
 		81D5FB7E261A3D76006ECCF1 /* SeasonFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonFilterTableViewController.swift; sourceTree = "<group>"; };
 		81D5FB92261B57D8006ECCF1 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		81D5FBA0261B9F1D006ECCF1 /* TVMazeAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVMazeAPITests.swift; sourceTree = "<group>"; };
-		81D5FBA8261B9F58006ECCF1 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
-		81D5FBB0261B9F7F006ECCF1 /* DataTaskMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskMock.swift; sourceTree = "<group>"; };
-		81D5FBB6261B9FB7006ECCF1 /* TestDataTaskMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataTaskMock.swift; sourceTree = "<group>"; };
-		81D5FBBE261B9FDF006ECCF1 /* DownlaoadTaskMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownlaoadTaskMock.swift; sourceTree = "<group>"; };
 		81D5FBD8261BB232006ECCF1 /* TVShowListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowListTableViewCell.swift; sourceTree = "<group>"; };
 		95C03F42067488469CCEEFC5 /* Pods-TVShowsAPPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPPTests.release.xcconfig"; path = "Target Support Files/Pods-TVShowsAPPTests/Pods-TVShowsAPPTests.release.xcconfig"; sourceTree = "<group>"; };
 		A8DDC04EFF12A5F9CEC0D0E0 /* Pods-TVShowsAPP-TVShowsAPPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPP-TVShowsAPPUITests.release.xcconfig"; path = "Target Support Files/Pods-TVShowsAPP-TVShowsAPPUITests/Pods-TVShowsAPP-TVShowsAPPUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -501,20 +493,8 @@
 		81D5FBA6261B9F3C006ECCF1 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				81D5FBA7261B9F43006ECCF1 /* APIMock */,
 			);
 			path = Mocks;
-			sourceTree = "<group>";
-		};
-		81D5FBA7261B9F43006ECCF1 /* APIMock */ = {
-			isa = PBXGroup;
-			children = (
-				81D5FBA8261B9F58006ECCF1 /* URLSessionMock.swift */,
-				81D5FBB0261B9F7F006ECCF1 /* DataTaskMock.swift */,
-				81D5FBB6261B9FB7006ECCF1 /* TestDataTaskMock.swift */,
-				81D5FBBE261B9FDF006ECCF1 /* DownlaoadTaskMock.swift */,
-			);
-			path = APIMock;
 			sourceTree = "<group>";
 		};
 		BA723C36990409D0DF4351E1 /* Pods */ = {
@@ -849,16 +829,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81D5FBBF261B9FDF006ECCF1 /* DownlaoadTaskMock.swift in Sources */,
 				81C1B326261D30BE00E6D3BE /* TVShowViewModelTests.swift in Sources */,
-				81D5FBB1261B9F7F006ECCF1 /* DataTaskMock.swift in Sources */,
 				81C1B31C261D2B8E00E6D3BE /* TestableRepositoryProtocol.swift in Sources */,
-				81D5FBA9261B9F58006ECCF1 /* URLSessionMock.swift in Sources */,
 				81C1B314261D1CE900E6D3BE /* FavoriteRepositoryTests.swift in Sources */,
 				81D5F9502614BDA0006ECCF1 /* TVShowsAPPTests.swift in Sources */,
 				81D5FBA1261B9F1D006ECCF1 /* TVMazeAPITests.swift in Sources */,
 				81C1B321261D2E7900E6D3BE /* FavoriteListViewModelTests.swift in Sources */,
-				81D5FBB7261B9FB7006ECCF1 /* TestDataTaskMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

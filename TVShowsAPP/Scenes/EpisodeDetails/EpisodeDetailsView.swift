@@ -46,6 +46,14 @@ class EpisodeDetailsView: UIView {
         }
     }
 
+    func setupImage(with url: URL) {
+        let options = ImageLoadingOptions(
+            placeholder: Stylesheet.Images.placeholderPoster,
+            transition: .fadeIn(duration: 0.33)
+        )
+        Nuke.loadImage(with: url, options: options, into: backgroundImageView)
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

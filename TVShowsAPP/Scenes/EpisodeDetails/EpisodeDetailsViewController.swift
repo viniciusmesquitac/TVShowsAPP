@@ -20,6 +20,12 @@ class EpisodeDetailsViewController: UIViewController {
         super.viewDidLoad()
         self.mainView.tableView.delegate = self
         self.mainView.tableView.dataSource = self
+        self.setupImageEpisode()
+    }
+
+    func setupImageEpisode() {
+        guard let url = URL(string: self.episode?.image?.medium ?? "") else { return }
+        self.mainView.setupImage(with: url)
     }
 }
 

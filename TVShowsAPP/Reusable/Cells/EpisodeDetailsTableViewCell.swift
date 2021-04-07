@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Nuke
 
 class EpisodeDetailsTableViewCell: UITableViewCell {
     static let identifier = String(describing: type(of: self))

@@ -24,12 +24,20 @@ class SeasonFilterTableViewController: UITableViewController {
         return blurView
     }()
 
+    lazy var closeButtonView: UIView = {
+        let view = UIView(frame: CGRect(origin: .zero, size: Parameters.closeButtonViewSize))
+        view.backgroundColor = .black
+        view.alpha = 0.8
+        return view
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.backgroundColor = .clear
         self.tableView.backgroundView = blur
         self.tableView.separatorStyle = .none
         self.setupContentSeasonsIfNeeded()
+        self.setupCloseButtonView()
         let indexPath = IndexPath(row: currentSeason - 1, section: 0)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
             self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
@@ -37,7 +45,7 @@ class SeasonFilterTableViewController: UITableViewController {
     }
 
     func setupContentSeasonsIfNeeded() {
-        if seasons?.count ?? 0 <= 6 {
+        if seasons?.count ?? 0 <= 7 {
             self.tableView.contentInset = UIEdgeInsets(
                 top: UIScreen.main.bounds.height/4, left: 0,
                 bottom: -UIScreen.main.bounds.height/3.5,
@@ -50,6 +58,16 @@ class SeasonFilterTableViewController: UITableViewController {
         } else {
             self.tableView.contentInset = UIEdgeInsets(
                 top: 32, left: 0, bottom: UIScreen.main.bounds.height/2, right: 0)
+        }
+    }
+
+    func setupCloseButtonView() {
+        guard let nav = navigationController else { return }
+        nav.view.addSubview(closeButtonView)
+        closeButtonView.snp.makeConstraints { make in
+            make.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
         }
     }
 
@@ -78,5 +96,12 @@ extension SeasonFilterTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.didSelectSeason(season: seasons?[indexPath.row])
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension SeasonFilterTableViewController {
+    
+    private enum Parameters {
+        static let closeButtonViewSize = CGSize(width: UIScreen.main.bounds.width, height: 200)
     }
 }
