@@ -11,6 +11,7 @@
 		818B0451261E69C000105209 /* BiometricAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B0450261E69C000105209 /* BiometricAuthViewController.swift */; };
 		818EEAE5261E7D77000A8414 /* PinConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818EEAE4261E7D77000A8414 /* PinConfigViewController.swift */; };
 		818EEAEA261E8180000A8414 /* SwitchButtonTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818EEAE9261E8180000A8414 /* SwitchButtonTableVIewCell.swift */; };
+		818EEB0A261F9676000A8414 /* AuthenticationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818EEB09261F9676000A8414 /* AuthenticationTextField.swift */; };
 		81C1B2E6261CF78800E6D3BE /* EpisodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B2E5261CF78800E6D3BE /* EpisodeDetailsView.swift */; };
 		81C1B2EB261CF86000E6D3BE /* EpisodeDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B2EA261CF86000E6D3BE /* EpisodeDetailsTableViewCell.swift */; };
 		81C1B2F0261CF8EE00E6D3BE /* EpisodeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B2EF261CF8EE00E6D3BE /* EpisodeDetailsViewController.swift */; };
@@ -106,6 +107,7 @@
 		818B0450261E69C000105209 /* BiometricAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthViewController.swift; sourceTree = "<group>"; };
 		818EEAE4261E7D77000A8414 /* PinConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinConfigViewController.swift; sourceTree = "<group>"; };
 		818EEAE9261E8180000A8414 /* SwitchButtonTableVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchButtonTableVIewCell.swift; sourceTree = "<group>"; };
+		818EEB09261F9676000A8414 /* AuthenticationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTextField.swift; sourceTree = "<group>"; };
 		81C1B2E5261CF78800E6D3BE /* EpisodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsView.swift; sourceTree = "<group>"; };
 		81C1B2EA261CF86000E6D3BE /* EpisodeDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		81C1B2EF261CF8EE00E6D3BE /* EpisodeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsViewController.swift; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 				81D5FA1E2615E0C1006ECCF1 /* ContentInformationView.swift */,
 				81D5FB74261A3484006ECCF1 /* SeasonHeaderView.swift */,
 				81C1B2F4261D01E600E6D3BE /* ContentEpisodeInformationVIew.swift */,
+				818EEB09261F9676000A8414 /* AuthenticationTextField.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -836,6 +839,7 @@
 				81D5F99C2614C7B3006ECCF1 /* ShowsListViewController.swift in Sources */,
 				81D5FA79261752BD006ECCF1 /* ViewController+Child.swift in Sources */,
 				81D5FB232618A663006ECCF1 /* Predicate.swift in Sources */,
+				818EEB0A261F9676000A8414 /* AuthenticationTextField.swift in Sources */,
 				81D5FA88261770A6006ECCF1 /* Stylesheet.swift in Sources */,
 				81D5F9D92614E9EB006ECCF1 /* TVShow.swift in Sources */,
 				81C1B2EB261CF86000E6D3BE /* EpisodeDetailsTableViewCell.swift in Sources */,
