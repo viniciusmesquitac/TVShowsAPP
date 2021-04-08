@@ -25,6 +25,9 @@ class SettingsTableViewController: UITableViewController {
         self.title = "Settings"
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.tableView.register(
+            SwitchButtonTableViewCell.self,
+            forCellReuseIdentifier: SwitchButtonTableViewCell.identifier)
     }
 }
 
@@ -44,6 +47,7 @@ extension SettingsTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let item = viewModel?.sections[indexPath.section].items[indexPath.row] else { return }
+        tableView.deselectRow(at: indexPath, animated: true)
         item.action?()
     }
 

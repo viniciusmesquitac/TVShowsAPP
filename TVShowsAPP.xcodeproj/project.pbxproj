@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		22DE1FDC1A2A19CF4D2ABC99 /* Pods_TVShowsAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3341636D78D774DC97FA4D8E /* Pods_TVShowsAPP.framework */; };
+		818B0451261E69C000105209 /* BiometricAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B0450261E69C000105209 /* BiometricAuthViewController.swift */; };
+		818EEAE5261E7D77000A8414 /* PinConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818EEAE4261E7D77000A8414 /* PinConfigViewController.swift */; };
+		818EEAEA261E8180000A8414 /* SwitchButtonTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818EEAE9261E8180000A8414 /* SwitchButtonTableVIewCell.swift */; };
 		81C1B2E6261CF78800E6D3BE /* EpisodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B2E5261CF78800E6D3BE /* EpisodeDetailsView.swift */; };
 		81C1B2EB261CF86000E6D3BE /* EpisodeDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B2EA261CF86000E6D3BE /* EpisodeDetailsTableViewCell.swift */; };
 		81C1B2F0261CF8EE00E6D3BE /* EpisodeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B2EF261CF8EE00E6D3BE /* EpisodeDetailsViewController.swift */; };
@@ -100,6 +103,9 @@
 		45EFD5085DBC7160291ACEDC /* Pods_TVShowsAPPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVShowsAPPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FEE572C363FEF21743FE71D /* Pods_TVShowsAPP_TVShowsAPPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVShowsAPP_TVShowsAPPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BFFC9E9A775D2475C962B2F /* Pods-TVShowsAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPP.release.xcconfig"; path = "Target Support Files/Pods-TVShowsAPP/Pods-TVShowsAPP.release.xcconfig"; sourceTree = "<group>"; };
+		818B0450261E69C000105209 /* BiometricAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthViewController.swift; sourceTree = "<group>"; };
+		818EEAE4261E7D77000A8414 /* PinConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinConfigViewController.swift; sourceTree = "<group>"; };
+		818EEAE9261E8180000A8414 /* SwitchButtonTableVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchButtonTableVIewCell.swift; sourceTree = "<group>"; };
 		81C1B2E5261CF78800E6D3BE /* EpisodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsView.swift; sourceTree = "<group>"; };
 		81C1B2EA261CF86000E6D3BE /* EpisodeDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		81C1B2EF261CF8EE00E6D3BE /* EpisodeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +223,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		818B044F261E69A300105209 /* SectionPIN */ = {
+			isa = PBXGroup;
+			children = (
+				818EEAE4261E7D77000A8414 /* PinConfigViewController.swift */,
+			);
+			path = SectionPIN;
+			sourceTree = "<group>";
+		};
+		818EEAE0261E7D18000A8414 /* BiometricAuth */ = {
+			isa = PBXGroup;
+			children = (
+				818B0450261E69C000105209 /* BiometricAuthViewController.swift */,
+			);
+			path = BiometricAuth;
+			sourceTree = "<group>";
+		};
 		81C1B2E3261CF75C00E6D3BE /* EpisodeDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +330,7 @@
 		81D5F96E2614BDC5006ECCF1 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				81D5FA77261752B0006ECCF1 /* Extensions */,
 				81D5F9352614BD9E006ECCF1 /* AppDelegate.swift */,
 				81D5F9372614BD9E006ECCF1 /* SceneDelegate.swift */,
 			);
@@ -389,7 +412,6 @@
 			isa = PBXGroup;
 			children = (
 				81D5FAB92618953B006ECCF1 /* Services */,
-				81D5FA77261752B0006ECCF1 /* Extensions */,
 				81D5FA232615E14E006ECCF1 /* Cells */,
 				81D5F9FD26154007006ECCF1 /* ViewComponents */,
 			);
@@ -426,6 +448,7 @@
 				81D5FAAF26188BD2006ECCF1 /* FavoriteListTableViewCell.swift */,
 				81D5FBD8261BB232006ECCF1 /* TVShowListTableViewCell.swift */,
 				81C1B2EA261CF86000E6D3BE /* EpisodeDetailsTableViewCell.swift */,
+				818EEAE9261E8180000A8414 /* SwitchButtonTableVIewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -474,6 +497,8 @@
 		81D5FB2F2618D920006ECCF1 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				818EEAE0261E7D18000A8414 /* BiometricAuth */,
+				818B044F261E69A300105209 /* SectionPIN */,
 				81D5FB302618D938006ECCF1 /* SettingsTableViewController.swift */,
 				81D5FB432618DD2A006ECCF1 /* SettingsViewModel.swift */,
 				81D5FB512618DF92006ECCF1 /* SettingsSection.swift */,
@@ -776,10 +801,12 @@
 				81D5FA1F2615E0C1006ECCF1 /* ContentInformationView.swift in Sources */,
 				81D5FAB5261893F4006ECCF1 /* FavoriteListViewModel.swift in Sources */,
 				81D5FAB026188BD2006ECCF1 /* FavoriteListTableViewCell.swift in Sources */,
+				818EEAE5261E7D77000A8414 /* PinConfigViewController.swift in Sources */,
 				81D5FB7F261A3D76006ECCF1 /* SeasonFilterTableViewController.swift in Sources */,
 				81D5FB2B2618AFE8006ECCF1 /* ImagesResult.swift in Sources */,
 				81D5FABB2618955B006ECCF1 /* Repository.swift in Sources */,
 				81D5F9362614BD9E006ECCF1 /* AppDelegate.swift in Sources */,
+				818B0451261E69C000105209 /* BiometricAuthViewController.swift in Sources */,
 				81D5FA1026154E4A006ECCF1 /* TVShowDetailsView.swift in Sources */,
 				81D5F97E2614C086006ECCF1 /* ShowsListCoordinator.swift in Sources */,
 				81D5FB522618DF92006ECCF1 /* SettingsSection.swift in Sources */,
@@ -790,6 +817,7 @@
 				81D5FA0826154E14006ECCF1 /* TVShowDetailsViewController.swift in Sources */,
 				81C1B307261D09BE00E6D3BE /* String+OcurrencesSummary.swift in Sources */,
 				81C1B2F0261CF8EE00E6D3BE /* EpisodeDetailsViewController.swift in Sources */,
+				818EEAEA261E8180000A8414 /* SwitchButtonTableVIewCell.swift in Sources */,
 				81D5FBD9261BB232006ECCF1 /* TVShowListTableViewCell.swift in Sources */,
 				81D5F98B2614C0C8006ECCF1 /* FavoriteListCoordinator.swift in Sources */,
 				81C1B32B261D31B200E6D3BE /* TVShowViewModel.swift in Sources */,
