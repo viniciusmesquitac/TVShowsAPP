@@ -8,5 +8,5 @@
 import Foundation
 
 enum UserDefaultsEnum: String {
-    case isBiometricOn = "isBiometricOn"
+    case isBiometricOn
 }

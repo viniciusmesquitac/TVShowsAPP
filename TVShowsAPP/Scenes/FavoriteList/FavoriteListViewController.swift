@@ -30,6 +30,7 @@ class FavoriteListViewController: UIViewController {
         self.mainView.tableView.delegate = self
         viewModel.handleUpdate = {
             self.mainView.tableView.reloadData()
+            self.mainView.setupEmptyStateIfNeeded(self.viewModel.favorites.isEmpty)
         }
         coordinator = ShowsListCoordinator(navigationController: navigationController)
     }

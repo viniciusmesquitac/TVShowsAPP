@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		22DE1FDC1A2A19CF4D2ABC99 /* Pods_TVShowsAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3341636D78D774DC97FA4D8E /* Pods_TVShowsAPP.framework */; };
-		818B0451261E69C000105209 /* BiometricAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B0450261E69C000105209 /* BiometricAuthViewController.swift */; };
+		818B0451261E69C000105209 /* BiometricAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B0450261E69C000105209 /* BiometricAuthentication.swift */; };
 		818EEAE5261E7D77000A8414 /* PinConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818EEAE4261E7D77000A8414 /* PinConfigViewController.swift */; };
 		818EEAEA261E8180000A8414 /* SwitchButtonTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818EEAE9261E8180000A8414 /* SwitchButtonTableVIewCell.swift */; };
 		818EEB0A261F9676000A8414 /* AuthenticationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818EEB09261F9676000A8414 /* AuthenticationTextField.swift */; };
@@ -105,7 +105,7 @@
 		45EFD5085DBC7160291ACEDC /* Pods_TVShowsAPPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVShowsAPPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FEE572C363FEF21743FE71D /* Pods_TVShowsAPP_TVShowsAPPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVShowsAPP_TVShowsAPPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BFFC9E9A775D2475C962B2F /* Pods-TVShowsAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsAPP.release.xcconfig"; path = "Target Support Files/Pods-TVShowsAPP/Pods-TVShowsAPP.release.xcconfig"; sourceTree = "<group>"; };
-		818B0450261E69C000105209 /* BiometricAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthViewController.swift; sourceTree = "<group>"; };
+		818B0450261E69C000105209 /* BiometricAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthentication.swift; sourceTree = "<group>"; };
 		818EEAE4261E7D77000A8414 /* PinConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinConfigViewController.swift; sourceTree = "<group>"; };
 		818EEAE9261E8180000A8414 /* SwitchButtonTableVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchButtonTableVIewCell.swift; sourceTree = "<group>"; };
 		818EEB09261F9676000A8414 /* AuthenticationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTextField.swift; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 		818EEAE0261E7D18000A8414 /* BiometricAuth */ = {
 			isa = PBXGroup;
 			children = (
-				818B0450261E69C000105209 /* BiometricAuthViewController.swift */,
+				818B0450261E69C000105209 /* BiometricAuthentication.swift */,
 			);
 			path = BiometricAuth;
 			sourceTree = "<group>";
@@ -820,7 +820,7 @@
 				81D5FB2B2618AFE8006ECCF1 /* ImagesResult.swift in Sources */,
 				81D5FABB2618955B006ECCF1 /* Repository.swift in Sources */,
 				81D5F9362614BD9E006ECCF1 /* AppDelegate.swift in Sources */,
-				818B0451261E69C000105209 /* BiometricAuthViewController.swift in Sources */,
+				818B0451261E69C000105209 /* BiometricAuthentication.swift in Sources */,
 				81D5FA1026154E4A006ECCF1 /* TVShowDetailsView.swift in Sources */,
 				81D5F97E2614C086006ECCF1 /* ShowsListCoordinator.swift in Sources */,
 				81D5FB522618DF92006ECCF1 /* SettingsSection.swift in Sources */,
