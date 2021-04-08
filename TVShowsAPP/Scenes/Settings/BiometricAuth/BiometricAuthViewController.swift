@@ -8,37 +8,34 @@
 import UIKit
 import LocalAuthentication
 
-class BiometricAuthViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = .blue
-        identify()
-    }
+protocol AlertMessage {
+    func alert(with message: String, target: UINavigationController, handler: ((UIAlertAction) -> Void)?)
+}
 
-    func identify() {
+extension AlertMessage {
+    func alert(with message: String, target: UINavigationController, handler: ((UIAlertAction) -> Void)?) {
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Finish", style: .default, handler: handler))
+        target.present(alertController, animated: true)
+    }
+}
+
+class BiometricAuthentication {
+    let reason = "Identify yourself!"
+    func identify(completion: @escaping (Bool, Error?) -> Void) {
         let context = LAContext()
         var error: NSError?
 
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let reason = "Identify yourself!"
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self] (success, authenticationError) in
+            context.evaluatePolicy(
+                .deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, authenticationError) in
                 DispatchQueue.main.async {
-                    if success {
-                    } else {
-                        self?.createAlert(with: "You couldn't be autheticated")
-                    }
+                    completion(success, authenticationError)
                 }
             }
-
         } else {
-            self.createAlert(with: "Biometric not available")
+            completion(false, error)
         }
 
-    }
-
-    func createAlert(with message: String) {
-        let ac = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        self.present(ac, animated: true)
     }
 }

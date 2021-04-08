@@ -30,8 +30,8 @@ final class SettingsListCoordinator: Coordinator {
     }
 
     func biometricAuth() {
-        let biometricAuthViewController = BiometricAuthViewController()
-        navigationController.pushViewController(biometricAuthViewController, animated: true)
+//        let biometricAuthViewController = BiometricAuthViewController()
+//        navigationController.pushViewController(biometricAuthViewController, animated: true)
     }
 
 }

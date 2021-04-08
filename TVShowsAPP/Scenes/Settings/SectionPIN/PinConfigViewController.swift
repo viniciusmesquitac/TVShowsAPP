@@ -24,6 +24,7 @@ class PinConfigViewController: UIViewController {
     func setupAuthTextField() {
         view.addSubview(authTextField)
         authTextField.configure()
+        authTextField.becomeFirstResponder()
         authTextField.snp.makeConstraints { make in
             make.centerY.equalToSuperview().offset(-12)
             make.centerX.equalToSuperview()

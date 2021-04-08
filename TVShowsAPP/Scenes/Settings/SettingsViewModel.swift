@@ -31,7 +31,7 @@ class SettingsViewModel {
     }
 
     @objc func didTapSwitchButton(_ sender: UISwitch) {
-        print(sender.isOn)
+        UserDefaults.standard.setValue(sender.isOn, forKey: UserDefaultsEnum.isBiometricOn.rawValue)
     }
 
     private func createCell(title: String) -> UITableViewCell {
@@ -46,6 +46,7 @@ class SettingsViewModel {
 
     private func createSwitchCell(title: String) -> SwitchButtonTableViewCell {
         let cell = SwitchButtonTableViewCell()
+        cell.switchButton.isOn = UserDefaults.standard.bool(forKey: UserDefaultsEnum.isBiometricOn.rawValue)
         cell.switchButton.addTarget(self, action: #selector(didTapSwitchButton), for: .touchUpInside)
         cell.contentView.isUserInteractionEnabled = false
         cell.selectionStyle = .none

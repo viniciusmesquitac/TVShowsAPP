@@ -12,6 +12,7 @@
 		818EEAE5261E7D77000A8414 /* PinConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818EEAE4261E7D77000A8414 /* PinConfigViewController.swift */; };
 		818EEAEA261E8180000A8414 /* SwitchButtonTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818EEAE9261E8180000A8414 /* SwitchButtonTableVIewCell.swift */; };
 		818EEB0A261F9676000A8414 /* AuthenticationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818EEB09261F9676000A8414 /* AuthenticationTextField.swift */; };
+		818EEB1D261FAD1D000A8414 /* UserDefaultsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818EEB1C261FAD1D000A8414 /* UserDefaultsEnum.swift */; };
 		81C1B2E6261CF78800E6D3BE /* EpisodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B2E5261CF78800E6D3BE /* EpisodeDetailsView.swift */; };
 		81C1B2EB261CF86000E6D3BE /* EpisodeDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B2EA261CF86000E6D3BE /* EpisodeDetailsTableViewCell.swift */; };
 		81C1B2F0261CF8EE00E6D3BE /* EpisodeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B2EF261CF8EE00E6D3BE /* EpisodeDetailsViewController.swift */; };
@@ -108,6 +109,7 @@
 		818EEAE4261E7D77000A8414 /* PinConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinConfigViewController.swift; sourceTree = "<group>"; };
 		818EEAE9261E8180000A8414 /* SwitchButtonTableVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchButtonTableVIewCell.swift; sourceTree = "<group>"; };
 		818EEB09261F9676000A8414 /* AuthenticationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTextField.swift; sourceTree = "<group>"; };
+		818EEB1C261FAD1D000A8414 /* UserDefaultsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsEnum.swift; sourceTree = "<group>"; };
 		81C1B2E5261CF78800E6D3BE /* EpisodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsView.swift; sourceTree = "<group>"; };
 		81C1B2EA261CF86000E6D3BE /* EpisodeDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		81C1B2EF261CF8EE00E6D3BE /* EpisodeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +243,14 @@
 			path = BiometricAuth;
 			sourceTree = "<group>";
 		};
+		818EEB1B261FAD01000A8414 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				818EEB1C261FAD1D000A8414 /* UserDefaultsEnum.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 		81C1B2E3261CF75C00E6D3BE /* EpisodeDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +342,7 @@
 		81D5F96E2614BDC5006ECCF1 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				818EEB1B261FAD01000A8414 /* UserDefaults */,
 				81D5FA77261752B0006ECCF1 /* Extensions */,
 				81D5F9352614BD9E006ECCF1 /* AppDelegate.swift */,
 				81D5F9372614BD9E006ECCF1 /* SceneDelegate.swift */,
@@ -848,6 +859,7 @@
 				81D5F9832614C0B3006ECCF1 /* SearchListCoordinator.swift in Sources */,
 				81D5FB93261B57D8006ECCF1 /* Season.swift in Sources */,
 				81D5F9702614BDE4006ECCF1 /* AppCoordinator.swift in Sources */,
+				818EEB1D261FAD1D000A8414 /* UserDefaultsEnum.swift in Sources */,
 				81D5FAC32618957E006ECCF1 /* CoreDataService.swift in Sources */,
 				81D5F9BF2614D32B006ECCF1 /* ShowsListView.swift in Sources */,
 				81D5F9B92614D029006ECCF1 /* HTTP.swift in Sources */,

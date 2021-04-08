@@ -19,8 +19,7 @@ extension Coordinator {
     }
 }
 
-final class AppCoordinator: Coordinator {
-
+final class AppCoordinator: Coordinator, AlertMessage {
     private let window: UIWindow
     internal var navigationController: UINavigationController!
 
@@ -33,6 +32,18 @@ final class AppCoordinator: Coordinator {
     func start() {
         window.rootViewController = self.navigationController
         window.makeKeyAndVisible()
-        coordinate(to: TabBarCoordinator(navigationController: navigationController))
+        if UserDefaults.standard.bool(forKey: UserDefaultsEnum.isBiometricOn.rawValue) {
+            BiometricAuthentication().identify { success, _ in
+                if success {
+                    self.coordinate(to: TabBarCoordinator(navigationController: self.navigationController))
+                } else {
+                    self.alert(with: "Something got wrong...", target: self.navigationController) { _ in
+                        exit(EXIT_SUCCESS)
+                    }
+                }
+            }
+        } else {
+            coordinate(to: TabBarCoordinator(navigationController: navigationController))
+        }
     }
 }
