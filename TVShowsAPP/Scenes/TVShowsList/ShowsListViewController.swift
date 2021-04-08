@@ -23,7 +23,7 @@ class ShowsListViewController: UIViewController {
         self.navigationController?.title = "Home"
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        mainView.showsListCollectionView.backgroundColor = .systemBackground
+        mainView.showsListCollectionView.backgroundColor = Stylesheet.Color.backgroundColor
         mainView.showsListCollectionView.delegate = self
         mainView.showsListCollectionView.dataSource = self
 

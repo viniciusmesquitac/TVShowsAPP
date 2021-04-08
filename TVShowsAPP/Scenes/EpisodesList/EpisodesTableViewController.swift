@@ -91,7 +91,7 @@ extension EpisodesTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        headerView.contentView.backgroundColor = .systemBackground
+        headerView.contentView.backgroundColor = Stylesheet.Color.backgroundColor
         headerView.seasonButton.addTarget(self, action: #selector(didTapSeasonButton), for: .touchUpInside)
         return headerView
     }

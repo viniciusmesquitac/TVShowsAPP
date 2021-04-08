@@ -13,7 +13,7 @@ class PinConfigViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancel))
-        self.view.backgroundColor = .systemBackground
+        self.view.backgroundColor = Stylesheet.Color.backgroundColor
     }
 
     @objc func didTapCancel() {

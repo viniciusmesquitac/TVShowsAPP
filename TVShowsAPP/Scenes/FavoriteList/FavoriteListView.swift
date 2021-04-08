@@ -13,7 +13,7 @@ class FavoriteListView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .red
+        self.backgroundColor = Stylesheet.Color.backgroundColor
         setupTableView()
     }
 
@@ -21,6 +21,8 @@ class FavoriteListView: UIView {
         addSubview(tableView)
         tableView.rowHeight = 216
         tableView.separatorStyle = .none
+        tableView.backgroundView = UIView()
+        tableView.backgroundColor = Stylesheet.Color.backgroundColor
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

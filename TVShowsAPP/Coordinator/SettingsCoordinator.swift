@@ -24,7 +24,7 @@ final class SettingsListCoordinator: Coordinator {
     func pinCodeConfig() {
         let pinConfigViewController = PinConfigViewController()
         let navigation = UINavigationController(rootViewController: pinConfigViewController)
-        navigation.navigationBar.barTintColor = .systemBackground
+        navigation.navigationBar.barTintColor = Stylesheet.Color.backgroundColor
         navigation.modalPresentationStyle = .overFullScreen
         navigationController.present(navigation, animated: true)
     }

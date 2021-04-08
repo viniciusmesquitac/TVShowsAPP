@@ -57,9 +57,9 @@ enum Style: ThemeColor {
     var backgroundColor: UIColor {
         switch self {
         case .light:
-            return #colorLiteral(red: 0.948936522, green: 0.9490728974, blue: 0.9489067197, alpha: 1)
+            return UIColor.systemBackground
         case .dark:
-            return #colorLiteral(red: 0.1254752278, green: 0.1254997551, blue: 0.1254698336, alpha: 1)
+            return UIColor.systemBackground
         }
     }
 

@@ -25,6 +25,8 @@ class SettingsTableViewController: UITableViewController {
         self.title = "Settings"
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.tableView.backgroundView? = UIView()
+        self.tableView.backgroundView?.backgroundColor = Stylesheet.Color.backgroundColor
         self.tableView.register(
             SwitchButtonTableViewCell.self,
             forCellReuseIdentifier: SwitchButtonTableViewCell.identifier)
