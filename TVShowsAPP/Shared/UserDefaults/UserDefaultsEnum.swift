@@ -9,4 +9,5 @@ import Foundation
 
 enum UserDefaultsEnum: String {
     case isBiometricOn
+    case isPinAuthOn
 }

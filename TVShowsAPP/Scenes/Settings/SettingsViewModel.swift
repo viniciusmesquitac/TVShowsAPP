@@ -11,6 +11,10 @@ class SettingsViewModel: StaticViewModel {
     var sections = [SettingsSection]()
     var coordinator: SettingsListCoordinator?
 
+    var securityBiometricTitle: String {
+        BiometricAuthentication().type == .faceID ? "face ID": "Touch ID"
+    }
+
     init(coordinator: SettingsListCoordinator) {
         self.coordinator = coordinator
         createSections()
@@ -19,7 +23,7 @@ class SettingsViewModel: StaticViewModel {
     private func createSections() {
         let items = [
             SettingsItem(cell: createCell(title: "Passcode")) { self.coordinator?.pinCodeConfig() },
-            SettingsItem(cell: createSwitchCell(title: "Touch ID"), action: nil)
+            SettingsItem(cell: createSwitchCell(title: securityBiometricTitle), action: nil)
         ]
         sections = [
             SettingsSection(title: "Security", items: items)

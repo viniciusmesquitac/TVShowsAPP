@@ -21,17 +21,21 @@ final class AppCoordinator: Coordinator, AlertMessage {
         window.rootViewController = self.navigationController
         window.makeKeyAndVisible()
         if UserDefaults.standard.bool(forKey: UserDefaultsEnum.isBiometricOn.rawValue) {
-            BiometricAuthentication().identify { success, _ in
-                if success {
-                    self.coordinate(to: TabBarCoordinator(navigationController: self.navigationController))
-                } else {
-                    self.alert(with: "Something got wrong...", target: self.navigationController) { _ in
-                        exit(EXIT_SUCCESS)
-                    }
-                }
-            }
+            verifyBiometric()
         } else {
             coordinate(to: TabBarCoordinator(navigationController: navigationController))
+        }
+    }
+    
+    private func verifyBiometric() {
+        BiometricAuthentication().identify { success, _ in
+            if success {
+                self.coordinate(to: TabBarCoordinator(navigationController: self.navigationController))
+            } else {
+                self.alert(with: "Something got wrong...", target: self.navigationController) { _ in
+                    exit(EXIT_SUCCESS)
+                }
+            }
         }
     }
 }

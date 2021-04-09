@@ -30,12 +30,16 @@ class PinConfigViewModel: StaticViewModel {
     }
 
     @objc func didTapSwitchButton(_ sender: UISwitch) {
-        UserDefaults.standard.setValue(sender.isOn, forKey: UserDefaultsEnum.isBiometricOn.rawValue)
+        if sender.isOn {
+            coordinator?.pinCodeSetConfig()
+        } else {
+            UserDefaults.standard.setValue(false, forKey: UserDefaultsEnum.isPinAuthOn.rawValue)
+        }
     }
 
     internal func createSwitchCell(title: String) -> SwitchButtonTableViewCell {
         let cell = SwitchButtonTableViewCell()
-        cell.switchButton.isOn = UserDefaults.standard.bool(forKey: UserDefaultsEnum.isBiometricOn.rawValue)
+        cell.switchButton.isOn = UserDefaults.standard.bool(forKey: UserDefaultsEnum.isPinAuthOn.rawValue)
         cell.switchButton.addTarget(self, action: #selector(didTapSwitchButton), for: .touchUpInside)
         cell.contentView.isUserInteractionEnabled = false
         cell.selectionStyle = .none

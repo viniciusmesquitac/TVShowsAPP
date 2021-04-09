@@ -8,12 +8,21 @@
 import UIKit
 import LocalAuthentication
 
+enum BiometricType {
+    case faceID
+    case touchID
+}
+
 class BiometricAuthentication {
     let reason = "Identify yourself!"
-    func identify(completion: @escaping (Bool, Error?) -> Void) {
-        let context = LAContext()
-        var error: NSError?
+    let context = LAContext()
 
+    var type: BiometricType {
+        context.biometryType == .faceID ?  .faceID: .touchID
+    }
+
+    func identify(completion: @escaping (Bool, Error?) -> Void) {
+        var error: NSError?
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             context.evaluatePolicy(
                 .deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, authenticationError) in

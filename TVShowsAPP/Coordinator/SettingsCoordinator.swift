@@ -22,6 +22,14 @@ final class SettingsListCoordinator: Coordinator {
     }
 
     func pinCodeConfig() {
+        if UserDefaults.standard.bool(forKey: UserDefaultsEnum.isPinAuthOn.rawValue) {
+            pinCodeSetConfig()
+        } else {
+            pinCodeConfigDetails()
+        }
+    }
+
+    func pinCodeSetConfig() {
         let pinConfigViewController = PinConfigViewController()
         let navigation = UINavigationController(rootViewController: pinConfigViewController)
         pinConfigViewController.coordinator = self

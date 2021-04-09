@@ -54,6 +54,14 @@ class PinConfigViewController: UIViewController {
 
 extension PinConfigViewController: AuthenticationTextFieldDelegate {
     func didRequestAuth(pinCode: String) {
+        if UserDefaults.standard.bool(forKey: UserDefaultsEnum.isPinAuthOn.rawValue) {
+            verifyPin(pinCode: pinCode)
+        } else {
+            savePin(pinCode: pinCode)
+        }
+    }
+    
+    func verifyPin(pinCode: String) {
         do {
             let secret = try KeychainService().retrive(secretKey: .pin)
             let result = pinCode == secret
@@ -62,6 +70,16 @@ extension PinConfigViewController: AuthenticationTextFieldDelegate {
                     self.coordinator?.pinCodeConfigDetails()
                 }
             }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func savePin(pinCode: String) {
+        do {
+            try KeychainService().save(secretKey: .pin, value: pinCode)
+            UserDefaults.standard.setValue(true, forKey: UserDefaultsEnum.isPinAuthOn.rawValue)
+            dismiss(animated: true)
         } catch {
             print(error)
         }
