@@ -8,9 +8,12 @@
 import Foundation
 import UIKit
 
+protocol AuthenticationTextFieldDelegate: class {
+    func didRequestAuth(pinCode: String)
+}
 class AuthenticationTextField: UITextField {
-
     private var digitLabels: [UILabel] = []
+    weak var authDelegate: AuthenticationTextFieldDelegate?
     var spaceCircles = CGFloat(6)
     var slotCount = 6
     var height = CGFloat(48)
@@ -40,6 +43,9 @@ class AuthenticationTextField: UITextField {
 
     @objc func textFieldDidChange() {
         self.verifyDigitLabelsPosition()
+        if text?.count == slotCount {
+            self.authDelegate?.didRequestAuth(pinCode: text!)
+        }
     }
 
     private func configureTextField() {

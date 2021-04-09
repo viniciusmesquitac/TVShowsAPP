@@ -24,6 +24,7 @@ class PinConfigViewController: UIViewController {
     func setupAuthTextField() {
         view.addSubview(authTextField)
         authTextField.configure()
+        authTextField.authDelegate = self
         authTextField.becomeFirstResponder()
         authTextField.snp.makeConstraints { make in
             make.centerY.equalToSuperview().offset(-12)
@@ -47,5 +48,17 @@ class PinConfigViewController: UIViewController {
 
     @objc func didTapCancel() {
         self.dismiss(animated: true)
+    }
+}
+
+extension PinConfigViewController: AuthenticationTextFieldDelegate {
+    func didRequestAuth(pinCode: String) {
+        do {
+            let secret = try KeychainService().retrive(secretKey: .pin)
+            let result = pinCode == secret
+            if result { dismiss(animated: true) }
+        } catch {
+            print(error)
+        }
     }
 }
