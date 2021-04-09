@@ -40,3 +40,13 @@ struct TVShow: Decodable {
     var rating: Rating?
     var images: ImageResult?
 }
+
+extension TVShow: Hashable {
+    static func == (lhs: TVShow, rhs: TVShow) -> Bool {
+        return lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}

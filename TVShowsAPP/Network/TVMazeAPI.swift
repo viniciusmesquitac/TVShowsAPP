@@ -105,4 +105,22 @@ class TVMazeAPI {
         }
     }
 
+    func recentShows(completion: @escaping (Set<TVShow>) -> Void) {
+        let url = TVMazeRouter.schedule.url
+
+        HTTP.get.request(url: url) { (data, _, error) in
+            guard let data = data else { return }
+
+            do {
+                let episodeResult = try JSONDecoder().decode([Episode].self, from: data)
+                let newSeasons = episodeResult.filter { $0.season == 1 }
+                let newSeasonsFiltered = newSeasons.filter { $0.show != nil }
+                let shows = newSeasonsFiltered.map { $0.show! }
+                completion(Set(shows))
+            } catch {
+                print(error)
+            }
+        }
+    }
+
 }

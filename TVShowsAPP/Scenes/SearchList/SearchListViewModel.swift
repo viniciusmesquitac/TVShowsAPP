@@ -10,7 +10,9 @@ import Foundation
 class SearchListViewModel {
 
     var resultTvShowList: [SearchResult]?
+    var recentShows: [TVShow]?
     var didFinishSearch: (() -> Void)?
+    var didFinishRecentSearch: (() -> Void)?
     let tvMaze = TVMazeAPI()
 
     var tvShows: [TVShow]? {
@@ -21,6 +23,13 @@ class SearchListViewModel {
         tvMaze.search(query: query) { result in
             self.resultTvShowList = result
             self.didFinishSearch?()
+        }
+    }
+
+    func getRecentShows() {
+        tvMaze.recentShows { result in
+            self.recentShows = Array(result)
+            self.didFinishRecentSearch?()
         }
     }
 }

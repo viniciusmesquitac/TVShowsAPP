@@ -25,11 +25,20 @@ class SearchListViewController: UITableViewController {
             self.searchResultsController?.viewModel.tvShows = tvShows
             self.searchResultsController?.mainView.indicator.stopAnimating()
         }
+
+        viewModel.getRecentShows()
+        viewModel.didFinishRecentSearch = {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
 
     func setupTableView() {
         self.tableView.separatorStyle = .none
         self.tableView.backgroundView = UIView()
+        self.tableView.rowHeight = 132
+        self.tableView.contentInset = UIEdgeInsets(top: -12, left: 0, bottom: 0, right: 0)
         self.tableView.backgroundView?.backgroundColor = Stylesheet.Color.backgroundColor
         self.tableView.register(
             TVShowsListTableViewCell.self,
@@ -85,7 +94,7 @@ extension SearchListViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.recentShows?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -94,11 +103,12 @@ extension SearchListViewController {
         return headerView
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TVShowsListTableViewCell.identifier) else {
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: TVShowsListTableViewCell.identifier) as? TVShowsListTableViewCell else {
             return UITableViewCell()
         }
-        cell.backgroundColor = Stylesheet.Color.backgroundColor
-        cell.selectionStyle = .none
+        guard let tvShow = viewModel.recentShows?[indexPath.row] else { return UITableViewCell() }
+        cell.setup(with: tvShow)
         return cell
     }
 }

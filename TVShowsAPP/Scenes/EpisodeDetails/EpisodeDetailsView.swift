@@ -32,6 +32,7 @@ class EpisodeDetailsView: UIView {
 
         tableView.tableHeaderView = headerView
         tableView.allowsSelection = false
+        tableView.separatorStyle = .none
         tableView.register(
             EpisodeDetailsTableViewCell.self,
             forCellReuseIdentifier: EpisodeDetailsTableViewCell.identifier)

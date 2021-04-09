@@ -19,6 +19,7 @@ enum TVMazeRouter: Router {
     case search(query: String)
     case images(show: Int)
     case seasons(show: Int)
+    case schedule
 
     var hostname: String {
         return "http://api.tvmaze.com"
@@ -38,6 +39,8 @@ enum TVMazeRouter: Router {
             return URL(string: "\(hostname)/shows/\(showId)/seasons")
         case .episodes(season: let seasonId):
             return URL(string: "\(hostname)/seasons/\(seasonId)/episodes")
+        case .schedule:
+            return URL(string: "\(hostname)/schedule")
         }
     }
 }
