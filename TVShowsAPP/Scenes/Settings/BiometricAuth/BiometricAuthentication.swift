@@ -8,18 +8,6 @@
 import UIKit
 import LocalAuthentication
 
-protocol AlertMessage {
-    func alert(with message: String, target: UINavigationController, handler: ((UIAlertAction) -> Void)?)
-}
-
-extension AlertMessage {
-    func alert(with message: String, target: UINavigationController, handler: ((UIAlertAction) -> Void)?) {
-        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Finish", style: .default, handler: handler))
-        target.present(alertController, animated: true)
-    }
-}
-
 class BiometricAuthentication {
     let reason = "Identify yourself!"
     func identify(completion: @escaping (Bool, Error?) -> Void) {

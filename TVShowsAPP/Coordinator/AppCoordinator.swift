@@ -7,18 +7,6 @@
 
 import UIKit
 
-protocol Coordinator {
-    var navigationController: UINavigationController! { get }
-
-    func start()
-    func coordinate(to coordinator: Coordinator)
-}
-extension Coordinator {
-    func coordinate(to coordinator: Coordinator) {
-        coordinator.start()
-    }
-}
-
 final class AppCoordinator: Coordinator, AlertMessage {
     private let window: UIWindow
     internal var navigationController: UINavigationController!

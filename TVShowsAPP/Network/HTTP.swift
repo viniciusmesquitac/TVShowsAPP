@@ -13,7 +13,7 @@ enum HTTP {
     func request(url: URL?,
                  header: [String: String] = ["Content-Type": "application/json"],
                  body: [String: Any] = [:],
-                 completion: @escaping (Data?, HTTPURLResponse?, String?) -> Void = { data, response, error in }) {
+                 completion: @escaping (Data?, HTTPURLResponse?, String?) -> Void) {
 
         guard let url = url else {
             completion(nil, nil, "Erro! URL Invalida")

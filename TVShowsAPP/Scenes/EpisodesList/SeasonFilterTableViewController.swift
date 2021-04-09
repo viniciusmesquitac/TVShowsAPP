@@ -100,7 +100,7 @@ extension SeasonFilterTableViewController {
 }
 
 extension SeasonFilterTableViewController {
-    
+
     private enum Parameters {
         static let closeButtonViewSize = CGSize(width: UIScreen.main.bounds.width, height: 200)
     }

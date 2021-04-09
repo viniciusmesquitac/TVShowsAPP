@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// swiftlint:disable identifier_name
 struct Resolutions: Decodable {
     let original: Original?
     let medium: Medium?

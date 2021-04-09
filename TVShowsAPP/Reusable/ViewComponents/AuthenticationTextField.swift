@@ -96,7 +96,6 @@ class AuthenticationTextField: UITextField {
         for iterator in 0 ..< digitLabels.count {
             let currentLabel = digitLabels[iterator]
             if iterator < text.count {
-                let index = text.index(text.startIndex, offsetBy: iterator)
                 currentLabel.text = ""
                 currentLabel.layer.backgroundColor = Stylesheet.Color.primaryColor.cgColor
             } else {

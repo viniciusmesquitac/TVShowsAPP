@@ -25,5 +25,4 @@ extension TestableRepository {
             _ = service.delete(object: element)
         }
     }
-
 }
