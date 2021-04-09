@@ -9,6 +9,7 @@ import UIKit
 
 class PinConfigViewController: UIViewController {
     let authTextField = AuthenticationTextField()
+    var coordinator: SettingsListCoordinator?
     let titleInformationAuthLabel = UILabel()
 
     override func viewDidLoad() {
@@ -56,7 +57,11 @@ extension PinConfigViewController: AuthenticationTextFieldDelegate {
         do {
             let secret = try KeychainService().retrive(secretKey: .pin)
             let result = pinCode == secret
-            if result { dismiss(animated: true) }
+            if result {
+                dismiss(animated: true) {
+                    self.coordinator?.pinCodeConfigDetails()
+                }
+            }
         } catch {
             print(error)
         }

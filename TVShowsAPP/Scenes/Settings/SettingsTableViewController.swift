@@ -9,9 +9,9 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
-    var viewModel: SettingsViewModel?
+    var viewModel: StaticViewModel?
 
-    init(viewModel: SettingsViewModel) {
+    init(viewModel: StaticViewModel) {
         self.viewModel = viewModel
         super.init(style: .grouped)
     }
@@ -22,9 +22,7 @@ class SettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Settings"
-        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.title = "Settings"
         self.tableView.backgroundView? = UIView()
         self.tableView.backgroundView?.backgroundColor = Stylesheet.Color.backgroundColor
         self.tableView.register(
@@ -40,7 +38,7 @@ extension SettingsTableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel?.numberOfSections ?? 0
+        return viewModel?.sections.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

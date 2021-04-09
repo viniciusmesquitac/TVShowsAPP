@@ -24,14 +24,15 @@ final class SettingsListCoordinator: Coordinator {
     func pinCodeConfig() {
         let pinConfigViewController = PinConfigViewController()
         let navigation = UINavigationController(rootViewController: pinConfigViewController)
+        pinConfigViewController.coordinator = self
         navigation.navigationBar.barTintColor = Stylesheet.Color.backgroundColor
         navigation.modalPresentationStyle = .overFullScreen
         navigationController.present(navigation, animated: true)
     }
 
-    func biometricAuth() {
-//        let biometricAuthViewController = BiometricAuthViewController()
-//        navigationController.pushViewController(biometricAuthViewController, animated: true)
+    func pinCodeConfigDetails() {
+        let pinConfigViewController = SettingsTableViewController(viewModel: PinConfigViewModel(coordinator: self))
+        navigationController.pushViewController(pinConfigViewController, animated: true)
     }
 
 }

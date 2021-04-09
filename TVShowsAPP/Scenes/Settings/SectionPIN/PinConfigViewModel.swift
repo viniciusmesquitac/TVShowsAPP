@@ -1,15 +1,19 @@
 //
-//  SettingsViewModel.swift
+//  PinConfigurationDetailsViewController.swift
 //  TVShowsAPP
 //
-//  Created by Vinicius Mesquita on 03/04/21.
+//  Created by Vinicius Mesquita on 09/04/21.
 //
 
 import UIKit
 
-class SettingsViewModel: StaticViewModel {
+class PinConfigViewModel: StaticViewModel {
     var sections = [SettingsSection]()
     var coordinator: SettingsListCoordinator?
+
+    var numberOfSections: Int {
+        sections.count
+    }
 
     init(coordinator: SettingsListCoordinator) {
         self.coordinator = coordinator
@@ -18,8 +22,7 @@ class SettingsViewModel: StaticViewModel {
 
     private func createSections() {
         let items = [
-            SettingsItem(cell: createCell(title: "Passcode")) { self.coordinator?.pinCodeConfig() },
-            SettingsItem(cell: createSwitchCell(title: "Touch ID"), action: nil)
+            SettingsItem(cell: createSwitchCell(title: "Active Passcode"), action: nil)
         ]
         sections = [
             SettingsSection(title: "Security", items: items)
@@ -28,16 +31,6 @@ class SettingsViewModel: StaticViewModel {
 
     @objc func didTapSwitchButton(_ sender: UISwitch) {
         UserDefaults.standard.setValue(sender.isOn, forKey: UserDefaultsEnum.isBiometricOn.rawValue)
-    }
-
-    internal func createCell(title: String) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = title
-        cell.accessoryType = .disclosureIndicator
-        cell.accessoryView?.backgroundColor = Stylesheet.Color.primaryColor
-        cell.accessoryView?.tintColor = Stylesheet.Color.primaryColor
-        cell.tintColor = Stylesheet.Color.primaryColor
-        return cell
     }
 
     internal func createSwitchCell(title: String) -> SwitchButtonTableViewCell {
