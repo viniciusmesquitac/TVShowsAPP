@@ -19,12 +19,14 @@ facilitando ainda mais uma possivel manuntenção de código.
 
 Cada tela é descrita dentro da pasta Scene e possui uma view(components em viewCode que iram ser apresentados na tela), uma viewModel(onde irá conter a logica de negocio e handler de eventos) e por fim uma controller(responsavel por inicializar a view e os eventos da viewmodel)
 
-## Interface
+## Wireframe
 * Na prototipagem decidi colocar as coisas basicas que vinha a minha mente com relação aos requisitos.
+* Foi pensado na utilização de ViewCode com criação de componentes reutilizaveis como as celulas de tableView e Componentes de texto. e utilizei como base todas as dimensões aqui previamente testadas.
 ![](https://github.com/viniciusmesquitac/TVShowsAPP/blob/dd970020663c1dce81ca1d2eead97e625a3cca0e/Documentation/wireframe.png "Wireframe")
- testes, Hi-Fi, nesta etapa, estudei um pouco sobre como seria a transiçao da tela de shows para a tela de detalhes, segundo a hig, isso não deve ser feito em uma modal caso você ainda vá realziar outras tarfas como por exemplo visualizar um episódio, mesmo algumas streamings de video fazendo esse percurso, decidi depois, voltar ao padrão mais comum ao usuário iOS que é uma pushViewController.
+
+ ## Hi-fi
+* Nesta etapa, estudei um pouco sobre como seria a transiçao da tela de shows para a tela de detalhes, segundo a hig, isso não deve ser feito em uma modal caso você ainda vá realziar outras tarfas como por exemplo visualizar um episódio, mesmo algumas streamings de video fazendo esse percurso, decidi depois, voltar ao padrão mais comum ao usuário iOS que é uma pushViewController.
 ![](https://github.com/viniciusmesquitac/TVShowsAPP/blob/dd970020663c1dce81ca1d2eead97e625a3cca0e/Documentation/hifi-dark.png "Hi-fi Dark")
-* Foi utilizado ViewCode com criação de componentes reutilizaveis como as celulas de tableView e Componentes de texto.
 
 ## Microinterações
 * Loading durante as chamadas de API.
