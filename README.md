@@ -51,12 +51,18 @@ Após clonar o projeto, nenhuma configuração é necessária, basta abrir o arq
 $ pod install
 ```
 
+## Frameworks
+Utilizei frameworks para otimizar o meu tempo com animações de imagem e caching com o Nuke.
+Utilizei o SnapKit para facilitar a escrita do autolayot.
+
+
 ## Swift Lint
-Foi utilizado o swift lint como Style Guide de código do projeto.
+Foi utilizado o swift lint como Style Guide de código do projeto com as configurações padrões.
 
 ## Testes Unitários
 Realizei testes para cada logica realizada nos arquivos de ViewModel e em algumas classes auxiliares como a de Keychain para verificar se os dados estão sendo salvos corretamente.
 
-## Projeto finalizado.
+## Resultados
+* Suporta darkmode ou white mode, componentes reutilizaveis, e utilização de auto-layout.
 <img width="320" alt="TVShows" src="https://github.com/viniciusmesquitac/TVShowsAPP/blob/617901ab8418f50ba20cea6ed133d3cd28b3184c/Documentation/Screenshots/Simulator%20Screen%20Shot%20-%20iPhone%208%20-%202021-04-12%20at%2014.28.49.png"> <img width="320" alt="Favoritos" src="https://github.com/viniciusmesquitac/TVShowsAPP/blob/617901ab8418f50ba20cea6ed133d3cd28b3184c/Documentation/Screenshots/Simulator%20Screen%20Shot%20-%20iPhone%208%20-%202021-04-12%20at%2014.30.05.png"> <img width="320" alt="Settings" src="https://github.com/viniciusmesquitac/TVShowsAPP/blob/617901ab8418f50ba20cea6ed133d3cd28b3184c/Documentation/Screenshots/Simulator%20Screen%20Shot%20-%20iPhone%208%20-%202021-04-12%20at%2014.30.10.png"> <img width="320" alt="PinCode" src="https://github.com/viniciusmesquitac/TVShowsAPP/blob/617901ab8418f50ba20cea6ed133d3cd28b3184c/Documentation/Screenshots/Simulator%20Screen%20Shot%20-%20iPhone%208%20-%202021-04-12%20at%2014.30.13.png"> <img width="320" alt="Search" src="https://github.com/viniciusmesquitac/TVShowsAPP/blob/617901ab8418f50ba20cea6ed133d3cd28b3184c/Documentation/Screenshots/Simulator%20Screen%20Shot%20-%20iPhone%208%20-%202021-04-12%20at%2014.30.42.png">
 
