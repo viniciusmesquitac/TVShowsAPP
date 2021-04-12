@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Nuke
 
 class ShowsListViewController: UIViewController {
 
@@ -82,7 +83,7 @@ extension ShowsListViewController: UICollectionViewDelegate, UICollectionViewDat
 
 }
 
-// Pagination
+// MARK: Pagination
 extension ShowsListViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
