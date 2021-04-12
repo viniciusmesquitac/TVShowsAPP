@@ -20,8 +20,10 @@ facilitando ainda mais uma possivel manuntenção de código.
 Cada tela é descrita dentro da pasta Scene e possui uma view(components em viewCode que iram ser apresentados na tela), uma viewModel(onde irá conter a logica de negocio e handler de eventos) e por fim uma controller(responsavel por inicializar a view e os eventos da viewmodel)
 
 ## Interface
-* Prototipagem, testes, Hi-Fi.
-![](https://raw.githubusercontent.com/viniciusmesquitac/TVShowsAPP/dev/Documentation/wireframe.png "Wireframe")
+* Na prototipagem decidi colocar as coisas basicas que vinha a minha mente com relação aos requisitos.
+![](https://github.com/viniciusmesquitac/TVShowsAPP/blob/dd970020663c1dce81ca1d2eead97e625a3cca0e/Documentation/wireframe.png "Wireframe")
+ testes, Hi-Fi, nesta etapa, estudei um pouco sobre como seria a transiçao da tela de shows para a tela de detalhes, segundo a hig, isso não deve ser feito em uma modal caso você ainda vá realziar outras tarfas como por exemplo visualizar um episódio, mesmo algumas streamings de video fazendo esse percurso, decidi depois, voltar ao padrão mais comum ao usuário iOS que é uma pushViewController.
+![](https://github.com/viniciusmesquitac/TVShowsAPP/blob/dd970020663c1dce81ca1d2eead97e625a3cca0e/Documentation/hifi-dark.png "Hi-fi Dark")
 * Foi utilizado ViewCode com criação de componentes reutilizaveis como as celulas de tableView e Componentes de texto.
 
 ## Microinterações
@@ -38,8 +40,11 @@ com isso, fica super facil criar uma nova requisição que ficam na classe TVMaz
 Para realizar a persistência dos dados foi utilizado CoreData pelas facilidades de ser um framework nativo e trazer diversos beneficos de performace, eu criei modelos DAO no coreData para gerenciar os objetos e uma classe
 reponsavel por gerenciar o container que serão salvos as series que forem favoritadas.
 
+## Segurança
+Implementei o desbloqueio de faceID ou TouchID Dependendo do dispositivo e adicionei o bloquei por PIN Code de 6 digitos, Foi utilizado o proprio framework de Seguraça e o KeyChain para guardar o codigo a ser salvo.
+
 ## Executar o Projeto
-Após clonar o projeto, nenhuma configuração é necessária, basta abrir o arquivo TVShowAPP.xcworkspace file.
+Após clonar o projeto, nenhuma configuração é necessária, basta abrir o arquivo TVShowAPP.xcworkspace, e executar o comando no diretorio raiz.
 ```shell
 $ pod install
 ```
@@ -49,3 +54,5 @@ Foi utilizado o swift lint como Style Guide de código do projeto.
 
 ## Testes Unitários
 Realizei testes para cada logica realizada nos arquivos de ViewModel e em algumas classes auxiliares como a de Keychain para verificar se os dados estão sendo salvos corretamente.
+
+## Projeto finalizado.
