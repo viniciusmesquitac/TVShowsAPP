@@ -27,6 +27,7 @@ Cada tela é descrita dentro da pasta Scene e possui uma view(components em view
  ## Hi-fi
 * Nesta etapa, estudei um pouco sobre como seria a transiçao da tela de shows para a tela de detalhes, segundo a hig, isso não deve ser feito em uma modal caso você ainda vá realziar outras tarfas como por exemplo visualizar um episódio, mesmo algumas streamings de video fazendo esse percurso, decidi depois, voltar ao padrão mais comum ao usuário iOS que é uma pushViewController.
 * Suporta darkmode ou white mode, componentes reutilizaveis, e utilização de auto-layout.
+
 ![](https://github.com/viniciusmesquitac/TVShowsAPP/blob/dd970020663c1dce81ca1d2eead97e625a3cca0e/Documentation/hifi-dark.png "Hi-fi Dark")
 
 ## Microinterações
@@ -53,8 +54,8 @@ $ pod install
 ```
 
 ## Frameworks
-Utilizei frameworks para otimizar o meu tempo com animações de imagem e caching com o Nuke.
-Utilizei o SnapKit para facilitar a escrita do autolayot.
+* Utilizei frameworks para otimizar o meu tempo com animações de imagem e caching com o Nuke.
+* Utilizei o SnapKit para facilitar a escrita do autolayot.
 
 
 ## Swift Lint
