@@ -60,7 +60,7 @@ extension PinConfigViewController: AuthenticationTextFieldDelegate {
             savePin(pinCode: pinCode)
         }
     }
-    
+
     func verifyPin(pinCode: String) {
         do {
             let secret = try KeychainService().retrive(secretKey: .pin)
@@ -69,12 +69,15 @@ extension PinConfigViewController: AuthenticationTextFieldDelegate {
                 dismiss(animated: true) {
                     self.coordinator?.pinCodeConfigDetails()
                 }
+            } else {
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.error)
             }
         } catch {
             print(error)
         }
     }
-    
+
     func savePin(pinCode: String) {
         do {
             try KeychainService().save(secretKey: .pin, value: pinCode)

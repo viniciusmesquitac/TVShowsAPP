@@ -26,7 +26,7 @@ final class AppCoordinator: Coordinator, AlertMessage {
             coordinate(to: TabBarCoordinator(navigationController: navigationController))
         }
     }
-    
+
     private func verifyBiometric() {
         BiometricAuthentication().identify { success, _ in
             if success {
