@@ -1,8 +1,7 @@
 # TVShowsAPP
 
 ## Sobre
-### Este aplicativo tem o objetivo de otimizar buscas de séries com uma interface pensada na esperiência do usuário seguindo a Human interface guidelines (HIG), me organizei para realiza-lo em 2 semanas,
-
+Este aplicativo tem o objetivo de otimizar buscas de séries com uma interface pensada na esperiência do usuário seguindo a Human interface guidelines (HIG), me organizei para realiza-lo em 2 semanas.
 
 ## Features
 * Lista todas as séries fornecidas pela API
@@ -13,13 +12,16 @@
 * Sistema para configuração de PIN (6-digitos) e bloqueio por, se compativel com o modelo, FaceID ou TouchID.
 
 ## Arquitetura
-Foi utlizado o padrão arquitetural MVVM para este projeto pensando na complexidade e facilidade na realização de testes e reuso de código, como padrão de navegação foi utilizado o *coordinator*, seus beneficios como reuso e manutenabilidade estão descritos em: Navengando com coordinators[https://www.notion.so/Navegando-com-Coordinators-727359c2618b462d90d9c2cf2a5c5902]
+Foi utlizado o padrão arquitetural MVVM para este projeto pensando na complexidade e facilidade na realização de testes e reuso de código, como padrão de navegação foi utilizado o *coordinator*, seus beneficios como reuso e manutenabilidade estão descritos em: [Navengando com coordinators](https://www.notion.so/Navegando-com-Coordinators-727359c2618b462d90d9c2cf2a5c5902)
 
 Também utilizei repository, pensando que, caso queira salvar dados em algum outro banco ou simplismente decidir trocar a forma como estão sendo salvo os dados, poderia ser facilmente alterado através do repository
 facilitando ainda mais uma possivel manuntenção de código.
 
+Cada tela é descrita dentro da pasta Scene e possui uma view(components em viewCode que iram ser apresentados na tela), uma viewModel(onde irá conter a logica de negocio e handler de eventos) e por fim uma controller(responsavel por inicializar a view e os eventos da viewmodel)
+
 ## Interface
 * Prototipagem, testes, Hi-Fi.
+![](https://raw.githubusercontent.com/viniciusmesquitac/TVShowsAPP/dev/Documentation/wireframe.png "Wireframe")
 * Foi utilizado ViewCode com criação de componentes reutilizaveis como as celulas de tableView e Componentes de texto.
 
 ## Microinterações
@@ -38,7 +40,9 @@ reponsavel por gerenciar o container que serão salvos as series que forem favor
 
 ## Executar o Projeto
 Após clonar o projeto, nenhuma configuração é necessária, basta abrir o arquivo TVShowAPP.xcworkspace file.
+```shell
 $ pod install
+```
 
 ## Swift Lint
 Foi utilizado o swift lint como Style Guide de código do projeto.
