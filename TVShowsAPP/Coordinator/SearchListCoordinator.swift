@@ -14,11 +14,10 @@ final class SearchListCoordinator: Coordinator {
     init(navigationController: UINavigationController?) {
         guard let navigation = navigationController else { fatalError() }
         self.navigationController = navigation
-        self.navigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
     }
 
     func start() {
-        let searchListViewController = SearchListViewController()
+        let searchListViewController = SearchListViewController(style: .grouped)
         navigationController.pushViewController(searchListViewController, animated: false)
     }
 

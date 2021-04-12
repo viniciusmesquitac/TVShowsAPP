@@ -7,8 +7,28 @@
 
 import UIKit
 
-class TabBarController: UITabBarController {
+class TabBarController: UITabBarController, UITabBarControllerDelegate {
     var coordinator: Coordinator?
+    var currentIndex: Int = 0
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.delegate = self
+        self.tabBar.tintColor = Stylesheet.Color.primaryColor
+    }
+    // Scrolls to top
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if currentIndex == 0 {
+            let indexPath = IndexPath(row: 0, section: 0)
+            let navigationController = viewController as? UINavigationController
+            let showsListViewController = navigationController?.viewControllers.first as? ShowsListViewController
+            showsListViewController?.mainView
+                .showsListCollectionView
+                .scrollToItem(at: indexPath, at: .top, animated: true)
+        }
+        let tabBarIndex = tabBarController.selectedIndex
+        currentIndex = tabBarIndex
+    }
 }
 
 class TabBarCoordinator: Coordinator {
@@ -23,18 +43,42 @@ class TabBarCoordinator: Coordinator {
         // 1. Instanciar a controller
         let tabBarController = TabBarController()
         tabBarController.coordinator = self
-        // 2. Criar Coordinators
+        // 2 Criar Navigations
+        let showListNavigation = UINavigationController()
+        showListNavigation.tabBarItem = UITabBarItem(
+            title: "Home", image: Stylesheet.Icons.home,
+            selectedImage: Stylesheet.Icons.home)
+
+        let searchListNavigation = UINavigationController()
+        searchListNavigation.tabBarItem = UITabBarItem(
+            title: "Search", image: Stylesheet.Icons.search,
+            selectedImage: Stylesheet.Icons.search)
+
+        let favoritesListNavigation = UINavigationController()
+        favoritesListNavigation.tabBarItem = UITabBarItem(
+            title: "Favorites", image: Stylesheet.Icons.favorites,
+            selectedImage: Stylesheet.Icons.favorites)
+
+        let settingsNavigation = UINavigationController()
+        settingsNavigation.tabBarItem = UITabBarItem(
+            title: "Settings", image: Stylesheet.Icons.settings,
+            selectedImage: Stylesheet.Icons.settings)
+
+        // 3. Criar Coordinators
         let coordinators: [Coordinator] = [
-            ShowsListCoordinator(navigationController: UINavigationController()),
-            SearchListCoordinator(navigationController: UINavigationController())
+            ShowsListCoordinator(navigationController: showListNavigation),
+            SearchListCoordinator(navigationController: searchListNavigation),
+            FavoriteListCoordinator(navigationController: favoritesListNavigation),
+            SettingsListCoordinator(navigationController: settingsNavigation)
         ]
-        // 3. Inserir as tabs na controller
+        // 4. Inserir as tabs na controller
         let navigations = coordinators.map { $0.navigationController! }
+        navigations.forEach { $0.navigationBar.tintColor = Stylesheet.Color.primaryColor }
         tabBarController.viewControllers = navigations
         tabBarController.modalPresentationStyle = .fullScreen
-        // 4. Apresentar a controller
+        // 5. Apresentar a controller
         navigationController.present(tabBarController, animated: false, completion: nil)
-        // 5. Referencias as coordendadas.
+        // 6. Referencias as coordendadas.
         for coordinator in coordinators {
             coordinate(to: coordinator)
         }

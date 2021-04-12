@@ -7,31 +7,35 @@
 
 import UIKit
 
-protocol Coordinator {
-    var navigationController: UINavigationController! { get }
-
-    func start()
-    func coordinate(to coordinator: Coordinator)
-}
-extension Coordinator {
-    func coordinate(to coordinator: Coordinator) {
-        coordinator.start()
-    }
-}
-
-final class AppCoordinator: Coordinator {
-
+final class AppCoordinator: Coordinator, AlertMessage {
     private let window: UIWindow
     internal var navigationController: UINavigationController!
 
     init(window: UIWindow) {
         self.window = window
         self.navigationController = UINavigationController()
+        self.navigationController.navigationBar.tintColor = Stylesheet.Color.primaryColor
     }
 
     func start() {
         window.rootViewController = self.navigationController
         window.makeKeyAndVisible()
-        coordinate(to: TabBarCoordinator(navigationController: navigationController))
+        if UserDefaults.standard.bool(forKey: UserDefaultsEnum.isBiometricOn.rawValue) {
+            verifyBiometric()
+        } else {
+            coordinate(to: TabBarCoordinator(navigationController: navigationController))
+        }
+    }
+
+    private func verifyBiometric() {
+        BiometricAuthentication().identify { success, _ in
+            if success {
+                self.coordinate(to: TabBarCoordinator(navigationController: self.navigationController))
+            } else {
+                self.alert(with: "Something got wrong...", target: self.navigationController) { _ in
+                    exit(EXIT_SUCCESS)
+                }
+            }
+        }
     }
 }

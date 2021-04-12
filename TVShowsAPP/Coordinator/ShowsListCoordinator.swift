@@ -14,12 +14,17 @@ final class ShowsListCoordinator: Coordinator {
     init(navigationController: UINavigationController?) {
         guard let navigation = navigationController else { fatalError() }
         self.navigationController = navigation
-        self.navigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
     }
 
     func start() {
-        let showListViewController = ShowListViewController()
-        navigationController.pushViewController(showListViewController, animated: false)
+        let showsListViewController = ShowsListViewController()
+        navigationController.pushViewController(showsListViewController, animated: false)
+    }
+
+    func details(tvShow: TVShow) {
+        let tvShowListCoordinator = TVShowDetailsCoordinator(
+            navigationController: navigationController, tvShow: tvShow)
+        tvShowListCoordinator.start()
     }
 
 }
