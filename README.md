@@ -22,6 +22,7 @@ Cada tela é descrita dentro da pasta Scene e possui uma view(components em view
 ## Wireframe
 * Na prototipagem decidi colocar as coisas basicas que vinha a minha mente com relação aos requisitos.
 * Foi pensado na utilização de ViewCode com criação de componentes reutilizaveis como as celulas de tableView e Componentes de texto. e utilizei como base todas as dimensões aqui previamente testadas.
+
 ![](https://github.com/viniciusmesquitac/TVShowsAPP/blob/dd970020663c1dce81ca1d2eead97e625a3cca0e/Documentation/wireframe.png "Wireframe")
 
  ## Hi-fi
@@ -41,7 +42,7 @@ Foi utilizado a a api http://www.tvmaze.com/api para realizar as requisições, 
 com isso, fica super facil criar uma nova requisição que ficam na classe TVMazeAPI.
 
 ## Persistência de dados.
-Para realizar a persistência dos dados foi utilizado CoreData pelas facilidades de ser um framework nativo e trazer diversos beneficos de performace, eu criei modelos DAO no coreData para gerenciar os objetos e uma classe
+Para realizar a persistência dos dados foi utilizado CoreData pelas facilidades de ser um framework nativo e trazer diversos beneficos de performace, eu criei modelos DAO no CoreData para gerenciar os objetos e uma classe
 reponsavel por gerenciar o container que serão salvos as series que forem favoritadas.
 
 ## Segurança
