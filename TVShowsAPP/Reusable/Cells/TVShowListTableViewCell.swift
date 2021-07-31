@@ -27,14 +27,14 @@ class TVShowsListTableViewCell: UITableViewCell {
 
     func setupImageView() {
         addSubview(posterImageView)
-        posterImageView.image = Stylesheet.Images.placeholderPoster
+        posterImageView.image = Stylesheet.Images.placeholderDefault
         posterImageView.layer.cornerRadius = 8
 
         posterImageView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(8)
+            make.leading.equalToSuperview().offset(16)
             make.top.equalToSuperview().offset(8)
             make.bottom.equalToSuperview().offset(-8)
-            make.width.equalTo(100)
+            make.width.equalTo(74)
         }
         posterImageView.backgroundColor = .random()
     }

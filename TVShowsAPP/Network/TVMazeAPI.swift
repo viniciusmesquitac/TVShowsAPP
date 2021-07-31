@@ -114,7 +114,7 @@ class TVMazeAPI {
             do {
                 let episodeResult = try JSONDecoder().decode([Episode].self, from: data)
                 let newSeasons = episodeResult.filter { $0.season == 1 }
-                let newSeasonsFiltered = newSeasons.filter { $0.show != nil }
+                let newSeasonsFiltered = newSeasons.filter { $0.show != nil && $0.show?.image != nil }
                 let shows = newSeasonsFiltered.map { $0.show! }
                 completion(Set(shows))
             } catch {
