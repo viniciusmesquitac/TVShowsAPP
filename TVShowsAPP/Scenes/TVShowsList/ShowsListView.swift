@@ -12,13 +12,15 @@ class ShowsListView: UIView {
 
     let showsListCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width/3.5, height: 161)
         layout.scrollDirection = .vertical
         layout.footerReferenceSize = CGSize(width: 100, height: 100)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         layout.minimumLineSpacing = 16
         layout.minimumInteritemSpacing = 8
         collectionView.contentInset = UIEdgeInsets(top: 8, left: 18, bottom: 8, right: 18)
+        let width =  UIScreen.main.bounds.width/3 - layout.minimumInteritemSpacing  - 18
+        let height = UIScreen.main.bounds.width > 375 ? 164 : 132
+        layout.itemSize = CGSize(width: width, height: CGFloat(height))
         collectionView.register(TVShowsListCollectionViewCell.self,
                                 forCellWithReuseIdentifier: TVShowsListCollectionViewCell.identifier)
         collectionView.register(

@@ -40,7 +40,7 @@ class EpisodeDetailsView: UIView {
 
     fileprivate func setupBackgroundImageView() {
         headerView.addSubview(backgroundImageView)
-        backgroundImageView.image = Stylesheet.Images.placeholderEpisode
+        backgroundImageView.image = Stylesheet.Images.placeholderDefault
         backgroundImageView.contentMode = .scaleAspectFit
         backgroundImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -49,7 +49,7 @@ class EpisodeDetailsView: UIView {
 
     func setupImage(with url: URL) {
         let options = ImageLoadingOptions(
-            placeholder: Stylesheet.Images.placeholderPoster,
+            placeholder: Stylesheet.Images.placeholderEpisode,
             transition: .fadeIn(duration: 0.33)
         )
         Nuke.loadImage(with: url, options: options, into: backgroundImageView)
