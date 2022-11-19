@@ -1,7 +1,7 @@
 # TVShowsAPP
 
 ## Sobre
-Este aplicativo tem o objetivo de otimizar buscas de séries com uma interface pensada na esperiência do usuário seguindo a Human interface guidelines (HIG), me organizei para realiza-lo em 2 semanas.
+Este aplicativo tem o objetivo de otimizar buscas de séries com uma interface pensada na experiência do usuário seguindo a Human interface guidelines (HIG), me organizei para realiza-lo em 2 semanas.
 
 ## Features
 * Lista todas as séries fornecidas pela API
@@ -14,10 +14,10 @@ Este aplicativo tem o objetivo de otimizar buscas de séries com uma interface p
 ## Arquitetura
 Foi utilizado o padrão arquitetural MVVM para este projeto pensando na complexidade e facilidade na realização de testes e reuso de código, como padrão de navegação foi utilizado o *coordinator*, seus beneficios como reuso e manutenabilidade estão descritos em: [Navegando com coordinators](https://www.notion.so/Navegando-com-Coordinators-727359c2618b462d90d9c2cf2a5c5902)
 
-Também utilizei repository, pensando que, caso queira salvar dados em algum outro banco ou simplesmente decidir trocar a forma como estão sendo salvo os dados, poderia ser facilmente alterado através do repository
+Também utilizei o padrão Repository, pensando que, caso queira salvar dados em algum outro banco ou simplesmente decidir trocar a forma como estão sendo salvo os dados, poderia ser facilmente alterado através do repository
 facilitando ainda mais uma possivel manuntenção de código.
 
-Cada tela é descrita dentro da pasta *Scene* e possui uma view(components em viewCode que iram ser apresentados na tela), uma viewModel(onde irá conter a logica de negócio e handler de eventos) e por fim uma controller(responsavel por inicializar a view e os eventos da viewmodel)
+Cada tela é descrita dentro da pasta *Scene* e possui uma view(components em viewCode que iram ser apresentados na tela), uma viewModel(onde irá conter a logica de negócio e handler de eventos) e por fim uma controller(responsável por inicializar a view e os eventos da viewmodel)
 
 ## Wireframe
 * Na prototipagem decidi colocar as coisas basicas que vinha a minha mente com relação aos requisitos.
